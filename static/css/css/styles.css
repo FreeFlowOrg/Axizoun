@@ -350,3 +350,107 @@ div.company-url, div.about-skill-header {
   font-weight: 700;
 }
 
+.company-pic {
+  float: right;
+  width: 200px;
+  height: 200px;
+  /* border: 2px solid black; */
+  border-radius: 50%;
+  margin-top: 6%;
+  margin-right: 8%;
+}
+
+.company-image {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+
+.employee-data {
+  text-align: left;
+  margin-top: 4%;
+}
+
+.emp-name {
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.emp-email {
+  font-size: 24px;
+  font-weight: 350;
+  letter-spacing: 1px;
+}
+
+.emp-number {
+  font-size: 22px;
+  font-weight: 350;
+  letter-spacing: 1px;
+}
+
+.emp-addr {
+  font-size: 22px;
+  font-weight: 350;
+  letter-spacing: 1px;
+}
+
+.education {
+  margin-top: 2%;
+}
+
+.tick {
+  background-color: black;
+  color: black;
+  width: 20px;
+  height: 5px;
+  position: absolute;
+  margin-top: 1.3%;
+}
+
+.edu {
+  color: black;
+  text-transform: uppercase;
+  font-size: 33px;
+  font-weight: 700;
+  position: absolute;
+  margin-left: 3%;
+  /* margin-top: -3%; */
+}
+
+.edus {
+  margin-left: 3%;
+  margin-top: 3%;
+  position: relative;
+}
+
+.edu-type-tit {
+  font-weight: 700;
+  font-size: 31px;
+  list-style: none;
+}
+
+.edu-type {
+  list-style: none;
+  font-size: 22px;
+}
+
+.skill-section {
+  text-align: center;
+  margin-left: 3%;
+  margin-top: 4%;
+  position: absolute;
+}
+
+.skill-name {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.skill-type {
+  font-size: 20px;
+  font-weight: 350;
+  letter-spacing: 0.5px;
+}

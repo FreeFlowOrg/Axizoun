@@ -76,8 +76,8 @@
                   </div>
   <!-- jobs -->
                   <!-- start of job1 -->
-            {% for job in jobs %}
-                <form action="{{ url_for('project_details') }}" method='POST'>
+
+                <form action="{{ url_for('project_details',job_id=98490) }}" method='POST'>
                   <div class="job-content">
                     <div class="row" style="height: 270px;">
                       <div class="col-md-11">
@@ -151,21 +151,21 @@
                                           </div>
                                         </li>
                                       </ul>
+
                                     </div>
                                   </div>
+
                               </div>
                           </div>
+                            <button type="submit" class="btn btn-primary" style="background-color: #0cebeb; font-size: 25px; border: none;"><b>View Job Description</b></button>
                         </div>
                       </div>
                       <div class="col-md-1">
-                        <div class="apply-now">
-                          <button type="submit" class="btn btn-primary" style="background-color: #0cebeb; font-size: 25px; border: none;"><b>View Job Description</b></button>
-                        </div>
                       </div>
                     </div>
                   </div>
                 </form>
-      {% endfor %}
+
 <!-- end of job1 -->
 
 

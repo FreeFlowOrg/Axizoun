@@ -33,6 +33,7 @@ class Job(db.Document):
     stipend = db.IntField()
     applicants = db.ListField(db.StringField())
     status = db.StringField()
+    problem_statement = db.StringField()
 
 class Scores(db.Document):
     employee = db.DocumentField(Employee)

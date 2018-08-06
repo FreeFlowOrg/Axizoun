@@ -108,7 +108,8 @@ def login(type):
 
 @app.route('/employee_dashboard')
 def employee_dashboard():
-    pass
+    # provision for text extractor and profile maker
+    return render_template('pages/profile.html')
 
 @app.route('/employer_dashboard')
 def employer_dashboard():
