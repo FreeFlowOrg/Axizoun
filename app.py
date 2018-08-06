@@ -20,30 +20,6 @@ app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.config.from_object('config')
 
-# Automatically tear down SQLAlchemy.
-'''
-@app.teardown_request
-def shutdown_session(exception=None):
-    db_session.remove()
-'''
-
-# Login required decorator.
-'''
-def login_required(test):
-    @wraps(test)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return test(*args, **kwargs)
-        else:
-            flash('You need to login first.')
-            return redirect(url_for('login'))
-    return wrap
-'''
-#----------------------------------------------------------------------------#
-# Controllers.
-#----------------------------------------------------------------------------#
-
-
 @app.route('/')
 def index():
     return render_template('forms/index.html')
@@ -131,13 +107,23 @@ def login(type):
     return render_template('forms/index.html')
 
 @app.route('/employee_dashboard')
-def dashboard():
+def employee_dashboard():
+    pass
+
+@app.route('/employer_dashboard')
+def employer_dashboard():
     pass
 
 @app.route('/vacancies')
 def vacancies():
-    vacancies = Jobs.query.filter(Jobs.status == 'vacant').all()
-    return render_template('pages/profile.html',vacancies = vacancies)
+        vacancies = Job.query.filter(Job.status == 'vacant').all()
+        return render_template('pages/job_vacancies.html',vacancies = vacancies)
+
+@app.route('/project_details/<int:job_id>',methods=['POST'])
+def project_details(job_id):
+    return render_template('pages/projectDetails.html',job_id=job_id)
+
+
 
 
 # Error handlers.
