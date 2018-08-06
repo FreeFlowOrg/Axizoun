@@ -7,10 +7,10 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
       <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-      <link rel="stylesheet" href="css/styles.css">
-      <link rel="stylesheet" href="css/circle.css">
+      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/styles.css') }}">
+      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/circle.css') }}">
       <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Source+Sans+Pro:300" rel="stylesheet">
-      <script src="js/index.js"></script>
+      <script src="{{ url_for('static', filename='js/js/index.js') }}"></script>
       <script>
         $('#employee-modal, #employer-modal').modal('handleUpdate');
       </script>
@@ -26,10 +26,27 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                <ul class="navbar-nav mr-auto">
-                  <!-- <li class="nav-item active">
-                     <a class="nav-link" href="#">AXIZOUN</a>
-                     </li> -->
-               </ul>
+                 <ul class="navbar-nav mr-auto">
+                    <!-- <li class="nav-item active">
+                       <a class="nav-link" href="#">AXIZOUN</a>
+                       </li> -->
+                       <!-- flash -->
+                    <div class="container-fluid" style="min-height:100%">
+                      {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                          {% for message in messages %}
+                          <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{ message }}
+                          </div>
+                          {% endfor %}
+                        {% endif %}
+                      {% endwith %}
+                    </div>
+                    <!--//flash-->
+                 </ul>
                <span class="navbar-text">
                   <ul class="navbar-nav mr-auto">
                      <li class="nav-item">
@@ -41,7 +58,7 @@
                      <li class="nav-item dropdown">
 
                         <a class="nav-link dropdown-toggle nav-elements" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: 300; color: black;">
-                          <img src="imgs/profile.jpg" class="profile-img">
+                          <img src="/static/img/imgs/profile.jpg" class="profile-img">
                         </a>
                         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
                           <a class="dropdown-item" href="#">Profile</a>
@@ -161,7 +178,7 @@
                             <div class="company-url">
                               Freeflow (https://www.freeflo.tech)
                             </div>
-                            We are here to bring about a change in the world with our technology. Our technology focuses on serving our customers by building suitable products thereby benefiting the society. Our products are related to Blockchain, Machine Learning and Artificial Intelligence mainly. 
+                            We are here to bring about a change in the world with our technology. Our technology focuses on serving our customers by building suitable products thereby benefiting the society. Our products are related to Blockchain, Machine Learning and Artificial Intelligence mainly.
 
                             Freeflo is not only about technology but it is also about operations and customer relationships. As a small startup, we take pride in maintaining client relationships and butilding them by working together to as a team.
                           </div>
@@ -178,7 +195,7 @@
                             <h1 class="cname">About The Internship</h1>
                           </div>
                           <div class="about-content">
-                            
+
                             <p>Selected interns day to day responsibilities include :</p>
 
                             1. Web development <br/>
