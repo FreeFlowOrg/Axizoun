@@ -1,8 +1,9 @@
-Fabric
-Flask-SQLAlchemy
-Flask-WTF
-WTForms
-coverage
-# ecdsa
-# paramiko
-# pycrypto
+click==6.7
+Flask==1.0.2
+Flask-MongoAlchemy==0.7.2
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+MongoAlchemy==0.19
+pymongo==2.8.1
+Werkzeug==0.14.1
