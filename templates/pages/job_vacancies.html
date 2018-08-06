@@ -74,6 +74,10 @@
                        </div>
                      </div>
                   </div>
+  <!-- jobs -->
+                  <!-- start of job1 -->
+            {% for job in jobs %}
+                <form action="{{ url_for('project_details') }}" method='POST'>
                   <div class="job-content">
                     <div class="row" style="height: 270px;">
                       <div class="col-md-11">
@@ -155,98 +159,14 @@
                       </div>
                       <div class="col-md-1">
                         <div class="apply-now">
-                          <!-- <p class="apply-text">APPLY</p> -->
+                          <button type="submit" class="btn btn-primary" style="background-color: #0cebeb; font-size: 25px; border: none;"><b>View Job Description</b></button>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  <div class="job-content">
-                    <div class="row" style="height: 270px;">
-                      <div class="col-md-11">
-                        <div class="vac-content">
-                            <div class="row">
-                              <div class="col-md-5">
-                                <div class="company-content">
-                                  <h1 class="cname">FreeFlo Technologies</h1>
-                                  <h3 class="cplace">Bangalore, Hyderabad</h3>
-                                  <h3 class="cdesig">Web Developer</h3>
-                                  <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;C++, Java, Python</h4>
-                                </div>
-                              </div>
-                              <div class="col-md-7">
-                                  <div class="row">
-                                    <div class="col-md-7">
-
-                                      <div class="row">
-                                        <div class="col-md-12">
-                                          <div class="row">
-                                            <div class="col-md-6">
-                                              <ul class="data-list">
-                                                <li class="top">aug</li>
-                                                <li class="middle">20-30</li>
-                                                <li class="bottom">start date</li>
-                                              </ul>
-                                            </div>
-                                            <div class="col-md-6">
-                                              <ul class="data-list">
-                                                <li class="top">weeks</li>
-                                                <li class="middle">8</li>
-                                                <li class="bottom">duration</li>
-                                              </ul>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                      <div class="row">
-                                        <div class="col-md-12">
-                                          <div class="row">
-                                            <div class="col-md-6">
-                                              <ul class="data-list">
-                                                <li class="top">Rs./month</li>
-                                                <li class="middle">12-15k</li>
-                                                <li class="bottom">stipend</li>
-                                              </ul>
-                                            </div>
-                                            <div class="col-md-6">
-                                              <ul class="data-list">
-                                                <li class="top">may</li>
-                                                <li class="middle">12</li>
-                                                <li class="bottom">apply date</li>
-                                              </ul>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                    </div>
-                                    <div class="col-md-5">
-                                      <ul class="data-list">
-                                        <li class="top">skills match</li>
-                                        <li class="skills">
-                                          <div class="c100 p50">
-                                              <span>50%</span>
-                                              <div class="slice">
-                                                  <div class="bar"></div>
-                                                  <div class="fill"></div>
-                                              </div>
-                                          </div>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-1">
-                        <div class="apply-now">
-                          <!-- <p class="apply-text">APPLY</p> -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                </form>
+      {% endfor %}
+<!-- end of job1 -->
 
 
 
