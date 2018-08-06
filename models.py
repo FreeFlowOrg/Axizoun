@@ -21,13 +21,25 @@ class Employer(db.Document):
     first_name =  db.StringField()
     last_name = db.StringField()
 
-class Jobs(db.Document):
+class Job(db.Document):
     company_name = db.StringField()
     vacancy = db.StringField()
     languages = db.ListField(db.StringField())
     position = db.StringField()
+    location = db.StringField()
+    description = db.StringField()
     start_date = db.DateTimeField()
     apply_date = db.DateTimeField()
     stipend = db.IntField()
     applicants = db.ListField(db.StringField())
     status = db.StringField()
+
+class Scores(db.Document):
+    employee = db.DocumentField(Employee)
+    job = db.DocumentField(Job)
+    company = db.StringField()
+    score = db.IntField()
+
+class Company(db.Document):
+    name = db.StringField()
+    description = db.StringField()
