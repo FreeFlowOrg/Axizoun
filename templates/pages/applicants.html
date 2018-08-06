@@ -1,0 +1,147 @@
+<html>
+   <head>
+      <title>Axizoun</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/circle.css">
+      <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Source+Sans+Pro:300" rel="stylesheet">
+      <script src="js/index.js"></script>
+      <script>
+        $('#employee-modal, #employer-modal').modal('handleUpdate');
+      </script>
+   </head>
+   <body>
+      <div class="container-fluid" style="width: 95%;">
+         <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#" id="nameplate_p">
+               <div id="nameplate_box_p"> AXIZOUN </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+               <ul class="navbar-nav mr-auto">
+                  <!-- <li class="nav-item active">
+                     <a class="nav-link" href="#">AXIZOUN</a>
+                     </li> -->
+               </ul>
+               <span class="navbar-text">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black; margin-right: 2em;margin-top: 0.4em;">Jobs</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black;margin-top: 0.4em;">Team</a>
+                     </li>
+                     <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle nav-elements" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: 300; color: black;">
+                          <img src="imgs/profile.jpg" class="profile-img">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#">Profile</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Skills</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">LogOut</a>
+                        </div>
+                     </li>
+                  </ul>
+               </span>
+            </div>
+         </nav>
+          <div class="row">
+             <div class="col-md-12">
+               <div class="job-box">
+                  <div class="signup-label">
+                     <div class="row">
+                       <div class="col-md-10">
+                         <h1 class="job-header-text">Applicants</h1>
+                       </div>
+                       <div class="col-md-2">
+                           <a href="#" id="setta"><i class="fas fa-cog" id="settings"></i></a>
+                       </div>
+                     </div>
+                  </div>
+                  <div class="job-content">
+                    <div class="row">
+                      <div class="col-md-11">
+                        <div class="vac-content">
+                            <div class="row">
+                              <div class="col-md-7" style=" border-right: 1px solid #0cebeb;">
+                                <div class="row">
+                                    <div class="col-md-4" style=" padding-top: 25px; padding-left: 50px;">
+                                      <img src="imgs/profile.jpg" class="applicant-profile-img" />
+                                    </div>
+
+                                    <div class="col-md-8" style=" padding-top: 50px; padding-left: 50px;">
+                                      <h2 class="aname"><b>Steve Jobs</b></h2>
+                                      <h6 class="askillspresent"><span style="text-decoration: underline;">Skills Present: </span> &nbsp;&nbsp;C++, Java, Python, NodeJs, HTML, CSS, React</h6>
+                                      <h6 class="askillsmissing"><span style="text-decoration: underline;">Skills Missing: </span> &nbsp;&nbsp;C++, Java, Python</h6>
+                                    </div>
+                                </div>
+                                <!-- <div class="company-content">
+                                  <h1 class="cname">FreeFlo Technologies</h1>
+                                  <h3 class="cplace">Bangalore, Hyderabad</h3>
+                                  <h3 class="cdesig">Web Developer</h3>
+                                  <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;C++, Java, Python</h4>
+                                </div> -->
+                              </div>
+                              <div class="col-md-5">
+                                  <div class="row">
+                                    <div class="col-md-5" style="text-align: center;">
+                                      <ul class="data-list">
+                                        <li class="top">Test Score</li>
+                                        <li class="skills" style="margin-left: 0px;">
+                                          <div class="c100 p85">
+                                              <span>85%</span>
+                                              <div class="slice">
+                                                  <div class="bar"></div>
+                                                  <div class="fill"></div>
+                                              </div>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                    <div class="col-md-1">
+                                    </div>
+                                    <div class="col-md-5">
+                                      <ul class="data-list">
+                                        <li class="top">skills match</li>
+                                        <li class="skills" style="margin-left: 0px;">
+                                          <div class="c100 p95">
+                                              <span>95%</span>
+                                              <div class="slice">
+                                                  <div class="bar"></div>
+                                                  <div class="fill"></div>
+                                              </div>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                    <div class="col-md-1">
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-1">
+                        <div class="apply-now">
+                          <p class="call-text">Interview</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>           
+
+                </div>
+              </div>
+          </div>
+       </div>
+   </body>
+</html>
