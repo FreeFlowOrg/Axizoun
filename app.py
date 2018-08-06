@@ -87,7 +87,8 @@ def login(type):
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),employee.password.encode('utf-8')) == employee.password.encode('utf-8'):
                 session['email'] = request.form['email']
                 session['user_type'] = type
-                return 'successfully signed in as employee'
+                session['employee_id'] = employee.mongo_id
+                return 'successfully signed in as %s' %session['employee_id']
 
         elif type == 'employer':
             employer = Employer.query.filter_by(email=request.form['email']).first()
@@ -98,7 +99,7 @@ def login(type):
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),employer.password.encode('utf-8')) == employer.password.encode('utf-8'):
                 session['email'] = request.form['email']
                 session['user_type'] = type
-                return 'successfully signed in as employee'
+                return redirect(url_for('employee_dashboard'))
 
             else:
                 flash('Incorrect Credentials Entered')
@@ -109,7 +110,8 @@ def login(type):
 @app.route('/employee_dashboard')
 def employee_dashboard():
     # provision for text extractor and profile maker
-    return render_template('pages/profile.html')
+    employee = Employee.query.filter(Employee.mongo_id == session['employee_id']).first()
+    return render_template('pages/profile_emp.html',employee=employee)
 
 @app.route('/employer_dashboard')
 def employer_dashboard():
@@ -124,8 +126,19 @@ def vacancies():
 def project_details(job_id):
     return render_template('pages/projectDetails.html',job_id=job_id)
 
+@app.route('/test_portal/<int:job_id>/<int:employee_id>')
+def test_portal(job_id,employee_id):
+    session['job_id'] = job_id
+    session['employee_id'] = employee_id
 
+# upload to S3 using boto3
+@app.route('/upload_files/<int:job_id>/<int:employee_id>')
+def upload_files(job_id,employee_id):
+    pass
 
+@app.route('/photo_analysis/<int:job_id>/<int:employee_id>')
+def photo_analysis(job_id,employee_id):
+    pass
 
 # Error handlers.
 

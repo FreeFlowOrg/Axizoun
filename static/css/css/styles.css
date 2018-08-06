@@ -454,3 +454,96 @@ div.company-url, div.about-skill-header {
   font-weight: 350;
   letter-spacing: 0.5px;
 }
+
+.company-name {
+  margin-top: 3.5%;
+  font-size: 30px;
+  font-weight: 350;
+  text-align: left;
+  margin-left: 6%;
+}
+
+.company-desp {
+  margin-top: 3.5%;
+  font-size: 26px;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 6%;
+}
+
+.job-comp-desp {
+  color: black;
+  font-size: 27px;
+  font-weight: 700;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+.job-comp-city {
+  color: black;
+  font-size: 22px;
+  font-weight: 350;
+  margin-left: 3%;
+}
+
+.job-comp-date {
+  color: black;
+  font-size: 22px;
+  font-weight: 350;
+  margin-left: 3%;
+}
+
+.jobs {
+  border: 0;
+  transition: border 1s;
+  margin-top: 4%;
+  height: 140px;
+}
+
+.jobs:hover {
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.jobs-top {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 16%;
+}
+
+.jobs-middle {
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.jobs-apply {
+
+}
+
+.ar-right {
+  color: black;
+  text-align: right;
+  /* margin: 0 auto; */
+  margin-top: 35px;
+  margin-left: 50px;
+  /* padding-top: 10%; */
+  font-size: 70px;
+  transition: margin-left 1.5s;
+}
+
+.ar-right:hover {
+  color: black;
+  text-align: right;
+  /* margin: 0 auto; */
+  margin-top: 35px;
+  margin-left: 70px;
+  /* padding-top: 10%; */
+  font-size: 70px;
+}
