@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans|Source+Sans+Pro:300');
+html {
+   height: 100%;
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+#main {
+  background-image: url(../imgs/bg.png);
+  background-position: -25px -35px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: color;
+  height: 100%;
+  position: absolute;
+}
+
+#nameplate {
+  padding: 8px;
+  color: white;
+  /* text-decoration: underline; */
+  font-weight: 500;
+  font-size: 35px;
+  margin-left: 1.7em;
+  letter-spacing: 1px;
+  padding-top: 2px;
+}
+
+#nameplate_box {
+  /* padding: 0.5px; */
+  border-bottom: 2px solid white;
+}
+
+#nameplate_p {
+  padding: 8px;
+  color: #0cebeb;
+  /* text-decoration: underline; */
+  font-weight: 500;
+  font-size: 35px;
+  margin-left: 1.7em;
+  letter-spacing: 1px;
+  padding-top: 2px;
+}
+
+#nameplate_box_p {
+  /* padding: 0.5px; */
+  border-bottom: 2px solid #29ffc6;
+}
+
+.nav-elements {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+  margin-right: 1em;
+}
+
+.life {
+  color: #0cebeb;
+  text-decoration: underline;
+}
+
+.signup-form-box {
+  position: absolute;
+}
+
+.signup-label {
+  height: 80px;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(-45deg, #0cebeb, #29ffc6);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.form-header-text {
+  color: white;
+  font-size: 35px;
+  font-weight: 300;
+  letter-spacing: 1.3px;
+  padding-top: 0.4em;
+}
+
+.form-box {
+  width: 90%;
+  height: auto;
+  position: absolute;
+  background-color: white;
+  margin-left: 18%;
+  margin-top: 7%;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 17px 95px 1px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 17px 95px 1px rgba(0,0,0,0.35);
+  box-shadow: 0px 17px 95px 1px rgba(0,0,0,0.35);
+}
+
+.job-header-text {
+  color: white;
+  font-size: 35px;
+  font-weight: 300;
+  letter-spacing: 1.3px;
+  padding-top: 0.4em;
+  margin-left: 17%;
+}
+
+.job-box {
+  width: 90%;
+  height: auto;
+  position: absolute;
+  background-color: white;
+  margin-left: 5%;
+  margin-top: 7%;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 17px 95px 1px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 17px 95px 1px rgba(0,0,0,0.35);
+  box-shadow: 0px 17px 95px 1px rgba(0,0,0,0.35);
+}
+
+.option-selector {
+  border-radius: 40px;
+  border: 1.5px solid #0cebeb;
+  width: 83%;
+  height: 60px;
+  margin: 0 auto;
+  margin-top: 1.3em;
+}
+
+.left-option {
+  text-align: center;
+  padding-top: 0.3em;
+  border-right: 1.5px solid #0cebeb;
+  height: 60px;
+  /* border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px; */
+}
+
+.right-option {
+  text-align: center;
+  padding-top: 0.4em;
+  height: 60px;
+  bor
+}
+
+.left-option h3 {
+  font-weight: 300;
+  color: black;
+  padding-top: 0.3em;
+}
+
+.left-option:hover, .right-option:hover {
+  cursor: pointer;
+  /* background-color: black; */
+}
+
+.right-option h3 {
+  font-weight: 300;
+  color: black;
+  padding-top: 0.25em;
+  margin-left: -0.5em;
+}
+
+.form-content {
+  width: 84%;
+  margin: 0 auto;
+  margin-top: 8%;
+}
+
+.form-control {
+  border: 0;
+  border-bottom: 1px solid black;
+  height: 47px;
+  font-size: 16px;
+  font-weight: 300;
+  color: black;
+}
+
+.mybutt {
+  border-radius: 40px;
+  margin-top: 0.7em;
+  height: 45px;
+  width: 170px;
+  background: linear-gradient(-45deg, #0cebeb, #29ffc6);
+  border: 0px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.boo-ul {
+  width: 100%;
+  list-style: none;
+  display: inline;
+  padding-top: 1em;
+  position: absolute;
+  padding-left: -2em;
+}
+
+.boo-li-text {
+  font-size: 13px;
+  display: inline-block;
+  padding-right: 0.2em;
+}
+
+.boo-li-icon {
+  display: inline-block;
+  padding-left: 0.2em;
+  font-size: 30px;
+}
+
+
+.already-login {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 300;
+  width: 100%;
+  padding-top: 1em;
+}
+
+.login-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #0cebeb;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.profile-img {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  border-radius: 25px;
+}
+
+.dropdown-item {
+  height: 25px;
+}
+
+.dropdown-divder {
+  width: 85%;
+}
+
+#setta {
+  text-decoration: none;
+  color: white;
+  transition: transform 1s;
+}
+
+#settings:hover {
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+#settings {
+  float: right;
+  position: absolute;
+  font-size: 45px;
+  color: white;
+  margin-top: 15px
+}
+
+.job-content {
+  width: 100%;
+  height: 270px;
+  border-bottom: 1px solid #29ffc6;
+}
+
+.apply-now {
+  background: linear-gradient(-45deg, #0cebeb, #29ffc6);
+  height: 270px;
+  border-bottom-right-radius: 20px;
+}
+
+.apply-text {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding-right: -2.5em;
+  padding-left: 4em;
+  transform: rotate(90deg);
+  letter-spacing: 6px;
+  padding-top: 1em;
+  font-weight: 300;
+  text-align: center;
+}
+
+.company-content {
+  padding: 20px;
+  border-right: 1px solid #0cebeb;
+  height: 100%;
+}
+
+.cname {
+  font-weight: bold;
+}
+
+.cplace, .cdesig {
+  font-weight: 300;
+  padding-top: 20px;
+}
+
+.cskills {
+  font-weight: 300;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.data-list {
+  list-style: none;
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.top {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.middle {
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bottom {
+  font-size: 13px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.skills {
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-left: 3em;
+}
+
+div.about-content, div.about-internship, div.about-skills {
+  font-size: 20px;
+}
+
+div.company-url, div.about-skill-header {
+  font-size: 22px;
+  font-weight: 700;
+}
+
