@@ -15,6 +15,12 @@ body {
   position: absolute;
 }
 
+
+form {
+margin:auto;
+width:250px;
+ }
+
 #nameplate {
   padding: 8px;
   color: white;
@@ -547,9 +553,9 @@ div.company-url, div.about-skill-header {
 }
 
 .applicant-profile-img {
-  height: 150px; 
-  width: 150px; 
-  border: 1px solid #29ffc6; 
+  height: 150px;
+  width: 150px;
+  border: 1px solid #29ffc6;
   border-radius: 50%;
 }
 
