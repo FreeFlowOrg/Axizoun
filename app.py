@@ -87,7 +87,7 @@ def login(type):
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),employee.password.encode('utf-8')) == employee.password.encode('utf-8'):
                 session['email'] = request.form['email']
                 session['user_type'] = type
-                session['employee_id'] = employee.mongo_id
+                session['employee_id'] = str(employee.mongo_id)
                 return redirect(url_for('employee_dashboard'))
 
         elif type == 'employer':# employer login
@@ -105,13 +105,11 @@ def login(type):
                 flash('Incorrect Credentials Entered')
                 return redirect(url_for('index'))
 
-    return render_template('forms/index.html')
-
 @app.route('/employee_dashboard')
 def employee_dashboard():
     # provision for text extractor and profile maker
     employee = Employee.query.filter(Employee.mongo_id == session['employee_id']).first()
-    if employee.resume =='':
+    if employee.resume == '':
         session['profile_submitted'] = 'unset'
         flash('Please submit your resume to apply for jobs')
     else:
