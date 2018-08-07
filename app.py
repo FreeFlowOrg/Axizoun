@@ -44,7 +44,7 @@ def register(type):
                     flash('Passwords mismatch. Please try again')
                     return redirect(url_for('register',type='employee'))
             hashed_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt(10)) # hashing the password with a salt
-            user_data = Employee(email = request.form['email'],password = hashed_password.decode('utf-8'),first_name = request.form['first_name'],last_name = request.form['last_name'])# storing the hashed password in the collection
+            user_data = Employee(email = request.form['email'],password = hashed_password.decode('utf-8'),first_name = request.form['first_name'],last_name = request.form['last_name'],resume='',jobs_applied=[])# storing the hashed password in the collection
             user_data.save()
             flash('Signup Success!') # flash messages
             return redirect(url_for('index'))
@@ -67,7 +67,7 @@ def register(type):
                     return redirect(url_for('register',type='employer'))
 
             hashed_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt(10)) # hashing the password with a salt
-            user_data = Employer(email = request.form['email'],password = hashed_password.decode('utf-8'),company_name = request.form['company_name'],first_name = request.form['first_name'],last_name = request.form['last_name'])# storing the hashed password in the collection
+            user_data = Employer(email = request.form['email'],password = hashed_password.decode('utf-8'),company_name = request.form['company_name'],first_name = request.form['first_name'],last_name = request.form['last_name'],jobs_posted = [])# storing the hashed password in the collection
             user_data.save() # save
             flash('Signup Success!') # flash messages
             return redirect(url_for('index'))
@@ -78,7 +78,7 @@ def register(type):
 @app.route('/login/<type>', methods=['POST'])
 def login(type):
     if request.method == 'POST':
-        if type == 'employee':
+        if type == 'employee': #employee login
             employee = Employee.query.filter_by(email=request.form['email']).first()
             if employee is None:
                 flash('No user registered with the specifed email')
@@ -88,9 +88,9 @@ def login(type):
                 session['email'] = request.form['email']
                 session['user_type'] = type
                 session['employee_id'] = employee.mongo_id
-                return 'successfully signed in as %s' %session['employee_id']
+                return redirect(url_for('employee_dashboard'))
 
-        elif type == 'employer':
+        elif type == 'employer':# employer login
             employer = Employer.query.filter_by(email=request.form['email']).first()
             if employer is None:
                 flash('No user registered with the specifed email')
@@ -99,7 +99,7 @@ def login(type):
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),employer.password.encode('utf-8')) == employer.password.encode('utf-8'):
                 session['email'] = request.form['email']
                 session['user_type'] = type
-                return redirect(url_for('employee_dashboard'))
+                return 'logged in as %s' %session['email']
 
             else:
                 flash('Incorrect Credentials Entered')
@@ -111,7 +111,16 @@ def login(type):
 def employee_dashboard():
     # provision for text extractor and profile maker
     employee = Employee.query.filter(Employee.mongo_id == session['employee_id']).first()
-    return render_template('pages/profile_emp.html',employee=employee)
+    if employee.resume =='':
+        session['profile_submitted'] = 'unset'
+        flash('Please submit your resume to apply for jobs')
+    else:
+        session['profile_submitted'] = 'set'
+    return render_template('pages/profile_emp.html',employee=employee,profile_submitted=session['profile_submitted'])
+
+@app.route('/resume_builder')
+def resume_builder():
+    pass
 
 @app.route('/employer_dashboard')
 def employer_dashboard():
