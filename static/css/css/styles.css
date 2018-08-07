@@ -545,3 +545,23 @@ div.company-url, div.about-skill-header {
   /* padding-top: 10%; */
   font-size: 70px;
 }
+
+.applicant-profile-img {
+  height: 150px; 
+  width: 150px; 
+  border: 1px solid #29ffc6; 
+  border-radius: 50%;
+}
+
+.call-text {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 0.5em;
+  padding-right: -2.5em;
+  padding-left: 0.5em;
+  transform: rotate(90deg);
+  letter-spacing: 6px;
+  font-weight: 300;
+  text-align: center;
+}
