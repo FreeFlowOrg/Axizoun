@@ -55,6 +55,8 @@
                </span>
             </div>
          </nav>
+
+        {% if session['profile_submitted'] == 'set' %}
           <div class="row">
              <div class="col-md-12">
                <div class="job-box">
@@ -211,6 +213,25 @@
                 </div>
               </div>
           </div>
+        {% else %}
+        <!-- flash -->
+     <div class="container-fluid" style="min-height:100%">
+       {% with messages = get_flashed_messages() %}
+         {% if messages %}
+           {% for message in messages %}
+           <div class="alert alert-warning alert-dismissible" role="alert">
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+             {{ message }}
+           </div>
+           {% endfor %}
+         {% endif %}
+       {% endwith %}
+     </div>
+     <!--//flash-->
+        {% endif %}
+
        </div>
    </body>
 </html>
