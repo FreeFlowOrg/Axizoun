@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <html>
    <head>
       <title>Axizoun</title>
@@ -9,20 +8,18 @@
       <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
       <link rel="stylesheet"href="{{ url_for('static', filename='css/css/styles.css') }}">
-      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/circle.css') }}">
-
+            <link rel="stylesheet"href="{{ url_for('static', filename='css/css/circle.css') }}">
       <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Source+Sans+Pro:300" rel="stylesheet">
       <script src="{{ url_for('static', filename='js/js/index.js') }}"></script>
       <script>
         $('#employee-modal, #employer-modal').modal('handleUpdate');
       </script>
    </head>
-
    <body>
-      <div class="container-fluid" id="main" style="width: 95%;">
+      <div class="container-fluid" style="width: 95%;">
          <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#" id="nameplate">
-               <div id="nameplate_box"> AXIZOUN </div>
+            <a class="navbar-brand" href="#" id="nameplate_p">
+               <div id="nameplate_box_p"> AXIZOUN </div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,35 +29,115 @@
                   <!-- <li class="nav-item active">
                      <a class="nav-link" href="#">AXIZOUN</a>
                      </li> -->
-                     <!-- flash -->
-                  <div class="container-fluid" style="min-height:100%">
-                    {% with messages = get_flashed_messages() %}
-                      {% if messages %}
-                        {% for message in messages %}
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                          {{ message }}
-                        </div>
-                        {% endfor %}
-                      {% endif %}
-                    {% endwith %}
-                  </div>
-                  <!--//flash-->
                </ul>
                <span class="navbar-text">
                   <ul class="navbar-nav mr-auto">
                      <li class="nav-item">
-                        <a class="nav-link nav-elements" href="{{ url_for('vacancies') }}" style="font-weight: 300; color: black; margin-right: 2em;">Job Vacancies</a>
+                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black; margin-right: 2em;margin-top: 0.4em;">Jobs</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black;">Team</a>
+                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black;margin-top: 0.4em;">Team</a>
+                     </li>
+                     <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle nav-elements" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: 300; color: black;">
+                          <img src="/static/img/imgs/profile.jpg" class="profile-img">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="profile_emp.html">Profile</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Skills</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">LogOut</a>
+                        </div>
                      </li>
                   </ul>
                </span>
             </div>
          </nav>
+
+          <!-- Modal for apply  -->
+         <div class="modal fade"  id="apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content"  id="modall">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="setting-title">APPLY</h5>
+                </div>
+                <div class="modal-body">
+                  <div class="apply-modal-description">
+                     <div class="row">
+                        <div class="col-lg-1 col-md-1"></div>
+                        <div class="col-lg-10 col-md-10">
+                          <div class="row">
+                            <p style="font-size: 20px;">By clicking on begin test, the test will begin. You are expected to complete the test within the given time and upload the test documents which are asked.</p>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                              <span style="font-weight: bold; font-size: 15px;">MINUTES</span><br/>
+                              <span style="font-weight: bold; font-size: 25px;">60</span><br/>
+                              <span>Total Time</span>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                              <span style="font-weight: bold; font-size: 15px;">QUESTIONS</span><br/>
+                              <span style="font-weight: bold; font-size: 25px;">3</span><br/>
+                              <span>Total Time</span>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                              <span style="font-weight: bold; font-size: 15px;">JPEG, PNG, PSD, AI</span><br/>
+                              <span>Format of submission</span><br/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1"></div>
+                     </div>
+                     <br/>
+                     <center>
+                      <button type="submit" class="btn btn-primary" id="ok-btn">Begin Test</button>
+                     </center>
+                     <hr>
+
+                     <div class="apply-modal-instructions">
+                      <p style="font-weight: bold; font-size: 20px;">INSTRUCTIONS</p>
+                      <ol>
+                        <li>You'll be given a time to do this. DO this in 10 minues. Asap can be done</li>
+                        <li>Bla do this bla</li>
+                      </ol>
+                     </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade"  id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content"  id="modall">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="setting-title">SUBMISSION</h5>
+                </div>
+                <div class="modal-body">
+                  <div class="apply-modal-description">
+                     <div class="row">
+                        <div class="col-lg-1 col-md-1"></div>
+                        <div class="col-lg-10 col-md-10" style="text-align: center;">
+                          <p style="font-size: 20px;">Time's Up!!</p>
+                          <br>
+                          <p style="font-size: 25px; font-weight: bold;">UPLOAD FILES</p>
+                        </div>
+                        <div class="col-lg-1 col-md-1"></div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="ok-btn">Submit</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
           <div class="row">
              <div class="col-md-12">
                <div class="job-box">
@@ -70,16 +147,12 @@
                          <h1 class="job-header-text">Job Vacancies</h1>
                        </div>
                        <div class="col-md-2">
-                           <a href="#" id="setta"><i class="fas fa-cog" id="settings"></i></a>
+                           <a href="#" id="setta" data-toggle="modal" data-target="#settings_job_vac"><i class="fas fa-cog" id="settings"></i></a>
                        </div>
                      </div>
                   </div>
-  <!-- jobs -->
-                  <!-- start of job1 -->
-
-                <form action="{{ url_for('project_details',job_id=98490) }}" method='POST'>
                   <div class="job-content">
-                    <div class="row">
+                    <div class="row" style="height: 270px;">
                       <div class="col-md-11">
                         <div class="vac-content">
                             <div class="row">
@@ -151,25 +224,106 @@
                                           </div>
                                         </li>
                                       </ul>
-
                                     </div>
                                   </div>
-
                               </div>
                           </div>
-                            <button type="submit" class="btn btn-primary" style="background-color: #0cebeb; font-size: 25px; border: none;"><b>View Job Description</b></button>
                         </div>
                       </div>
                       <div class="col-md-1">
+                        <div class="apply-now">
+                          <!-- <p class="apply-text">APPLY</p> -->
+                        </div>
                       </div>
                     </div>
                   </div>
-                </form>
 
-<!-- end of job1 -->
+                  <div class="job-content">
+                    <div class="row" style="height: 270px;">
+                      <div class="col-md-11">
+                        <div class="vac-content">
+                            <div class="row">
+                              <div class="col-md-5">
+                                <div class="company-content">
+                                  <h1 class="cname">FreeFlo Technologies</h1>
+                                  <h3 class="cplace">Bangalore, Hyderabad</h3>
+                                  <h3 class="cdesig">Web Developer</h3>
+                                  <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;C++, Java, Python</h4>
+                                </div>
+                              </div>
+                              <div class="col-md-7">
+                                  <div class="row">
+                                    <div class="col-md-7">
 
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <ul class="data-list">
+                                                <li class="top">aug</li>
+                                                <li class="middle">20-30</li>
+                                                <li class="bottom">start date</li>
+                                              </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <ul class="data-list">
+                                                <li class="top">weeks</li>
+                                                <li class="middle">8</li>
+                                                <li class="bottom">duration</li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
 
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <ul class="data-list">
+                                                <li class="top">Rs./month</li>
+                                                <li class="middle">12-15k</li>
+                                                <li class="bottom">stipend</li>
+                                              </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <ul class="data-list">
+                                                <li class="top">may</li>
+                                                <li class="middle">12</li>
+                                                <li class="bottom">apply date</li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
 
+                                    </div>
+                                    <div class="col-md-5">
+                                      <ul class="data-list">
+                                        <li class="top">skills match</li>
+                                        <li class="skills">
+                                          <div class="c100 p50">
+                                              <span>50%</span>
+                                              <div class="slice">
+                                                  <div class="bar"></div>
+                                                  <div class="fill"></div>
+                                              </div>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-1">
+                        <div class="apply-now">
+                          <!-- <p class="apply-text">APPLY</p> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
           </div>

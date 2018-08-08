@@ -142,26 +142,27 @@ def employer_dashboard():
 @app.route('/applicants/<job_id>')
 def applicants(job_id):
     pass
+
+
 ### employee routes
 
 @app.route('/post_jobs',methods=['POST'])
 def post_jobs():
     pass
 
-@app.route('/resume_builder')
+@app.route('/resume_builder',methods=['POST','GET'])
 def resume_builder():
     os.chdir('/tmp')
     if request.method == 'POST' and 'file' in request.files:
         try:
             filename = files.save(request.files['file'])
             file = request.files['file']
-            employee = Employee.query.filter(Employee.mongo_id == session['employee_id']).first()
-            employee.resume = filename
-            employee.save()
-            data = open(app.config['UPLOADED_FILES_DEST']+'/'+filename, 'rb')
-            s3.put_object(Bucket=app.config['S3_BUCKET'], Key=filename, Body=data) #Upload to S3
+
+            s3.upload_file(filename,app.config['S3_BUCKET'], filename)
+
             flash('Resume uplpoaded!')
-            return "{}{}".format(app.config["S3_LOCATION"], file.filename)
+
+            return redirect(url_for('employee_dashbaord'))
         except Exception as e:
             # This is a catch all exception, edit this part to fit your needs.
             print("Something Happened: ", e)
