@@ -24,7 +24,7 @@ app.config.from_object('config')
 def index():
     return render_template('forms/index.html')
 
-
+### Authentication and Authorization
 @app.route('/register/<type>', methods=['POST', 'GET'])
 def register(type):
         # store hashed password and credentials for POST request
@@ -80,30 +80,36 @@ def login(type):
     if request.method == 'POST':
         if type == 'employee': #employee login
             employee = Employee.query.filter_by(email=request.form['email']).first()
-            if employee is None:
-                flash('No user registered with the specifed email')
-                return redirect(url_for('index'))
 
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),employee.password.encode('utf-8')) == employee.password.encode('utf-8'):
                 session['email'] = request.form['email']
                 session['user_type'] = type
                 session['employee_id'] = str(employee.mongo_id)
                 return redirect(url_for('employee_dashboard'))
-
-        elif type == 'employer':# employer login
-            employer = Employer.query.filter_by(email=request.form['email']).first()
-            if employer is None:
-                flash('No user registered with the specifed email')
+            else:
+                flash('Wrong password entered. Please try again.')
                 return redirect(url_for('index'))
+
+        elif type == 'employer':
+
+            employer = Employer.query.filter(Employer.email == request.form['email']).first()
+
 
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),employer.password.encode('utf-8')) == employer.password.encode('utf-8'):
                 session['email'] = request.form['email']
                 session['user_type'] = type
-                return 'logged in as %s' %session['email']
+                session['employer_id'] = str(employer.mongo_id)
+                return redirect(url_for('employer_dashboard'))
+
+            if employer is None:
+                return redirect(url_for('index'))
+                flash('No user registered with the specifed email')
 
             else:
                 flash('Incorrect Credentials Entered')
                 return redirect(url_for('index'))
+
+### employer routes
 
 @app.route('/employee_dashboard')
 def employee_dashboard():
@@ -116,18 +122,32 @@ def employee_dashboard():
         session['profile_submitted'] = 'set'
     return render_template('pages/profile_emp.html',employee=employee,profile_submitted=session['profile_submitted'])
 
+@app.route('/employer_dashboard')
+def employer_dashboard():
+    employer = Employer.query.filter(Employee.mongo_id == session['employer_id']).first()
+    return render_template('pages/profile_company.html',employer=employer)
+
+@app.route('/applicants')
+def applicants():
+    return rednder_templates('pages/applicants.html')
+### employee routes
 @app.route('/resume_builder')
 def resume_builder():
     pass
 
-@app.route('/employer_dashboard')
-def employer_dashboard():
-    pass
+
 
 @app.route('/vacancies')
 def vacancies():
         vacancies = Job.query.filter(Job.status == 'vacant').all()
         return render_template('pages/job_vacancies.html',vacancies = vacancies)
+
+@app.route('/applied_jobs')
+def applied_jobs():
+    employee = Employee.query.filter(Employee.mongo_id == session['employee_id']).first()
+    applied_jobs = employee.jobs_applied
+    return render_template('pages/appliedJobs.html',applied_jobs=applied_jobs)
+
 
 @app.route('/project_details/<int:job_id>',methods=['POST'])
 def project_details(job_id):
@@ -146,6 +166,11 @@ def upload_files(job_id,employee_id):
 @app.route('/photo_analysis/<int:job_id>/<int:employee_id>')
 def photo_analysis(job_id,employee_id):
     pass
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
 
 # Error handlers.
 

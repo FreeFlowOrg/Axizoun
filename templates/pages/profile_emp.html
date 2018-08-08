@@ -58,8 +58,15 @@
                </ul>
                <span class="navbar-text">
                   <ul class="navbar-nav mr-auto">
-                     <li class="nav-item">
-                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black; margin-right: 2em;margin-top: 0.4em;">Jobs</a>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-elements" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: 300; color: black;margin-top: 0.4em;">Jobs
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="{{ url_for('applied_jobs') }}">Applied Jobs</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{ url_for('vacancies') }}">Vacant Jobs</a>
+                          <div class="dropdown-divider"></div>
+                        </div>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black;margin-top: 0.4em;">Meet us</a>
@@ -74,7 +81,7 @@
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#">Skills</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">LogOut</a>
+                          <a class="dropdown-item" href="{{ url_for('logout') }}">LogOut</a>
                         </div>
                      </li>
                   </ul>

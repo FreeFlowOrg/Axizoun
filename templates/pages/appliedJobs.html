@@ -68,6 +68,8 @@
                        </div>
                      </div>
                   </div>
+                {% for job in applied_jobs %}
+
                   <div class="job-content">
                     <div class="row">
                       <div class="col-md-11">
@@ -75,9 +77,9 @@
                             <div class="row">
                               <div class="col-md-5">
                                 <div class="company-content">
-                                  <h1 class="cname">FreeFlo Technologies</h1>
-                                  <h3 class="cplace">Bangalore, Hyderabad</h3>
-                                  <h3 class="cdesig">Web Developer</h3>
+                                  <h1 class="cname">{{ job['company'] }}</h1>
+                                  <h3 class="cplace">{{ job['location'] }}</h3>
+                                  <h3 class="cdesig">{{ job['postion'] }}</h3>
                                   <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;C++, Java, Python</h4>
                                 </div>
                               </div>
@@ -90,15 +92,15 @@
                                           <div class="row">
                                             <div class="col-md-6">
                                               <ul class="data-list">
-                                                <li class="top">aug</li>
-                                                <li class="middle">20-30</li>
+                                                <li class="top">Approx</li>
+                                                <li class="middle">{{ job['start_date'] }}</li>
                                                 <li class="bottom">start date</li>
                                               </ul>
                                             </div>
                                             <div class="col-md-6">
                                               <ul class="data-list">
                                                 <li class="top">weeks</li>
-                                                <li class="middle">8</li>
+                                                <li class="middle">{{ job['duration'] }}</li>
                                                 <li class="bottom">duration</li>
                                               </ul>
                                             </div>
@@ -109,7 +111,7 @@
                                     </div>
                                     <div class="col-md-5">
                                       <ul class="data-list">
-                                        <li class="top" style="font-size: 30px;">Selected</li>
+                                        <li class="top" style="font-size: 30px;">{{ job['status'] }}</li>
                                         <li class="bottom">Status</li>
                                       </ul>
                                     </div>
@@ -125,64 +127,7 @@
                       </div>
                     </div>
                   </div>
-
-                  <div class="job-content">
-                    <div class="row">
-                      <div class="col-md-11">
-                        <div class="vac-content">
-                            <div class="row">
-                              <div class="col-md-5">
-                                <div class="company-content">
-                                  <h1 class="cname">FreeFlo Technologies</h1>
-                                  <h3 class="cplace">Bangalore, Hyderabad</h3>
-                                  <h3 class="cdesig">Web Developer</h3>
-                                  <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;C++, Java, Python</h4>
-                                </div>
-                              </div>
-                              <div class="col-md-7" style="margin-top: 80px;">
-                                  <div class="row">
-                                    <div class="col-md-7">
-
-                                      <div class="row">
-                                        <div class="col-md-12">
-                                          <div class="row">
-                                            <div class="col-md-6">
-                                              <ul class="data-list">
-                                                <li class="top">aug</li>
-                                                <li class="middle">20-30</li>
-                                                <li class="bottom">start date</li>
-                                              </ul>
-                                            </div>
-                                            <div class="col-md-6">
-                                              <ul class="data-list">
-                                                <li class="top">weeks</li>
-                                                <li class="middle">8</li>
-                                                <li class="bottom">duration</li>
-                                              </ul>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                    </div>
-                                    <div class="col-md-5">
-                                      <ul class="data-list">
-                                        <li class="top" style="font-size: 30px;">Selected</li>
-                                        <li class="bottom">Status</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-1">
-                        <div class="apply-now">
-                          <p class="apply-text">Project</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                {% endfor %}
 
                 </div>
               </div>
