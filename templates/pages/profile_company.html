@@ -36,7 +36,7 @@
                        <a class="nav-link dropdown-toggle nav-elements" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: 300; color: black;margin-top: 0.4em;">Jobs
                        </a>
                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
-                         <a class="dropdown-item" href="{{ url_for('applicants') }}">Applicants</a>
+                         <a class="dropdown-item" href="{{ url_for('applicants',job_id='9849') }}">Applicants</a>
                          <div class="dropdown-divider"></div>
                          <a class="dropdown-item" href="{{ url_for('post_jobs') }}">Post Jobs</a>
                          <div class="dropdown-divider"></div>
@@ -62,6 +62,7 @@
                </span>
             </div>
          </nav>
+         <!-- profile -->
           <div class="row">
              <div class="col-md-12">
                <div class="job-box">
@@ -84,10 +85,10 @@
                       </div>
                       <div class="col-md-7">
                         <div class="employee-data">
-                          <h1 class="emp-name">Morgan Stanley</h1>
-                          <h3 class="emp-email">HR@morganstanley.com</h3>
-                          <h3 class="emp-number">+91-9920024928</h3>
-                          <h3 class="emp-addr">Hyderabad, Telengana</h3>
+                          <h1 class="emp-name">{{ employer['company_name']}}</h1>
+                          <h3 class="emp-email">{{ employer['email'] }}</h3>
+                          <h3 class="emp-number">{{ employer['contact_number'] }}</h3>
+                          <h3 class="emp-addr">{{ employer['location'] }}</h3>
                         </div>
                       </div>
                     </div>
@@ -99,13 +100,9 @@
                         <div class="education">
                           <h1><div class="tick"></div><span class="edu">about the company</span></h1>
                           <br>
-                          <h3 class="company-name">Morgan Stanley (http://link.com) :</h3>
+                          <h3 class="company-name">{{ employer['company_name']}}</h3>
                           <p class="company-desp">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                            labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                          {{ employer['about_company'] }}
                           </p>
                         </div>
                         <br>
@@ -190,6 +187,7 @@
                 </div>
               </div>
           </div>
+          <!-- //Profile -->
        </div>
    </body>
 </html>

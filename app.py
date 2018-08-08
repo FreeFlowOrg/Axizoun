@@ -5,11 +5,13 @@
 from flask import Flask,flash,Blueprint,render_template,request,redirect,session,url_for,abort,send_file,safe_join
 from flask_bootstrap import Bootstrap
 from flask_mongoalchemy import MongoAlchemy
+from flask_uploads import UploadSet,configure_uploads,DOCUMENTS
 from models import *
 import bcrypt
 import logging
 from logging import Formatter, FileHandler
 import os
+import boto3,botocore
 
 
 #----------------------------------------------------------------------------#
@@ -19,6 +21,11 @@ import os
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.config.from_object('config')
+files = UploadSet('files',DOCUMENTS)
+app.config['UPLOADED_FILES_DEST'] = 'static/resumes'
+app.config['UPLOADED_FILES_ALLOW']=['doc','docx','pdf']
+configure_uploads(app,files)
+s3 = boto3.client('s3')
 
 @app.route('/')
 def index():
@@ -67,7 +74,7 @@ def register(type):
                     return redirect(url_for('register',type='employer'))
 
             hashed_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt(10)) # hashing the password with a salt
-            user_data = Employer(email = request.form['email'],password = hashed_password.decode('utf-8'),company_name = request.form['company_name'],first_name = request.form['first_name'],last_name = request.form['last_name'],jobs_posted = [])# storing the hashed password in the collection
+            user_data = Employer(email = request.form['email'],password = hashed_password.decode('utf-8'),company_name = request.form['company_name'],first_name = request.form['first_name'],last_name = request.form['last_name'],contact_number=request.form['contact_number'],about_company=request.form['about_company'],location = request.form['location'] ,jobs_posted = []) # storing the hashed password in the collection
             user_data.save() # save
             flash('Signup Success!') # flash messages
             return redirect(url_for('index'))
@@ -81,6 +88,10 @@ def login(type):
         if type == 'employee': #employee login
             employee = Employee.query.filter_by(email=request.form['email']).first()
 
+            if employee is None:
+                flash('No user has registered with this email')
+                return redirect(url_for('index'))
+
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),employee.password.encode('utf-8')) == employee.password.encode('utf-8'):
                 session['email'] = request.form['email']
                 session['user_type'] = type
@@ -92,18 +103,19 @@ def login(type):
 
         elif type == 'employer':
 
-            employer = Employer.query.filter(Employer.email == request.form['email']).first()
+            employer = Employer.query.filter_by(email=request.form['email']).first()
+
+            if employer is None:
+                return redirect(url_for('index'))
+                flash('No user registered with the specifed email')
 
 
             if bcrypt.hashpw(request.form['password'].encode('utf-8'),employer.password.encode('utf-8')) == employer.password.encode('utf-8'):
                 session['email'] = request.form['email']
                 session['user_type'] = type
                 session['employer_id'] = str(employer.mongo_id)
+                session['employer_company'] = employer.company_name
                 return redirect(url_for('employer_dashboard'))
-
-            if employer is None:
-                return redirect(url_for('index'))
-                flash('No user registered with the specifed email')
 
             else:
                 flash('Incorrect Credentials Entered')
@@ -127,20 +139,49 @@ def employer_dashboard():
     employer = Employer.query.filter(Employee.mongo_id == session['employer_id']).first()
     return render_template('pages/profile_company.html',employer=employer)
 
-@app.route('/applicants')
-def applicants():
-    return rednder_templates('pages/applicants.html')
+@app.route('/applicants/<job_id>')
+def applicants(job_id):
+    pass
 ### employee routes
+
+@app.route('/post_jobs',methods=['POST'])
+def post_jobs():
+    pass
+
 @app.route('/resume_builder')
 def resume_builder():
+    os.chdir('/tmp')
+    if request.method == 'POST' and 'file' in request.files:
+        try:
+            filename = files.save(request.files['file'])
+            file = request.files['file']
+            employee = Employee.query.filter(Employee.mongo_id == session['employee_id']).first()
+            employee.resume = filename
+            employee.save()
+            data = open(app.config['UPLOADED_FILES_DEST']+'/'+filename, 'rb')
+            s3.put_object(Bucket=app.config['S3_BUCKET'], Key=filename, Body=data) #Upload to S3
+            flash('Resume uplpoaded!')
+            return "{}{}".format(app.config["S3_LOCATION"], file.filename)
+        except Exception as e:
+            # This is a catch all exception, edit this part to fit your needs.
+            print("Something Happened: ", e)
+            return e
+
+
+# upload to S3 using boto3
+@app.route('/upload_files/<int:job_id>/<int:employee_id>')
+def upload_files(job_id,employee_id):
     pass
 
 
+@app.route('/photo_analysis/<int:job_id>/<int:employee_id>')
+def photo_analysis(job_id,employee_id):
+    pass
 
 @app.route('/vacancies')
 def vacancies():
-        vacancies = Job.query.filter(Job.status == 'vacant').all()
-        return render_template('pages/job_vacancies.html',vacancies = vacancies)
+    vacancies = Job.query.filter(Job.status == 'vacant').all()
+    return render_template('pages/job_vacancies.html',vacancies = vacancies)
 
 @app.route('/applied_jobs')
 def applied_jobs():
@@ -157,15 +198,6 @@ def project_details(job_id):
 def test_portal(job_id,employee_id):
     session['job_id'] = job_id
     session['employee_id'] = employee_id
-
-# upload to S3 using boto3
-@app.route('/upload_files/<int:job_id>/<int:employee_id>')
-def upload_files(job_id,employee_id):
-    pass
-
-@app.route('/photo_analysis/<int:job_id>/<int:employee_id>')
-def photo_analysis(job_id,employee_id):
-    pass
 
 @app.route('/logout')
 def logout():

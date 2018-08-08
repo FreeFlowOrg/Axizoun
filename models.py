@@ -22,6 +22,9 @@ class Employer(db.Document):
     company_name = db.StringField()
     first_name =  db.StringField()
     last_name = db.StringField()
+    contact_number = db.StringField()
+    about_company = db.StringField()
+    location = db.StringField()
     jobs_posted = db.ListField(db.IntField())
 
 class Job(db.Document):
