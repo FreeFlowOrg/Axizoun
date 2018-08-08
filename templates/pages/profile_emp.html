@@ -14,6 +14,32 @@
       <script>
         $('#employee-modal, #employer-modal').modal('handleUpdate');
       </script>
+      <style>
+      /* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+      </style>
    </head>
    <body>
       <div class="container-fluid" style="width: 95%;">
@@ -56,8 +82,31 @@
             </div>
          </nav>
       {% if profile_submitted =='unset' %}
-         <h3>Here's a sample resume!</h3>
+
          <div class="row">
+           <div class="alert">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+              <b><h2> Please Upload your resume to apply for Jobs.</h2></b>
+          </div>
+           <div class="form-content">
+              <div class="container">
+                 <form id="employee-form" action="{{ url_for('register',type='employee') }}" method='POST'>
+                    <div class="row">
+                       <div class="col-md-12">
+                          <div class="form-group">
+                              <input type="file" name="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                              <div class="col-md-6">
+                                 <!-- <button type="submit" class="btn btn-primary mybutt">SIGN UP</button> -->
+                                 <button type="submit" class="btn btn-primary mybutt">Upload</a>
+                              </div>
+                          </div>
+                       </div>
+                    </div>
+              </form>
+            </div>
+        </div>
+
+           <h3>Here's a sample resume!</h3>
             <div class="col-md-12">
               <div class="job-box">
                  <div class="signup-label">
@@ -213,14 +262,7 @@
                </div>
              </div>
          </div>
-         <form action="{{ url_for('resume_builder' )}}" method="POST" enctype="multipart/form-data">
 
-            <input type="file" name="resume">
-            <br></br>
-            <button type="submit" class="btn btn-primary" style="background-color: #0cebeb; font-size: 25px; border: none;"><b><i class="fas fa-file-upload"></i></b></button>
-
-
-        </form>
       {% else %}
           <div class="row">
              <div class="col-md-12">
