@@ -30,7 +30,7 @@ class Employer(db.Document):
 class Job(db.Document):
     company_name = db.StringField()
     vacancy = db.StringField()
-    languages = db.ListField(db.StringField())
+    skills = db.ListField(db.StringField())
     position = db.StringField()
     location = db.StringField()
     description = db.StringField()

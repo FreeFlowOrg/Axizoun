@@ -146,9 +146,14 @@ def applicants(job_id):
 
 ### employee routes
 
-@app.route('/post_jobs',methods=['POST'])
+@app.route('/post_jobs',methods=['POST','GET'])
 def post_jobs():
-    pass
+    if request.method == 'GET':
+        return render_template('pages/post_a_job.html')
+    if request.method =='POST':
+        pass
+
+
 
 @app.route('/resume_builder',methods=['POST','GET'])
 def resume_builder():
