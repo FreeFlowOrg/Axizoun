@@ -151,7 +151,12 @@ def post_jobs():
     if request.method == 'GET':
         return render_template('pages/post_a_job.html')
     if request.method =='POST':
-        pass
+        job = Job(company_name = session['employer_company'],vacancy='Vacant',skill_1=request.form['skill_1'],skill_2=request.form['skill_2'],skill_3=request.form['skill_3']
+        ,skill_4=request.form['skill_4'],skill_5=request.form['skill_5'],position=request.form['position'],location=request.form['location'],
+        description=request.form['description'],start_date=request.form['start_date'],apply_date=request.form['apply_date'],duration=int(request.form['duration']),stipend=int(request.form['stipend']),applicants=[],status='vacant',problem_statement=request.form['problem_statement'])
+        job.save()
+        flash('Your job has been posted!')
+        return redirect(url_for('employer_dashboard'))
 
 
 

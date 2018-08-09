@@ -134,7 +134,7 @@
                   </div>
   <!-- jobs -->
                   <!-- start of job1 -->
-
+              {% for job in jobs %}
                 <form action="{{ url_for('project_details',job_id=98490) }}" method='POST'>
                   <div class="job-content">
                     <div class="row">
@@ -143,10 +143,10 @@
                             <div class="row">
                               <div class="col-md-5">
                                 <div class="company-content">
-                                  <h1 class="cname">FreeFlo Technologies</h1>
-                                  <h3 class="cplace">Bangalore, Hyderabad</h3>
-                                  <h3 class="cdesig">Web Developer</h3>
-                                  <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;C++, Java, Python</h4>
+                                  <h1 class="cname">{{ job['company_name'] }}</h1>
+                                  <h3 class="cplace">{{ job['location'] }} </h3>
+                                  <h3 class="cdesig">{{ job['postion'] }}</h3>
+                                  <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;{{ job['skill_1'] }},{{ job['skill_2'] }},{{ job['skill_3'] }},{{ job['skill_4'] }},{{ job['skill_5'] }}</h4>
                                 </div>
                               </div>
                               <div class="col-md-7">
@@ -158,15 +158,15 @@
                                           <div class="row">
                                             <div class="col-md-6">
                                               <ul class="data-list">
-                                                <li class="top">aug</li>
-                                                <li class="middle">20-30</li>
-                                                <li class="bottom">start date</li>
+                                                <li class="top">Start Date</li>
+                                                <li class="middle">{{ job['start_date']}} </li>
+                                                <li class="bottom">approx</i></li>
                                               </ul>
                                             </div>
                                             <div class="col-md-6">
                                               <ul class="data-list">
                                                 <li class="top">weeks</li>
-                                                <li class="middle">8</li>
+                                                <li class="middle">{{ job['duration'] }}</li>
                                                 <li class="bottom">duration</li>
                                               </ul>
                                             </div>
@@ -179,15 +179,15 @@
                                           <div class="row">
                                             <div class="col-md-6">
                                               <ul class="data-list">
-                                                <li class="top">Rs./month</li>
-                                                <li class="middle">12-15k</li>
+                                                <li class="top">$ ./hours</li>
+                                                <li class="middle">{{ job['stipend'] }}</li>
                                                 <li class="bottom">stipend</li>
                                               </ul>
                                             </div>
                                             <div class="col-md-6">
                                               <ul class="data-list">
                                                 <li class="top">may</li>
-                                                <li class="middle">12</li>
+                                                <li class="middle">{{ job['apply_date']}}</li>
                                                 <li class="bottom">apply date</li>
                                               </ul>
                                             </div>
@@ -225,7 +225,7 @@
                 </form>
 
                 <!-- end of job1 -->
-
+            {% endfor %}
 
 
                 </div>
