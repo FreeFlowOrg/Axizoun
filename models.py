@@ -29,7 +29,6 @@ class Employer(db.Document):
 
 class Job(db.Document):
     company_name = db.StringField()
-    vacancy = db.StringField()
     skill_1 = db.StringField()
     skill_2 = db.StringField()
     skill_3 = db.StringField()

@@ -151,7 +151,7 @@ def post_jobs():
     if request.method == 'GET':
         return render_template('pages/post_a_job.html')
     if request.method =='POST':
-        job = Job(company_name = session['employer_company'],vacancy='Vacant',skill_1=request.form['skill_1'],skill_2=request.form['skill_2'],skill_3=request.form['skill_3']
+        job = Job(company_name = session['employer_company'],skill_1=request.form['skill_1'],skill_2=request.form['skill_2'],skill_3=request.form['skill_3']
         ,skill_4=request.form['skill_4'],skill_5=request.form['skill_5'],position=request.form['position'],location=request.form['location'],
         description=request.form['description'],start_date=request.form['start_date'],apply_date=request.form['apply_date'],duration=int(request.form['duration']),stipend=int(request.form['stipend']),applicants=[],status='vacant',problem_statement=request.form['problem_statement'])
         job.save()
@@ -192,7 +192,7 @@ def photo_analysis(job_id,employee_id):
 @app.route('/vacancies')
 def vacancies():
     vacancies = Job.query.filter(Job.status == 'vacant').all()
-    return render_template('pages/job_vacancies.html',vacancies = vacancies)
+    return render_template('pages/job_vacancies.html',jobs = vacancies)
 
 @app.route('/applied_jobs')
 def applied_jobs():
