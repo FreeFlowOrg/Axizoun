@@ -73,9 +73,9 @@
                             <div class="row">
                               <div class="col-md-5">
                                 <div class="company-content">
-                                  <h1 class="cname">FreeFlo Technologies</h1>
-                                  <h3 class="cplace">Bangalore, Hyderabad</h3>
-                                  <h3 class="cdesig">Web Developer</h3>
+                                  <h1 class="cname">{{ job['company_name'] }}</h1>
+                                  <h3 class="cplace">{{ job['location'] }}</h3>
+                                  <h3 class="cdesig">{{ job['position'] }}</h3>
                                   <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;C++, Java, Python</h4>
                                 </div>
                               </div>
@@ -88,15 +88,15 @@
                                           <div class="row">
                                             <div class="col-md-6">
                                               <ul class="data-list">
-                                                <li class="top">aug</li>
-                                                <li class="middle">20-30</li>
+                                                <li class="top">Approx</li>
+                                                <li class="middle">{{ job['start_date'] }}</li>
                                                 <li class="bottom">start date</li>
                                               </ul>
                                             </div>
                                             <div class="col-md-6">
                                               <ul class="data-list">
                                                 <li class="top">weeks</li>
-                                                <li class="middle">8</li>
+                                                <li class="middle">{{ job['duration'] }}</li>
                                                 <li class="bottom">duration</li>
                                               </ul>
                                             </div>
@@ -109,15 +109,15 @@
                                           <div class="row">
                                             <div class="col-md-6">
                                               <ul class="data-list">
-                                                <li class="top">Rs./month</li>
-                                                <li class="middle">12-15k</li>
+                                                <li class="top">$./hour</li>
+                                                <li class="middle">{{ job['stipend'] }}</li>
                                                 <li class="bottom">stipend</li>
                                               </ul>
                                             </div>
                                             <div class="col-md-6">
                                               <ul class="data-list">
-                                                <li class="top">may</li>
-                                                <li class="middle">12</li>
+                                                <li class="top">Approx</li>
+                                                <li class="middle">{{ job['apply_date'] }}</li>
                                                 <li class="bottom">apply date</li>
                                               </ul>
                                             </div>
@@ -131,7 +131,7 @@
                                         <li class="top">skills match</li>
                                         <li class="skills">
                                           <div class="c100 p85">
-                                              <span>85%</span>
+                                              <span>{{ percentage_match }}%</span>
                                               <div class="slice">
                                                   <div class="bar"></div>
                                                   <div class="fill"></div>
@@ -157,11 +157,9 @@
                           </div>
                           <div class="about-content">
                             <div class="company-url">
-                              Freeflow (https://www.freeflo.tech)
+                              {{ job['company_name'] }}
                             </div>
-                            We are here to bring about a change in the world with our technology. Our technology focuses on serving our customers by building suitable products thereby benefiting the society. Our products are related to Blockchain, Machine Learning and Artificial Intelligence mainly.
-
-                            Freeflo is not only about technology but it is also about operations and customer relationships. As a small startup, we take pride in maintaining client relationships and butilding them by working together to as a team.
+                            {{ about_company }}
                           </div>
                         </div>
                       </div>
@@ -177,12 +175,7 @@
                           </div>
                           <div class="about-content">
 
-                            <p>Selected interns day to day responsibilities include :</p>
-
-                            1. Web development <br/>
-                            2. Work on Python/Django oscar e-commerce customization <br/>
-                            3. Work on React Native <br/>
-                            4. Work on leading the project <br/>
+                            {{ job['description'] }}
 
                           </div>
                         </div>
@@ -201,12 +194,7 @@
                             <div class="about-skill-header">
                               Skills Required
                             </div>
-                            Django, PHP, Wordpress, Photoshop <br/><br/>
-
-                            <div class="about-skill-header">
-                              Skills Deficient
-                            </div>
-                            Django <br/>
+                            {{ job['skill_1'] }},{{ job['skill_2'] }},{{ job['skill_3'] }},{{ job['skill_4'] }},{{ job['skill_5'] }} <br/><br/>
                           </div>
                         </div>
                       </div>

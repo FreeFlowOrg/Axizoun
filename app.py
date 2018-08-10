@@ -213,7 +213,7 @@ def photo_analysis(job_id,employee_id):
 @app.route('/vacancies')
 def vacancies():
     vacancies = Job.query.filter(Job.status == 'vacant').all()
-    return render_template('pages/job_vacancies.html',jobs = vacancies)
+    return render_template('pages/job_vacancies.html',jobs = vacancies,perc={})
 
 @app.route('/applied_jobs')
 def applied_jobs():
@@ -222,9 +222,11 @@ def applied_jobs():
     return render_template('pages/appliedJobs.html',applied_jobs=applied_jobs)
 
 
-@app.route('/project_details/<int:job_id>',methods=['POST'])
+@app.route('/project_details/<job_id>',methods=['POST'])
 def project_details(job_id):
-    return render_template('pages/projectDetails.html',job_id=job_id)
+    job = Job.query.filter(Job.mongo_id == job_id).first()
+    about_company = Employer.query.filter(Employer.company_name == job.company_name).first().about_company
+    return render_template('pages/projectDetails.html',job = job,job_id=job_id,percentage_match = request.method['percentage_match'],about_company=about_company)
 
 @app.route('/test_portal/<int:job_id>/<int:employee_id>')
 def test_portal(job_id,employee_id):
