@@ -222,13 +222,15 @@ def applied_jobs():
     return render_template('pages/appliedJobs.html',applied_jobs=applied_jobs)
 
 
-@app.route('/project_details/<job_id>',methods=['POST'])
+@app.route('/project_details/<job_id>',methods=['POST','GET'])
 def project_details(job_id):
     job = Job.query.filter(Job.mongo_id == job_id).first()
     about_company = Employer.query.filter(Employer.company_name == job.company_name).first().about_company
+    session['job_id'] = job_id
+    session['percentage_match'] = request.form['percentage_match']
     return render_template('pages/projectDetails.html',job = job,job_id=job_id,percentage_match = request.form['percentage_match'],about_company=about_company)
 
-@app.route('/test_portal/<int:job_id>/<int:employee_id>')
+@app.route('/test_portal/<job_id>/<employee_id>')
 def test_portal(job_id,employee_id):
     session['job_id'] = job_id
     session['employee_id'] = employee_id
