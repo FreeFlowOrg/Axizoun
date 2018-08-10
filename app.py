@@ -226,7 +226,7 @@ def applied_jobs():
 def project_details(job_id):
     job = Job.query.filter(Job.mongo_id == job_id).first()
     about_company = Employer.query.filter(Employer.company_name == job.company_name).first().about_company
-    return render_template('pages/projectDetails.html',job = job,job_id=job_id,percentage_match = request.method['percentage_match'],about_company=about_company)
+    return render_template('pages/projectDetails.html',job = job,job_id=job_id,percentage_match = request.form['percentage_match'],about_company=about_company)
 
 @app.route('/test_portal/<int:job_id>/<int:employee_id>')
 def test_portal(job_id,employee_id):

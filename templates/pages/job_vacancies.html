@@ -142,7 +142,7 @@
 
                   <!-- start of job1 -->
               {% for job in jobs %}
-                <form action="{{ url_for('project_details',job_id=str(job['mongo_id'])) }}" method='POST'>
+                <form action="{{ url_for('project_details',job_id=job['mongo_id']) }}" method='POST'>
                   <div class="job-content">
                     <div class="row">
                       <div class="col-md-11">
