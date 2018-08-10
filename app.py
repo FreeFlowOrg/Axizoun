@@ -13,7 +13,7 @@ from logging import Formatter, FileHandler
 import os
 import boto3,botocore
 
-
+from textanalyser.textanalyser import find
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
@@ -21,10 +21,13 @@ import boto3,botocore
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.config.from_object('config')
+
+
 files = UploadSet('files',DOCUMENTS)
 app.config['UPLOADED_FILES_DEST'] = 'static/resumes'
 app.config['UPLOADED_FILES_ALLOW']=['doc','docx','pdf']
 configure_uploads(app,files)
+
 s3 = boto3.client('s3')
 
 @app.route('/')
@@ -137,7 +140,8 @@ def employee_dashboard():
 @app.route('/employer_dashboard')
 def employer_dashboard():
     employer = Employer.query.filter(Employee.mongo_id == session['employer_id']).first()
-    return render_template('pages/profile_company.html',employer=employer)
+    jobs_posted = Job.query.filter(Job.company_name == employer.company_name ).all()
+    return render_template('pages/profile_company.html',employer=employer,jobs=jobs_posted)
 
 @app.route('/applicants/<job_id>')
 def applicants(job_id):
@@ -162,21 +166,14 @@ def post_jobs():
 
 @app.route('/resume_builder',methods=['POST','GET'])
 def resume_builder():
-    os.chdir('/tmp')
     if request.method == 'POST' and 'file' in request.files:
-        try:
-            filename = files.save(request.files['file'])
-            file = request.files['file']
-
-            s3.upload_file(filename,app.config['S3_BUCKET'], filename)
-
-            flash('Resume uplpoaded!')
-
-            return redirect(url_for('employee_dashbaord'))
-        except Exception as e:
-            # This is a catch all exception, edit this part to fit your needs.
-            print("Something Happened: ", e)
-            return e
+        filename = files.save(request.files['file'])
+        file = request.files['file']
+        employee = Employee.query.filter(Employee.email == session['email']).first()
+        employee.resume = filename
+        employee.save()
+        flash('Resume uploaded!')
+        return redirect(url_for('employee_dashboard'))
 
 
 # upload to S3 using boto3
@@ -192,6 +189,12 @@ def photo_analysis(job_id,employee_id):
 @app.route('/vacancies')
 def vacancies():
     vacancies = Job.query.filter(Job.status == 'vacant').all()
+    ## Skill Matcher percentage
+    for vacancy in vacancies:
+        text_file = open("job_desc.txt",w)
+        text_file.write(vacancy.description)
+        text_file.close()
+        perc = find('job_desc.txt','','textanalyser/model')
     return render_template('pages/job_vacancies.html',jobs = vacancies)
 
 @app.route('/applied_jobs')

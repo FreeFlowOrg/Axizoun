@@ -1,0 +1,18 @@
+Recent completion of advanced degree in Computer Science or related discipline
+Some understanding of ML algorithms (time series analysis, probabilistic models, supervised classification and unsupervised learning), and applications.
+Proficient in Python or R
+Hands-on experience with ML libraries such as scikit-learn/keras/tensorflow etc..
+Strong problem-solving skills and attention to detail
+A portfolio of projects (GitHub, papers, etc.) is a plus
+Smart, motivated, can do attitude and seeks to make a difference
+Familiarity with Software Change, Configuration Management and Build Processes in a complex environment
+
+Essential Physical Abilities 
+Ability to meet highest attendance requirements
+Ability to communicate effectively, both written and verbally.
+Ability to handle multiple assignments on a timely basis with a high degree of accuracy.
+Ability to use personal computer, calculator, etc.
+Could involve some lifting.
+
+Education/Experience 
+MS or Ph.D. in Computer Science, Statistics, or equivalent field required

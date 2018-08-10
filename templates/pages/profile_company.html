@@ -55,7 +55,7 @@
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#">Skills</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">LogOut</a>
+                          <a class="dropdown-item" href="{{ url_for('logout') }}">LogOut</a>
                         </div>
                      </li>
                   </ul>
@@ -114,20 +114,20 @@
                     <div class="row" style="height: auto;">
                       <div class="col-md-12">
                         <div class="education">
-                          <h1><div class="tick"></div><span class="edu">job vacancies posted</span></h1>
+                          <h1><div class="tick"></div><span class="edu">Jobs Posted</span></h1>
                           <br>
+                        {% for job in jobs %}
                           <div class="jobs">
                             <div class="container">
                               <div class="row">
                                 <div class="col-md-8">
-                                  <h1 class="job-comp-desp">Web Developer</h1>
-                                  <h3 class="job-comp-city">Hi-Tech City, Hyderabad</h3>
-                                  <h4 class="job-comp-date">Posted on: 24<sup>th</sup> August 2018</h4>
+                                  <h1 class="job-comp-desp">{{ job['position'] }}</h1>
+                                  <h3 class="job-comp-city">{{ job['location'] }}</h3>
                                 </div>
                                 <div class="col-md-3">
                                   <ul class="data-list">
                                     <li class="jobs-top">status</li>
-                                    <li class="jobs-middle">filled</li>
+                                    <li class="jobs-middle">{{ job['status']}} </li>
                                   </ul>
                                 </div>
                                 <div class="col-md-1" class="jobs-apply">
@@ -136,48 +136,7 @@
                               </div>
                             </div>
                           </div>
-
-                          <div class="jobs">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-md-8">
-                                  <h1 class="job-comp-desp">Web Developer</h1>
-                                  <h3 class="job-comp-city">Hi-Tech City, Hyderabad</h3>
-                                  <h4 class="job-comp-date">Posted on: 24<sup>th</sup> August 2018</h4>
-                                </div>
-                                <div class="col-md-3">
-                                  <ul class="data-list">
-                                    <li class="jobs-top">status</li>
-                                    <li class="jobs-middle">filled</li>
-                                  </ul>
-                                </div>
-                                <div class="col-md-1" class="jobs-apply">
-                                  <i class="fas fa-angle-right ar-right"></i>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="jobs">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-md-8">
-                                  <h1 class="job-comp-desp">Web Developer</h1>
-                                  <h3 class="job-comp-city">Hi-Tech City, Hyderabad</h3>
-                                  <h4 class="job-comp-date">Posted on: 24<sup>th</sup> August 2018</h4>
-                                </div>
-                                <div class="col-md-3">
-                                  <ul class="data-list">
-                                    <li class="jobs-top">status</li>
-                                    <li class="jobs-middle">filled</li>
-                                  </ul>
-                                </div>
-                                <div class="col-md-1" class="jobs-apply">
-                                  <i class="fas fa-angle-right ar-right"></i>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                            {% endfor %}
 
                         </div>
                         <br>

@@ -1,0 +1,43 @@
+PRINCIPAL MACHINE LEARNING ENGINEER
+05/2016 – present
+Collaborate with others in crafting and implementing your technical vision
+Learn more about what we are doing at https://www.zillow.com/data-science and https://www.zillow.com/engineering
+Fast-moving, developer-driven organization full of brilliant and ambitious people
+Provide technical leadership to a strong team of data scientists, engineers, and analysts
+We build highly parallelized, big data, machine-learning applications in the cloud. Sounds like a Mad Lib of marketing jargon, but we’re serious…that’s what you’ll be building
+Demonstrated technical project or product development leadership
+Expertise with data analysis languages such as Python, Scala, or R
+New York, NY
+ARITY MACHINE LEARNING ENGINEER
+08/2010 – 04/2016
+Provides influence and technical advice to Jr. level team members when developing solutions
+Develops and adapts best practices to design and build medium complexity machine learning systems
+Stay informed on the latest machine learning trends and techniques
+Proficiency in at least one programming language Matlab, Python, R, Java, C++
+Contributes to design and prototyping of medium to high complexity machine learning systems
+Have a passion for all things machine learning
+Proficiency in with at least one of the following relevant machine learning packages Scikit-learn, Weka, R etc…
+New York, NY
+MACHINE LEARNING ENGINEER
+07/2007 – 06/2010
+Use machine learning and statistical modeling techniques to develop and evaluate algorithms to improve performance, quality, data management and accuracy
+Work with Adobe’s research teams to take the state of the art in research and make great products and features
+Educational background in relevant field (Computer Science, Applied Math, Statistics, Operations Research, Physics, Computational Biology, or other quantitative fields)
+Work with product managers to formulate the data analytics problem
+Develop, simulate, test, and improve algorithms for predicting electrical load and generation
+Design lean proofs of concepts (POC) to answer targeted business questions. Explore and work with a wide range of proprietary, interesting data stores. Apply existing methods or develop new methods. Be creative!
+Building new models to extract more value from the customer data we collect, which will help us know more about users and merchants than anyone else in marketing or retail
+EDUCATION
+Bachelor’s Degree in Computer Science
+UNIVERSITY OF CALIFORNIA, SAN DIEGO
+SKILLS
+Work in a DevOps environment managing purpose-built, highly available, distributed, scalable cloud services
+Excellent problem solving skills, with attention to detail and focus on quality
+Solid understanding of mathematical foundations behind Machine Learning algorithms, and comfortable with discussing them in details
+Strong understanding and background in probability theory, random process, statistics, and optimization techniques
+Solid knowledge of linear algebra and convex optimization techniques
+Previous experience with either IR, NLP, text mining, machine learning or big data mining is highly desirable
+Can distill highly technical knowledge and techniques to collaborators outside the problem domain
+Proven track record delivering enterprise grade, scalable, secure & reliable software systems
+2+ years' experience developing highly scalable machine learning/deep learning based applications and services
+Ability to work on data mining , data science projects with application engineering, quality engineers and product management

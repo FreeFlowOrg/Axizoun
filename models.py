@@ -51,6 +51,9 @@ class Scores(db.Document):
     company = db.StringField()
     score = db.IntField()
 
-class Company(db.Document):
-    name = db.StringField()
-    description = db.StringField()
+class Applicants(db.Document):
+    applicant_id = db.StringField()
+    resume = db.StringField()
+    percentage_match = db.IntField()
+    job_id = db.StringField()
+    applied_status = db.StringField()
