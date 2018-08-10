@@ -12,6 +12,8 @@ import logging
 from logging import Formatter, FileHandler
 import os
 import boto3,botocore
+from shutil import copyfile
+import numpy
 
 from textanalyser.textanalyser import find
 #----------------------------------------------------------------------------#
@@ -99,6 +101,7 @@ def login(type):
                 session['email'] = request.form['email']
                 session['user_type'] = type
                 session['employee_id'] = str(employee.mongo_id)
+                session['employee_resume'] = employee.resume
                 return redirect(url_for('employee_dashboard'))
             else:
                 flash('Wrong password entered. Please try again.')
@@ -164,8 +167,8 @@ def post_jobs():
 
 
 
-@app.route('/resume_builder',methods=['POST','GET'])
-def resume_builder():
+@app.route('/resume_uploader',methods=['POST','GET'])
+def resume_uploader():
     if request.method == 'POST' and 'file' in request.files:
         filename = files.save(request.files['file'])
         file = request.files['file']
@@ -174,6 +177,27 @@ def resume_builder():
         employee.save()
         flash('Resume uploaded!')
         return redirect(url_for('employee_dashboard'))
+
+@app.route('/skill_matcher_job_vacancies',methods=['POST','GET'])
+def skill_matcher_job_vacancies():
+    jobs = Job.query.all()
+    vacancies = Job.query.filter(Job.status == 'vacant').all()
+
+    perc = {}
+    for job in jobs:
+        file = open('job_desc.txt','w') #open a job_desc.txt
+        file.write(job.description) #write job description to it
+        file.close()# close the file
+        os.mkdir('static/CV')# make a directory
+        copyfile(os.path.join('static/resumes/',session['employee_resume']),os.path.join('static/CV/',session['employee_resume']))# copied file contents
+        perc[job.description] = int((find('job_desc.txt','static/CV','textanalyser/model')[0][0])*100)
+        os.remove(os.path.join('static/CV/',session['employee_resume']))
+        os.rmdir('static/CV')
+        os.remove('job_desc.txt')
+        file = open('perc.txt','w')
+        file.write(str(perc[job.description]))
+        file.close()
+    return render_template('pages/job_vacancies.html',jobs=vacancies,perc=perc)
 
 
 # upload to S3 using boto3
@@ -189,12 +213,6 @@ def photo_analysis(job_id,employee_id):
 @app.route('/vacancies')
 def vacancies():
     vacancies = Job.query.filter(Job.status == 'vacant').all()
-    ## Skill Matcher percentage
-    for vacancy in vacancies:
-        text_file = open("job_desc.txt",w)
-        text_file.write(vacancy.description)
-        text_file.close()
-        perc = find('job_desc.txt','','textanalyser/model')
     return render_template('pages/job_vacancies.html',jobs = vacancies)
 
 @app.route('/applied_jobs')
