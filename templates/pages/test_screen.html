@@ -1,3 +1,4 @@
+
 <html>
    <head>
       <title>Axizoun</title>
@@ -7,10 +8,10 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
       <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-      <link rel="stylesheet" href="css/styles.css">
-      <link rel="stylesheet" href="css/circle.css">
+      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/styles.css') }}">
+      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/circle.css') }}">
       <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Source+Sans+Pro:300" rel="stylesheet">
-      <script src="js/index.js"></script>
+      <script src="{{ url_for('static', filename='js/js/index.js') }}"></script>
       <script>
         $('#employee-modal, #employer-modal').modal('handleUpdate');
       </script>
@@ -19,14 +20,39 @@
    body{
     background-color:#2D3047;
     }
-
-    div {
-      background-color:#419D78;
-      color:#EFD0CA;
-      font-size:20px;
-      text-align:center;
-    }
    </style>
+
+   <div class="modal fade"  id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal-content"  id="modall">
+         <div class="modal-header">
+           <h5 class="modal-title" id="setting-title">SUBMISSION</h5>
+         </div>
+         <div class="modal-body">
+           <div class="apply-modal-description">
+             <form action="{{ url_for('upload_files',job_id=session['job_id'],employee_id=session['employee_id']) }}" enctype=multipart/form-data method='POST'>
+              <div class="row">
+                 <div class="col-lg-1 col-md-1"></div>
+                 <div class="col-lg-10 col-md-10" style="text-align: center;">
+                   <p style="font-size: 20px;">Please make sure to submit your file within the time limit. Otherwise, the candidate's application would be declared invalid.</p>
+                   <br>
+                   <p style="font-size: 25px; font-weight: bold;">
+                       <input type="file" name="answer">
+                   </p>
+                 </div>
+                 <div class="col-lg-1 col-md-1"></div>
+              </div>
+           </div>
+
+           <div class="modal-footer">
+             <button type="submit" class="btn btn-primary" id="ok-btn">Submit</button>
+           </div>
+        </form>
+         </div>
+       </div>
+   </div>
+   </div>
+
        <body>
           <div class="container-fluid" style="width: 95%;">
              <nav class="navbar navbar-expand-lg navbar-light">
@@ -34,37 +60,70 @@
                    <div id="nameplate_box_p"> AXIZOUN </div>
                 </a>
              </nav>
-             <!-- timer -->
-         <div>Time left = <span id="timer"></span></div>
 
-             <!-- //timer -->
-           </div>
-        </div>
-      </div>
-    </div>
+             <div class="row">
+                <div class="col-md-12">
+                  <div class="job-box">
+                     <div class="signup-label">
+                        <div class="row">
+                          <div class="col-md-10">
+                            <h1 class="job-header-text">Question</h1>
+
+                          </div>
+                          <div class="col-md-2">
+                              <a href="#" id="setta"><i class="fas fa-cog" id="settings"></i></a>
+                          </div>
+                        </div>
+                     </div>
+                     <div class="job-content" id="test-screen">
+                       <br>
+                        {{ question }}
+
+                        <br><br>
+                          <div id="clockdiv"></div>
+                        <br><br>
+
+                        <br>
+                        <br>
+
+                     </div>
+                     <br>
+                     <button data-target="#upload" data-toggle="modal" class="btn btn-primary"  style="background-color: #0cebeb; font-size: 25px; border: none; width: 160px; height: 50px; border-radius: 10px;">Submit</button>
+                     <br>
+                     <br>
+
+                  </div>
+
+                </div>
+              </div>
+
     <script>
-        document.getElementById('timer').innerHTML =
-      03 + ":" + 00;
-    startTimer();
+        var time_in_minutes = 60;
+        var current_time = Date.parse(new Date());
+        var deadline = new Date(current_time + time_in_minutes*60*1000);
 
-    function startTimer() {
-      var presentTime = document.getElementById('timer').innerHTML;
-      var timeArray = presentTime.split(/[:]+/);
-      var m = timeArray[0];
-      var s = checkSecond((timeArray[1] - 1));
-      if(s==59){m=m-1}
-      //if(m<0){alert('timer completed')}
 
-      document.getElementById('timer').innerHTML =
-        m + ":" + s;
-      setTimeout(startTimer, 1000);
+    function time_remaining(endtime){
+    	var t = Date.parse(endtime) - Date.parse(new Date());
+    	var seconds = Math.floor( (t/1000) % 60 );
+    	var minutes = Math.floor( (t/1000/60) % 60 );
+    	var hours = Math.floor( (t/(1000*60*60)) % 24 );
+    	var days = Math.floor( t/(1000*60*60*24) );
+    	return {'total':t, 'days':days, 'hours':hours, 'minutes':minutes, 'seconds':seconds};
     }
-
-    function checkSecond(sec) {
-      if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-      if (sec < 0) {sec = "59"};
-      return sec;
+    function run_clock(id,endtime){
+    	var clock = document.getElementById(id);
+    	function update_clock(){
+    		var t = time_remaining(endtime);
+    		clock.innerHTML = 'minutes: '+t.minutes+'<br>seconds: '+t.seconds;
+    		if(t.total<=0){ clearInterval(timeinterval); }
+    	}
+    	update_clock(); // run function once at first to avoid delay
+    	var timeinterval = setInterval(update_clock,1000);
     }
+    run_clock('clockdiv',deadline);
+
+
     </script>
   </body>
 </html>

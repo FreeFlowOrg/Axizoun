@@ -15,6 +15,7 @@
       <script src="{{ url_for('static', filename='js/js/index.js') }}"></script>
       <script>
         $('#employee-modal, #employer-modal').modal('handleUpdate');
+
       </script>
    </head>
 
@@ -63,7 +64,7 @@
          </nav>
          <!-- Skill Matcher magic button -->
                <form action="{{ url_for('skill_matcher_job_vacancies') }}" method="POST">
-                 <button type="submit"  class="btn btn-primary mybutt">View Skill Matches</button>
+                 <button id="magicbutton" type="submit"  class="btn btn-primary mybutt">View Skill Matches</button>
                </form>
 
 

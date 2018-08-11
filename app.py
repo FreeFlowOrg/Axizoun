@@ -200,10 +200,18 @@ def skill_matcher_job_vacancies():
     return render_template('pages/job_vacancies.html',jobs=vacancies,perc=perc)
 
 
-# upload to S3 using boto3
-@app.route('/upload_files/<int:job_id>/<int:employee_id>')
+# upload to local storage
+@app.route('/upload_files/<job_id>/<employee_id>',methods=['POST','GET'])
 def upload_files(job_id,employee_id):
-    pass
+    if request.method == 'POST' and 'answer' in request.files:
+        filename = files.save(request.files['answer'])
+        file = request.files['answer']
+        resume = Employee.query.filter(Employee.mongo_id == session['employee_id']).first().resume
+        applicant = Applicants(applicant_id = session['employee_id'],resume=resume,percentage_match = session['percentage_match'],job_id=session['job_id'],filename=filename)
+        applicant.save()
+        flash('You final submission has been received! You\'ll receive a confirmation mail if you\'ve been selected!')
+        return redirect(url_for('employee_dashboard'))
+
 
 
 @app.route('/photo_analysis/<int:job_id>/<int:employee_id>')
@@ -230,10 +238,16 @@ def project_details(job_id):
     session['percentage_match'] = request.form['percentage_match']
     return render_template('pages/projectDetails.html',job = job,job_id=job_id,percentage_match = request.form['percentage_match'],about_company=about_company)
 
-@app.route('/test_portal/<job_id>/<employee_id>')
+@app.route('/test_portal/<job_id>/<employee_id>',methods=['POST','GET'])
 def test_portal(job_id,employee_id):
     session['job_id'] = job_id
     session['employee_id'] = employee_id
+    portal_question = Job.query.filter(Job.mongo_id == session['job_id']).first().problem_statement
+    return render_template('pages/test_screen.html',question = portal_question)
+
+@app.route('/test')
+def test():
+    return render_template('pages/test_screen.html')
 
 @app.route('/logout')
 def logout():

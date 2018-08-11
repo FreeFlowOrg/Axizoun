@@ -55,6 +55,7 @@
          </nav>
          <!-- modals -->
          <!-- Modal for apply  -->
+      <form action="{{ url_for('test_portal',job_id=session['job_id'],employee_id=session['employee_id']) }}">
         <div class="modal fade"  id="apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
            <div class="modal-dialog modal-dialog-centered" role="document">
              <div class="modal-content"  id="modall">
@@ -109,6 +110,9 @@
              </div>
            </div>
          </div>
+       </form>
+
+
          <!-- //modals -->
           <div class="row">
              <div class="col-md-12">
@@ -133,7 +137,7 @@
                                   <h1 class="cname">{{ job['company_name'] }}</h1>
                                   <h3 class="cplace">{{ job['location'] }}</h3>
                                   <h3 class="cdesig">{{ job['position'] }}</h3>
-                                  <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;C++, Java, Python</h4>
+                                  <h4 class="cskills"><span style="text-decoration: underline;">Skills: </span> &nbsp;&nbsp;{{ job['skill_1'] }},{{ job['skill_2'] }},{{ job['skill_3'] }},{{ job['skill_4'] }},{{ job['skill_5'] }}</h4>
                                 </div>
                               </div>
                               <div class="col-md-7">

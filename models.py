@@ -54,6 +54,6 @@ class Scores(db.Document):
 class Applicants(db.Document):
     applicant_id = db.StringField()
     resume = db.StringField()
-    percentage_match = db.IntField()
+    percentage_match = db.StringField()
     job_id = db.StringField()
-    applied_status = db.StringField()
+    filename = db.StringField()
