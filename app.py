@@ -16,6 +16,9 @@ from shutil import copyfile
 import numpy
 
 from textanalyser.textanalyser import find
+
+import photoanalysistool.sliding_window_approach.sliding_window as sw
+from photoanalysistool.sliding_window_approach import info
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
@@ -210,13 +213,27 @@ def upload_files(job_id,employee_id):
         applicant = Applicants(applicant_id = session['employee_id'],resume=resume,percentage_match = session['percentage_match'],job_id=session['job_id'],filename=filename)
         applicant.save()
         flash('You final submission has been received! You\'ll receive a confirmation mail if you\'ve been selected!')
-        return redirect(url_for('employee_dashboard'))
+        return redirect(url_for('photo_analysis',job_id=job_id,employee_id=employee_id))
 
 
 
-@app.route('/photo_analysis/<int:job_id>/<int:employee_id>')
+@app.route('/photo_analysis/<job_id>/<employee_id>')
 def photo_analysis(job_id,employee_id):
-    pass
+    filename = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first().filename
+    os.mkdir('photoanalysistool/sliding_window_approach/solutions') #create a directory for temporary assessment of solutions
+
+    file = open('extracted_info.txt','w')
+    file.write(os.system('python3 sliding_window.py -i'+' '+os.path.join(app.config['UPLOADED_FILES_DEST'],filename)))
+    file.close()
+
+    file = open('extracted_info2.txt','w')
+    file.write(info.main())
+    file.close()
+
+    perc = int(find('extracted_info2.txt',os.path.join(app.config['UPLOADED_FILES_DEST'],filename),'model')[0][0]*100)
+    return 'perc is %d' % perc
+
+
 
 @app.route('/vacancies')
 def vacancies():
@@ -244,10 +261,6 @@ def test_portal(job_id,employee_id):
     session['employee_id'] = employee_id
     portal_question = Job.query.filter(Job.mongo_id == session['job_id']).first().problem_statement
     return render_template('pages/test_screen.html',question = portal_question)
-
-@app.route('/test')
-def test():
-    return render_template('pages/test_screen.html')
 
 @app.route('/logout')
 def logout():
