@@ -1,0 +1,1000 @@
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'\'-8" x'
+#
+b'\'-8" x 7\'-7'
+#
+b''
+#
+b''
+#
+b'PORCH\n35\'-8" x 7-7"'
+#
+b'oar'
+#
+b'oe\nTT"'
+#
+b'be'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'\'-8" x 7\'-7\n\n\xe2\x80\x94 es'
+#
+b''
+#
+b''
+#
+b'PORCH\n35\'-8" x 7-7"'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'{>} \xe2\x80\x94\n\nif\n\nKITCHEN'
+#
+b'{>} \xe2\x80\x94\n\nif\n\nKITCHEN \xc2\xab'
+#
+b'=e\n\xe2\x80\x94'
+#
+b'=:\n\xe2\x80\x94_\n\nKITCHEN \xc2\xab \xc2\xa9'
+#
+b''
+#
+b''
+#
+b''
+#
+b'PORCH\n35\'-8" x 7-7"'
+#
+b'PORCH\n35\'-8" x 7-7"'
+#
+b'ORCH\n8" x7\'-7"'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b', KITCHEN\n| 16\'-7" x 11\'-9'
+#
+b'\\ KITCHEN\n4 16\'-7" x 11\'-9"'
+#
+b''
+#
+b'|\n\nKITCHEN\n16\'-7" x 11\'-9" \xc2\xabK'
+#
+b'POR\n35\'-8" x'
+#
+b'PORCH\n35\'-8" x 7\xe2\x80\x99-7'
+#
+b'PORCH\n35\'-8" x 7-7"'
+#
+b'PORCH\n35\'-8" x 7-7"'
+#
+b'PORCH\n35\'-8" x 7-7"'
+#
+b'ORCH\n8" x7\'-7"'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'KITCHEN\n16\'-7" x 11\'-9'
+#
+b'KITCHEN\n16\'-7" x 11\'-9"'
+#
+b'|\nweraire 3X\nc'
+#
+b'KITCHEN\n16-7" x 11\'-9"'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'4 KITCHEN\n16\'-7" x 11\'-9'
+#
+b'4 KITCHEN\n16\'-7" x 11\'-9"'
+#
+b'KITCHEN Oo\n16\'-7" x 11\'-9"'
+#
+b'KITCHEN\n16-7" x 11\'-9"'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'+f\n\n \n\nBennnans'
+#
+b'+f\n\n \n\nBenoanass \xc2\xab'
+#
+b'+f\n\n \n\nBenoanass \xc2\xab'
+#
+b'+f\n\nBenoanass \xc2\xab'
+#
+b'mmm mee 4'
+#
+b'Z| |\n\n4 KITCHEN\n16\'-7" x 11\'-9'
+#
+b'KITCHEN\n16\'-7" x 11\'-9"'
+#
+b'KITCHEN\n16-7" x 11\'-9"'
+#
+b'KITCHEN\n16\'-7" x 11\'-9"'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'BEDR(\xc2\xa2\n10\'-0" x'
+#
+b'BEDROON\n10\'-0" x 15\xe2\x80\x99-'
+#
+b'BEDROOM 1\n10\'-0" x 15\'-4"'
+#
+b'+f\n\n] BEDROOM 1\n10\'-0" x 15-4" |'
+#
+b'+f\n\nBEDROOM 1\n10-0" x 15-4" | 4'
+#
+b'+f\n\nDROOM 1\n0"x15\'-4" || yong'
+#
+b'KITCHEN\n16\'-7" x 11\'-9'
+#
+b'KITCHEN\n16\'-7" x 11\'-9"'
+#
+b'16\'-7" x 11\'-9"\n\n \n\n4 i\nKITCHEN'
+#
+b'i\n\nKITCHEN\n16\'-7" x 11\'-9" \xc2\xabK'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'Mt\n\nBEDROON\n10\xc2\xb0-0" x 15\'-'
+#
+b'Mt\n\nBEDROOM 1\n10\xc2\xb0-0" x 15\'-4"'
+#
+b'+f\n\nBEDROOM 1\n10\'-0" x 15\'-4" ['
+#
+b'+f\n\nBEDROOM 1\n10\xc2\xb0-0" x 15\'-4" 4'
+#
+b'+f\n\nDROOM 1\n0" x 15\'-4" 42\'-4'
+#
+b'16\'-7" x 11\'-9'
+#
+b'16\'-7" x 11\'-9"'
+#
+b''
+#
+b'16-7" x11"-9" ZR,'
+#
+b''
+#
+b'ia\nS'
+#
+b'3) 3'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'+f\n\nBEDROON\n10\'-0" x 15"-'
+#
+b'+f\n\nBEDROOM 1\n10\xc2\xb0-0" x 15\'-4"'
+#
+b'+f\n\n] BEDROOM 1\n10\xc2\xb0-0" x 15\'-4"'
+#
+b'+f\n\nBEDROOM 1\n10\'-0" x 15\'-4"'
+#
+b'DROOM 1\n0" x 15\'-4" 42\'-4'
+#
+b''
+#
+b'S'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'aa\n\nB,\ns \\S'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'+f\n\nBEDROON\n10\'-0" x 15"-'
+#
+b'+f\n\nBEDROOM 1\n10\xc2\xb0-0" x 15\'-4"'
+#
+b'+f\n\n] BEDROOM 1\n10\xc2\xb0-0" x 15\'-4"'
+#
+b'+f\n\nBEDROOM 1\n10\xc2\xb0-0" x 15\'-4"'
+#
+b'DROOM 1\n0" x 15\'-4" 42\'-4'
+#
+b''
+#
+b'S'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'ay aa'
+#
+b''
+#
+b''
+#
+b''
+#
+b'BEDR(\xc2\xa2'
+#
+b'1 BEDROON\n10\'-0" x 15"-\n\n\xe2\x80\x94\xe2\x80\x94\xe2\x80\x94\xe2\x80\x94'
+#
+b'1 BEDROOM 1\n10\xc2\xb0-0" x 15\'-4"\n\n\xe2\x80\x94\xe2\x80\x94'
+#
+b'1 BEDROOM 1 |\n\n10\xc2\xb0-0" x 15\'-4"'
+#
+b'BEDROOM 1 |\n10\xc2\xb0-0" x 15\'-4"'
+#
+b'DROOM 1\n0" x 15\'-4" 42\'-4'
+#
+b'FAN'
+#
+b'S\n\nFAMILY'
+#
+b'FAMILY'
+#
+b'FAMILY'
+#
+b'FAMILY'
+#
+b'-AMILY'
+#
+b''
+#
+b''
+#
+b''
+#
+b'a ll\n\n| |\n1 Dees'
+#
+b''
+#
+b''
+#
+b'10\xc2\xb0-0" x 15\'-4"'
+#
+b'Hy t0-0" 15-4"'
+#
+b'10\xc2\xb0-0" x 15\'-4"'
+#
+b''
+#
+b'FAN\n20\'-0"'
+#
+b'2\n\nFAMILY\n20\'-0" x 13'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8" ie'
+#
+b'2)\nay\n\nFAMILY\n)\'-0" x 13\'-8"'
+#
+b'\xe2\x80\x98s\xc2\xbb\n\nLY\nx 13\'-8"'
+#
+b''
+#
+b''
+#
+b''
+#
+b'BEDROO\n12\xe2\x80\x99-8" x 10'
+#
+b'BEDROOM 2\n12\xe2\x80\x99-8" x 10\xe2\x80\x99-0"'
+#
+b'yr\n\n+\n\nBEDROOM 2\n12\xe2\x80\x99-8" x 10\xc2\xb0-0"'
+#
+b'+\n\nBEDROOM 2\n12\xe2\x80\x99-8" x 10\xe2\x80\x99-0"'
+#
+b'=DROOM 2\n\n \n\n8" x 10\xe2\x80\x99-0"'
+#
+b'(OOM 2\nx 10\xe2\x80\x99-0"'
+#
+b''
+#
+b'FAMILY\n20\'-0" x 13'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n)\'-0" x 13\'-8"'
+#
+b'LY\nx 13\'-8"'
+#
+b''
+#
+b''
+#
+b''
+#
+b'+\n\n  \n  \n\nBEDROO\n12-8" x 10\n-'
+#
+b'+\n\n  \n  \n\nBEDROOM 2\n12\'-8" x 10\'-0"\n\xe2\x80\x94'
+#
+b'| BEDROOM 2\n12\xe2\x80\x99-8" x 10\xe2\x80\x99-0"\n_ \xe2\x80\x94'
+#
+b'\xe2\x80\x94\xe2\x80\x94t\n\n+\n\nBEDROOM 2\n12\'-8" x 10\'-0"\n='
+#
+b''
+#
+b'(OOM 2\nx 10\xe2\x80\x99-0"'
+#
+b''
+#
+b'FAMILY\n20\'-0" x 13'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n0" x4'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'+\n\n  \n  \n\nBEDROO\n12-8" x 10\n-'
+#
+b'+\n\n  \n  \n\nBEDROOM 2\n12\'-8" x 10\'-0"\n\xe2\x80\x94'
+#
+b'| BEDROOM 2\noe x 10\xe2\x80\x99-0"\n\xe2\x80\x94\n\n+'
+#
+b'+\n\nBEDROOM 2\n12\'-8" x 10\'-0"\n='
+#
+b''
+#
+b'(OOM 2\nx 10\xe2\x80\x99-0"'
+#
+b''
+#
+b'FAMILY\n20\'-0" x 13'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8"\n\n \n\nPOR\n\nak? _oe ,'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'+\n\n \n     \n\nBEDROO\n12-8" x 10\n-\n\n \n\n \n\nCH\n\n7 pa'
+#
+b''
+#
+b':\n\nBEDROOM 2\n\n+'
+#
+b'+\n\nBEDROOM 2'
+#
+b''
+#
+b'(OOM 2\nx 10\xe2\x80\x99-0"'
+#
+b'FAN\n20\'-0"'
+#
+b'FAMILY\n"x13'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\'-8"'
+#
+b'FAMILY\n20\'-0" x 13\n\n \n\nPOR\n35\'-8" >'
+#
+b'FAMILY\n)\'-0" x 13\'-8"\n\nPORCH\n35\'-8" x 7\'-7'
+#
+b'LY\nx 13\'-8"\n\nPORCH\n35\'-8" x 7\'-7"'
+#
+b'PORCH\n35\'-8" x 7\'-7"'
+#
+b'PORCH\n35\'-8" x 7\'-7"'
+#
+b'j BEDF\n12\'-8"\n\nORCH SZ\n-8" x 7\'-7" Z'
+#
+b'CH\n\n(TT\n\nBEDROO\n12-8" x 10\n-'
+#
+b'BEDROOM 2\n12\'-8" x 10\'-0"\n\xe2\x80\x94'
+#
+b'BEDROOM 2\n\n12\'-8" x 10\'-0"\n\xe2\x80\x94<\xe2\x80\x94'
+#
+b'BEDROOM 2\n12\'-8" x 10\'-0"\n\xe2\x80\x94'
+#
+b'=DROOM 2'
+#
+b'(OOM 2\nx 10\xe2\x80\x99-0"'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'L\n\nPORCH\n35\'-8" x 7\'-7'
+#
+b'x 13-8" |\n\xe2\x80\x94\xe2\x80\x94\n\nPORCH\n35\'-8" x 7\'-7"'
+#
+b'mL\n\nPORCH\n35\'-8" x 7\'-7"'
+#
+b'~ ti\n\nPORCH\n35\'-8" x 7\'-7"'
+#
+b'12\'-8"\n\n-ORCH\n-8"x7\'-7"'
+#
+b'Ui.\n\n \n\n \n\nen nee\n2-8" x 10\n-'
+#
+b'as hw eee oe\n8" x 10\'-0"'
+#
+b'aes eee\n_\xe2\x80\x9d -8" x 10\'-0"\n\xe2\x80\x94<\xe2\x80\x94'
+#
+b'aes eee\n12\'-8" x 10\xe2\x80\x99 |\n\xe2\x80\x94_'
+#
+b'\xe2\x80\x94\xe2\x80\x94e wees a\n-8" x 10\'-0\' |'
+#
+b'ee\nx10'
+#
+b''
+#
+b''
+#
+b'a'
+#
+b''
+#
+b'ape\n"-8" 3\n\nLyle'
+#
+b'i\n\nPORCH\n35\'-8" x 7\'-7'
+#
+b'\xe2\x80\x94\xe2\x80\x94\xe2\x80\x94\n\nPORCH\n35\'-8" x 7\'-7"'
+#
+b'te\n\nPORCH\n35\'-8" x 7\'-7"'
+#
+b'\xe2\x80\x94 rs\n\nPORCH\n35\'-8" x 7\'-7"'
+#
+b''
+#
+b''
+#
+b'|x|'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b';'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'it'
+#
+b'(T'
+#
+b'\xe2\x80\x9cfa'
+#
+b'x|'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'|\n\n \n\n \n\n \n\n \n\n \n\n:'
+#
+b'I\n\n \n\n \n\n36\xe2\x80\x99'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'TT) s'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'g {[]|'
+#
+b'{|\n\n \n\n \n\n36\xe2\x80\x99-0"'
+#
+b'36\xe2\x80\x99-0" \xe2\x80\x94'
+#
+b't\n\n \n\n \n\n \n\n \n\n\xe2\x80\x94\xe2\x80\x94 36\xe2\x80\x99-0" \xe2\x80\x94\xe2\x80\x94\n\nHEA\xe2\x80\x99'
+#
+b't\n\n \n\n \n\n \n\n \n\n\xe2\x80\x94 367-0"\n\n \n\nHEATED $'
+#
+b'it\n\n36\xe2\x80\x99-0"\n\nHEATED SQUAI'
+#
+b'0"\n\nHEATED SQUARE FC'
+#
+b'HEATED SQUARE FOOTA'
+#
+b'HEATED SQUARE FOOTAGE: 9'
+#
+b''
+#
+b''
+#
+b'= _|\n\nAE FOOTAGE: 953'
+#
+b'KITCHEN\n16-7" x117-9"\n\nt\n\n\xe2\x80\x98'
+#
+b'KITCHEN\n16-7" x11"'
+#
+b'PORCH\n35-8" x 7-7"\n\n \n    \n\nKITCHEN\n16-7" x 11-9"'
+#
+b'PORCH\n35-8" x 7-7"'
+#
+b''
+#
+b''
+#
+b''
+#
+b'ry'
+#
+b'cr'
+#
+b'| KITCHEN\n167x119'
+#
+b'Ts,'
+#
+b'PORCH\n35-8" x 7-7"\n\n     \n \n\nKITCHEN\n16-7" x 11-9"'
+#
+b''
+#
+b'PORCH\n35-8" x 7-7"'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b'KITCHEN\n167x119'
+#
+b'PORC!\n35:-8\xc2\xb0x7\n\n \n\n| KITCHEN LE\n} 6-7" x 11-9"\nTT'
+#
+b'KITCHEN\n16-7" x 11-9"'
+#
+b''
+#
+b''
+#
+b'BEDROC\n107-0" x1'
+#
+b'BEDROOM 1\n10-0" x 15\'-4"'
+#
+b'BEDROOM 1\n10-0" x 15\'-4"'
+#
+b'BEDROOM 1\n10-0" x 15\'-4"'
+#
+b'KITCHEN\n167x119'
+#
+b'| KITCHEN\n} terre ito'
+#
+b'KITCHEN\n16-7" x 11-9"'
+#
+b''
+#
+b''
+#
+b'BEDROC\n100" xt'
+#
+b'BEDROOM 1\n10-0" x15-4"'
+#
+b'BEDROOM 1\n10-0" x15-4"'
+#
+b'BEDROOM 1\n\n10-0" x15-4" 42)-4'
+#
+b'KITCHEN\n\nrerxire'
+#
+b''
+#
+b''
+#
+b'HEN\nire'
+#
+b''
+#
+b'29] eepro:\nwens'
+#
+b'BEDROOM 1\n10-0" x15-4"'
+#
+b'BEDROOM 1\n10-0" x15-4"'
+#
+b'BEDROOM 1\n\n10-0" x15-4" 42)-4'
+#
+b'KITCHEN\n167x119'
+#
+b''
+#
+b'KITCHEN\n16-7" x 11-9"'
+#
+b''
+#
+b''
+#
+b''
+#
+b'BEDROOM 1\n10-0" x15-4"'
+#
+b'BEDROOM 1\n10-0" x15-4"'
+#
+b'BEDROOM 1\n10-0" x15-4"\n\n \n\n42!-4'
+#
+b'FAMILY\n\n20-0" x 19-8"'
+#
+b''
+#
+b'FAMILY\n20-0" x 19-8"'
+#
+b'FAMILY |\n\n20-0" x13-8\xc2\xb0'
+#
+b''
+#
+b'=] BeDROC\n100" xt\n\n \n\n\xe2\x80\x94\n\nBEDROOM\n128" x 4'
+#
+b'BEDROOM 1\n10-0" x15-4"\n\n\xe2\x80\x94\xe2\x80\x94\n\nBEDROOM 2\n128"x100"'
+#
+b'BEDROOM 1\n10-0" x15-4"\n\n \n\n \n\nBEDROOM 2\n128"x100"'
+#
+b'BEDROOM 1\n10-0" x15-4" A2hed\n\n \n\n$'
+#
+b'FAMILY\n20-0" x 13-8"'
+#
+b'FAMILY\n\n20-0" x 19-8"'
+#
+b'FAMILY\n\n20-0" x 19-8"'
+#
+b'FAMILY\n\n20-0" x13-8"'
+#
+b'LY 1\nx13:8" ;\n12:8"'
+#
+b'x iL BEDROC\n100" xt\n\n\xe2\x80\x94\n\n \n\n| BEDROOM\n12-8" x 10\xc2\xb04'
+#
+b'raw iL BEDROOM 1\n10-0" x15-4"\n\n\xe2\x80\x94\xe2\x80\x94\n\nBEDROOM 2\n12-8" x10-0"'
+#
+b'iL BEDROOM 1\n10-0" x15-4"\n\n \n\n| BEDROOM 2\n12-8" x10-0"'
+#
+b'BEDROOM 1\n10-0" x15-4"\n\n \n\n_:'
+#
+b'FAMILY\n20-0" x 19'
+#
+b'FAMILY\n\n20-0" x 19-8"\n\nZ PORC'
+#
+b'T\n\nFAMILY\n\n20-0" x 19\n\n \n\nPORCH'
+#
+b'FAMILY\n200" x13\nZ PORCH'
+#
+b'f\n\nBEDF\n12-8"\n\n \n\nPORCH'
+#
+b'BEDROOM\n12-8" x 10%\nPORCH \xc2\xa5'
+#
+b'BEDROOM 2\n12-8" x10-0"\n\nORCH'
+#
+b'7\xe2\x80\x94\n\nBEDROOM 2\n12-8" x10-0"'
+#
+b'BEDROOM 2\n12-8" x10-0"'
+#
+b'FAMILY\n20-0" x 13-8"'
+#
+b'FAMILY\n\n20-0" x13"\n\n \n\nPORC\n35-8" x7'
+#
+b'FAMILY\n20-0" x13\xc2\xb08"\nZ PORCH\n\n35-8" x7-7='
+#
+b'FAMILY\n20\xc2\xb00" x13\xc2\xb08"\nZ PORCH\n\n35-8" x7-7='
+#
+b'LY\nx13\n\n  \n\nPORCH\n35-8" x7-7='
+#
+b'PORCH\n35-8" x7-7=\n\n \n\nBEDROOM\n12-8" x 10\xc2\xb04'
+#
+b'BEDROOM 2\n12-8" x10-0"'
+#
+b'BEDROOM 2\n12-8" x10.0"'
+#
+b'| BEDROOM 2\n8" x 10-0"'
+#
+b'FAMILY\n20-0" x 19-4"'
+#
+b'FAMILY\n\n20-0" x13"\n\n \n\nPORC\n35-8" x7'
+#
+b'FAMILY\n\n20-0" x 19\n\n \n\nPORCH\n35-8" x7-7='
+#
+b'FAMILY\n\n20-0" x13\n\n \n\nPORCH\n35-8" x7-7='
+#
+b'PORCH\n35-8" x7-7='
+#
+b'BEDROOM\n12-8" x 10\xc2\xb04\n\nPORCH\n35-8" x7-7='
+#
+b'BEDROOM 2\n12-8" x10-0"\n\nORCH\n8x77"'
+#
+b'BEDROOM 2\n12-8" x10.0"'
+#
+b'BEDROOM 2\n12-8" x10-0"'
+#
+b'eae\n20-0" x 19'
+#
+b'eae\n20-0" x13"'
+#
+b'eae\n20-0" x13"\n\nrere'
+#
+b'eae\n20-0" x13-8"\n\nPORCH\n35-8" x7-7='
+#
+b'ee\n218 BEDF\n12-8"\n\nPORCH\n35-8" x7-7='
+#
+b'BEDROOM\n12-8" x 10\xc2\xb04\n\nPORCH\n35-8" x7-7='
+#
+b'BEDROOM 2\n12-8" x10-0"'
+#
+b'| BEDROOM 2\n} zr x 10-0"\n\nH'
+#
+b'BEDROOM 2\n12-8" x 10-0'
+#
+b''
+#
+b'PORC\n35-8" x7\n\n36\'-('
+#
+b'\xe2\x80\x94_\xe2\x80\x94_\n\nPORCH\n35-8" x7-7=\n\n36-0"'
+#
+b'\xe2\x80\x94_\xe2\x80\x94_\xe2\x80\x94\n\nPORCH\n35-8" x7-7=\n\n36-0"'
+#
+b'\xe2\x80\x94s\n\nPORCH\n35-8" x7-7=\n\n36-0"\n\npparenecess'
+#
+b'a\n\nPORCH\n35\xc2\xb0-8\xc2\xb0x 7-7"\n\n36-0"\n\nneenecmeneon'
+#
+b'ORCH\n8x77"\n\n36\'-0"\n\nwecenecmeneconene'
+#
+b'jeaepenwenenmanen'
+#
+b''
+#
+b'PoRcH\n\nKrreHen'
+#
+b'Porch\n\nKrreHen'
+#
+b'PoRcH\n\nrc\n\n\xe2\x80\x98BEDROOM 1'
+#
+b'onc\n\nconoom 1'
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#
+b''
+#

@@ -1,4 +1,4 @@
-n#----------------------------------------------------------------------------#
+#----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
 
@@ -15,11 +15,14 @@ import boto3,botocore
 from shutil import copyfile
 import numpy
 import difflib
+import sys
+import subprocess as s
 
 from textanalyser.textanalyser import find
 
-import photoanalysistool.sliding_window_approach.sliding_window as sw
-from photoanalysistool.sliding_window_approach import info
+from photoanalysistool0.sliding_window_approach import info
+
+
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
@@ -214,49 +217,39 @@ def upload_files(job_id,employee_id):
         applicant = Applicants(applicant_id = session['employee_id'],resume=resume,percentage_match = session['percentage_match'],job_id=session['job_id'],filename=filename)
         applicant.save()
         flash('You final submission has been received! You\'ll receive a confirmation mail if you\'ve been selected!')
-        return redirect(url_for('photo_analysis',job_id=job_id,employee_id=employee_id))
+        return redirect(url_for('photo_analysis'))
 
+@app.route('/photo_analysis/')
+def photo_analysis():
+    filename = Applicants.query.filter(Applicants.job_id==session['job_id'],Applicants.applicant_id==session['employee_id']).first().filename
+    employer_solution = Job.query.filter(Job.mongo_id == session['job_id']).first().solution
 
-@app.route('/photo_analysis/<job_id>/<employee_id>')
-def photo_analysis(job_id,employee_id):
-    filename = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first().filename
+    os.mkdir('static/employee_solution') # create a directory for temporary assessment of applicant solutions
+    os.mkdir('static/employer_solution') # create a directory for employer solution
 
-    os.mkdir('static/employee_solution') #create a directory for temporary assessment of applicant solutions
-    os.mkdir('static/employer_solution') #create a directory for employer solution
+    s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],filename), shell=True)
 
-    employer_solution = Job.query.filter(Job.mongo_id == job_id).first().solution
+    copyfile('extracted_info.txt','static/employee_solution/extracted_info.txt')
 
-    os.system('python3 photoanalysistool/sliding_window_approach/sliding_window.py -i'+' '+os.path.join(app.config['UPLOADED_FILES_DEST'],employer_solution)+ '> photoanalysistool/sliding_window_approach/extracted_info.txt')
+    file1 = 'static/employee_solution/extracted_info.txt'
 
-    os.system('python3 photoanalysistool/sliding_window_approach/info.py')
+    os.remove('extracted_info.txt')
 
-    copyfile('photoanalysistool/sliding_window_approach/ref.txt','static/employer_solution/ref.txt')
+    s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],employer_solution), shell=True)
 
-    file2 = 'static/employer_solution/ref.txt'
-###
-    os.system('python3 photoanalysistool/sliding_window_approach/sliding_window.py -i'+' '+os.path.join(app.config['UPLOADED_FILES_DEST'],filename)+ '>  photoanalysistool/sliding_window_approach/extracted_info.txt')
+    copyfile('extracted_info.txt','static/employer_solution/extracted_info.txt')
 
-    os.system('python3 photoanalysistool/sliding_window_approach/info.py')
+    file2 = 'static/employer_solution/extracted_info.txt'
 
-    copyfile('photoanalysistool/sliding_window_approach/ref.txt','static/employee_solution/ref.txt')
-
-    file1 = 'static/employee_solution/ref.txt'
-###
-
-####
-
-
-#####
     with open(file1, 'r') as myfile:
-        file1=myfile.read().replace('\n', '')
+         file1=myfile.read().replace('\n', '')
 
     with open(file2, 'r') as myfile:
-        file2=myfile.read().replace('\n', '')
+         file2=myfile.read().replace('\n', '')
 
     perc = difflib.SequenceMatcher(None, file1, file2)
 
-    return 'perc is %d' % (perc.ratio()*100)
-
+    return 'perc is %f' % (perc.ratio()*100)
 
 
 
