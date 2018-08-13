@@ -44,7 +44,7 @@ class Job(db.Document):
     applicants = db.ListField(db.StringField())
     status = db.StringField()
     problem_statement = db.StringField()
-    solution_file = db.StringField()
+    solution = db.StringField()
 
 class Scores(db.Document):
     employee = db.DocumentField(Employee)

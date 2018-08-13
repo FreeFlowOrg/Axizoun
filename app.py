@@ -1,4 +1,4 @@
-#----------------------------------------------------------------------------#
+n#----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
 
@@ -14,6 +14,7 @@ import os
 import boto3,botocore
 from shutil import copyfile
 import numpy
+import difflib
 
 from textanalyser.textanalyser import find
 
@@ -30,7 +31,7 @@ app.config.from_object('config')
 
 files = UploadSet('files',DOCUMENTS)
 app.config['UPLOADED_FILES_DEST'] = 'static/resumes'
-app.config['UPLOADED_FILES_ALLOW']=['doc','docx','pdf']
+app.config['UPLOADED_FILES_ALLOW']=['doc','docx','pdf','jpg','png']
 configure_uploads(app,files)
 
 s3 = boto3.client('s3')
@@ -73,7 +74,7 @@ def register(type):
                     flash('email already exists. Please pick another one')
                     return redirect(url_for('register',type='employer'))
 
-                elif len(request.form['password'])<8: # password length check
+                elif len(request.form['password']) < 8: # password length check
                     flash('Please provide a password which is atleast 8 characters long')
                     return redirect(url_for('register',type='employer'))
 
@@ -216,22 +217,46 @@ def upload_files(job_id,employee_id):
         return redirect(url_for('photo_analysis',job_id=job_id,employee_id=employee_id))
 
 
-
 @app.route('/photo_analysis/<job_id>/<employee_id>')
 def photo_analysis(job_id,employee_id):
     filename = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first().filename
-    os.mkdir('photoanalysistool/sliding_window_approach/solutions') #create a directory for temporary assessment of solutions
 
-    file = open('extracted_info.txt','w')
-    file.write(os.system('python3 sliding_window.py -i'+' '+os.path.join(app.config['UPLOADED_FILES_DEST'],filename)))
-    file.close()
+    os.mkdir('static/employee_solution') #create a directory for temporary assessment of applicant solutions
+    os.mkdir('static/employer_solution') #create a directory for employer solution
 
-    file = open('extracted_info2.txt','w')
-    file.write(info.main())
-    file.close()
+    employer_solution = Job.query.filter(Job.mongo_id == job_id).first().solution
 
-    perc = int(find('extracted_info2.txt',os.path.join(app.config['UPLOADED_FILES_DEST'],filename),'model')[0][0]*100)
-    return 'perc is %d' % perc
+    os.system('python3 photoanalysistool/sliding_window_approach/sliding_window.py -i'+' '+os.path.join(app.config['UPLOADED_FILES_DEST'],employer_solution)+ '> photoanalysistool/sliding_window_approach/extracted_info.txt')
+
+    os.system('python3 photoanalysistool/sliding_window_approach/info.py')
+
+    copyfile('photoanalysistool/sliding_window_approach/ref.txt','static/employer_solution/ref.txt')
+
+    file2 = 'static/employer_solution/ref.txt'
+###
+    os.system('python3 photoanalysistool/sliding_window_approach/sliding_window.py -i'+' '+os.path.join(app.config['UPLOADED_FILES_DEST'],filename)+ '>  photoanalysistool/sliding_window_approach/extracted_info.txt')
+
+    os.system('python3 photoanalysistool/sliding_window_approach/info.py')
+
+    copyfile('photoanalysistool/sliding_window_approach/ref.txt','static/employee_solution/ref.txt')
+
+    file1 = 'static/employee_solution/ref.txt'
+###
+
+####
+
+
+#####
+    with open(file1, 'r') as myfile:
+        file1=myfile.read().replace('\n', '')
+
+    with open(file2, 'r') as myfile:
+        file2=myfile.read().replace('\n', '')
+
+    perc = difflib.SequenceMatcher(None, file1, file2)
+
+    return 'perc is %d' % (perc.ratio()*100)
+
 
 
 
