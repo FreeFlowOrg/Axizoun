@@ -217,29 +217,25 @@ def upload_files(job_id,employee_id):
         applicant = Applicants(applicant_id = session['employee_id'],resume=resume,percentage_match = session['percentage_match'],job_id=session['job_id'],filename=filename)
         applicant.save()
         flash('You final submission has been received! You\'ll receive a confirmation mail if you\'ve been selected!')
-        return redirect(url_for('photo_analysis'))
+        return redirect(url_for('photo_analysis',job_id=job_id,employee_id = employee_id))
 
-@app.route('/photo_analysis/')
-def photo_analysis():
-    filename = Applicants.query.filter(Applicants.job_id==session['job_id'],Applicants.applicant_id==session['employee_id']).first().filename
-    employer_solution = Job.query.filter(Job.mongo_id == session['job_id']).first().solution
+@app.route('/photo_analysis/<job_id>/<employee_id>')
+def photo_analysis(job_id,employee_id):
+    filename = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first().filename
+    employer_solution = Job.query.filter(Job.mongo_id == job_id).first().solution
 
-    os.mkdir('static/employee_solution') # create a directory for temporary assessment of applicant solutions
-    os.mkdir('static/employer_solution') # create a directory for employer solution
 
-    s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],filename), shell=True)
+    os.mkdir('static/employee_solutions') # create a directory for temporary assessment of applicant solutions
+    os.mkdir('static/employer_solutions') # create a directory for employer solution
 
-    copyfile('extracted_info.txt','static/employee_solution/extracted_info.txt')
-
-    file1 = 'static/employee_solution/extracted_info.txt'
-
+    s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],filename), shell=True) # Run sliding window algorithm on applicant solution
+    copyfile('extracted_info.txt','static/employee_solutions/employee_solution.txt') #copy into temporary directory
+    file1 = 'static/employee_solutions/employee_solution.txt' #plug the path into a python variable
     os.remove('extracted_info.txt')
 
-    s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],employer_solution), shell=True)
-
-    copyfile('extracted_info.txt','static/employer_solution/extracted_info.txt')
-
-    file2 = 'static/employer_solution/extracted_info.txt'
+    s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],employer_solution), shell=True) # Run sliding window algorithm on employer solution
+    copyfile('extracted_info.txt','static/employer_solutions/employer_solution.txt') # copy into emploer sol dir
+    file2 = 'static/employer_solutions/employer_solution.txt' #plug the path into a python variable
 
     with open(file1, 'r') as myfile:
          file1=myfile.read().replace('\n', '')
@@ -249,8 +245,24 @@ def photo_analysis():
 
     perc = difflib.SequenceMatcher(None, file1, file2)
 
-    return 'perc is %f' % (perc.ratio()*100)
+    print ('perc is %f' %(perc.ratio()*100)) # percentage difference between answers
 
+    score = int(round(perc.ratio()*100,1))
+
+    os.remove('extracted_info.txt')
+    os.remove('static/employee_solutions/employee_solution.txt')
+    os.rmdir('static/employee_solutions')
+    os.remove('static/employer_solutions/employer_solution.txt')
+    os.rmdir('static/employer_solutions')
+
+
+    applicant = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first()
+    score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score)
+    score.save()
+
+    flash('Your solution has been successfully submitted. The results will be corressponded to you via mail.')
+
+    return redirect(url_for('employee_dashboard'))
 
 
 @app.route('/vacancies')

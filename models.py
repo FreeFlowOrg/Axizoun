@@ -47,9 +47,9 @@ class Job(db.Document):
     solution = db.StringField()
 
 class Scores(db.Document):
-    employee = db.DocumentField(Employee)
-    job = db.DocumentField(Job)
-    company = db.StringField()
+    applicant_id = db.StringField()
+    job_id = db.StringField()
+    applicant_solution = db.StringField()
     score = db.IntField()
 
 class Applicants(db.Document):
