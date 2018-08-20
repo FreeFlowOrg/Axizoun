@@ -72,7 +72,7 @@
 
                      <div class="form-content">
                         <div class="container">
-                           <form id="employee-form" action="{{ url_for('post_jobs') }}" method='POST'>
+                           <form id="employee-form" action="{{ url_for('post_jobs') }}" method='POST' enctype="multipart/form-data">
                               <div class="row">
                                  <div class="col-md-12">
                                     <div class="form-group">
@@ -177,11 +177,19 @@
                                     </div>
                                  </div>
                               </div>
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+
+                                       <input type="file" name="employer_solution" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                 </div>
+                              </div>
 
                               <div class="row">
                                  <div class="col-md-6">
-                                    <!-- <button type="submit" class="btn btn-primary mybutt">SIGN UP</button> -->
-                                    <button type="submit" class="btn btn-primary mybutt">SIGN UP</a>
+
+                                    <button type="submit" class="btn btn-primary mybutt">Post Job</a>
                                  </div>
                                  <div class="col-md-6">
                                     <ul class="boo-ul">

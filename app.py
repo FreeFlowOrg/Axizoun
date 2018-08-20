@@ -153,9 +153,10 @@ def employer_dashboard():
     jobs_posted = Job.query.filter(Job.company_name == employer.company_name ).all()
     return render_template('pages/profile_company.html',employer=employer,jobs=jobs_posted)
 
-@app.route('/applicants/<job_id>')
-def applicants(job_id):
+@app.route('/applicants')
+def applicants():
     pass
+
 
 
 ### employee routes
@@ -164,10 +165,15 @@ def applicants(job_id):
 def post_jobs():
     if request.method == 'GET':
         return render_template('pages/post_a_job.html')
-    if request.method =='POST':
+    if request.method =='POST' and 'employer_solution' in request.files:
+
+        filename=files.save(request.files['employer_solution'])
+        file = request.files['employer_solution']
+
         job = Job(company_name = session['employer_company'],skill_1=request.form['skill_1'],skill_2=request.form['skill_2'],skill_3=request.form['skill_3']
         ,skill_4=request.form['skill_4'],skill_5=request.form['skill_5'],position=request.form['position'],location=request.form['location'],
-        description=request.form['description'],start_date=request.form['start_date'],apply_date=request.form['apply_date'],duration=int(request.form['duration']),stipend=int(request.form['stipend']),applicants=[],status='vacant',problem_statement=request.form['problem_statement'])
+        description=request.form['description'],start_date=request.form['start_date'],apply_date=request.form['apply_date'],duration=int(request.form['duration']),
+        stipend=int(request.form['stipend']),applicants=[],status='vacant',problem_statement=request.form['problem_statement'],solution=filename)
         job.save()
         flash('Your job has been posted!')
         return redirect(url_for('employer_dashboard'))
