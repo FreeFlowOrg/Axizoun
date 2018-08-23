@@ -7,10 +7,10 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
       <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-      <link rel="stylesheet" href="css/styles.css">
-      <link rel="stylesheet" href="css/circle.css">
+      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/styles.css') }}">
+      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/circle.css') }}">
       <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Source+Sans+Pro:300" rel="stylesheet">
-      <script src="js/index.js"></script>
+      <script src="{{ url_for('static', filename='js/js/index.js') }}"></script>
       <script>
         $('#employee-modal, #employer-modal').modal('handleUpdate');
       </script>
@@ -41,7 +41,7 @@
                      <li class="nav-item dropdown">
 
                         <a class="nav-link dropdown-toggle nav-elements" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: 300; color: black;">
-                          <img src="imgs/profile.jpg" class="profile-img">
+                          <img src="/static/img/imgs/profile.jpg" class="profile-img">
                         </a>
                         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
                           <a class="dropdown-item" href="#">Profile</a>
@@ -68,6 +68,8 @@
                        </div>
                      </div>
                   </div>
+                {% for score in scores %}
+                  {% if score['job_company'] == session['employer_company'] %}
                   <div class="job-content">
                     <div class="row">
                       <div class="col-md-11">
@@ -76,15 +78,14 @@
                               <div class="col-md-7" style=" border-right: 1px solid #0cebeb;">
                                 <div class="row">
                                     <div class="col-md-4" style=" padding-top: 25px; padding-left: 50px;">
-                                      <img src="imgs/profile.jpg" class="applicant-profile-img" />
+                                      <img src="/static/img/imgs/profile.jpg" class="applicant-profile-img" />
                                     </div>
 
                                     <div class="col-md-8" style=" padding-top: 50px; padding-left: 50px;">
-                                      <h2 class="aname"><b>Steve Jobs</b></h2>
-                                      <h6 class="askillspresent"><span style="text-decoration: underline;">Skills Present: </span> &nbsp;&nbsp;C++, Java, Python, NodeJs, HTML, CSS, React</h6>
-                                      <h6 class="askillsmissing"><span style="text-decoration: underline;">Skills Missing: </span> &nbsp;&nbsp;C++, Java, Python</h6>
+                                      <h2 class="aname"><b>{{ score['applicant_id'] }}</b></h2>
+                                      <h2 class="aname"><b>{{ score['job_id'] }}</b></h2>
+
                                     </div>
-                                </div>
                                 <!-- <div class="company-content">
                                   <h1 class="cname">FreeFlo Technologies</h1>
                                   <h3 class="cplace">Bangalore, Hyderabad</h3>
@@ -99,7 +100,7 @@
                                         <li class="top">Test Score</li>
                                         <li class="skills" style="margin-left: 0px;">
                                           <div class="c100 p85">
-                                              <span>85%</span>
+                                              <span>{{ score['score'] }}%</span>
                                               <div class="slice">
                                                   <div class="bar"></div>
                                                   <div class="fill"></div>
@@ -115,7 +116,7 @@
                                         <li class="top">skills match</li>
                                         <li class="skills" style="margin-left: 0px;">
                                           <div class="c100 p95">
-                                              <span>95%</span>
+                                              <span>{{ score['percentage_match'] }}%</span>
                                               <div class="slice">
                                                   <div class="bar"></div>
                                                   <div class="fill"></div>
@@ -138,7 +139,8 @@
                       </div>
                     </div>
                   </div>
-
+                  {% endif %}
+                {% endfor %}
                 </div>
               </div>
           </div>

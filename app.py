@@ -153,9 +153,15 @@ def employer_dashboard():
     jobs_posted = Job.query.filter(Job.company_name == employer.company_name ).all()
     return render_template('pages/profile_company.html',employer=employer,jobs=jobs_posted)
 
-@app.route('/applicants')
+@app.route('/applicants/')
 def applicants():
-    pass
+    job_ids = []
+    jobs = Job.query.filter(Job.company_name == session['employer_company'] ).all()
+    for job in jobs:
+        job_ids.append(job.mongo_id)
+    scores = Scores.query.all()
+    employees = Employee.query.all()
+    return render_template('pages/applicants.html',job_ids=job_ids,scores=scores,employees=employees)
 
 
 
@@ -263,7 +269,7 @@ def photo_analysis(job_id,employee_id):
 
 
     applicant = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first()
-    score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score)
+    score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score,percentage_match=session['percentage_match'],job_company=session['job_company'])
     score.save()
 
     flash('Your solution has been successfully submitted. The results will be corressponded to you via mail.')
@@ -288,6 +294,7 @@ def project_details(job_id):
     job = Job.query.filter(Job.mongo_id == job_id).first()
     about_company = Employer.query.filter(Employer.company_name == job.company_name).first().about_company
     session['job_id'] = job_id
+    session['job_company'] = job.company_name
     session['percentage_match'] = request.form['percentage_match']
     return render_template('pages/projectDetails.html',job = job,job_id=job_id,percentage_match = request.form['percentage_match'],about_company=about_company)
 
