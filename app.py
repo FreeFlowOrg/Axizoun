@@ -329,7 +329,7 @@ def test_portal(job_id,employee_id):
 
 @app.route('/payments',methods=['POST','GET'])
 def payments():
-    return render_template('payment_page.html', key=stripe_keys['publishable_key'])
+    return render_template('pages/payment_page.html', key=stripe_keys['publishable_key'])
 
 @app.route('/charge', methods=['POST'])
 def charge():
@@ -348,8 +348,8 @@ def charge():
         description='Flask Charge'
     )
 
-    return render_template('charge.html', amount=amount)
-    
+    return render_template('pages/charge.html', amount=amount)
+
 @app.route('/logout')
 def logout():
     session.clear()
