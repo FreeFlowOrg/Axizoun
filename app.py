@@ -17,11 +17,12 @@ import numpy
 import difflib
 import sys
 import subprocess as s
+import csv
+import stripe
 
 from textanalyser.textanalyser import find
-
 from photoanalysistool0.sliding_window_approach import info
-
+from ResumeParser.bin import main
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -36,6 +37,13 @@ files = UploadSet('files',DOCUMENTS)
 app.config['UPLOADED_FILES_DEST'] = 'static/resumes'
 app.config['UPLOADED_FILES_ALLOW']=['doc','docx','pdf','jpg','png']
 configure_uploads(app,files)
+
+stripe_keys = {
+  'secret_key': os.environ['SECRET_KEY'],
+  'publishable_key': os.environ['PUBLISHABLE_KEY']
+}
+
+stripe.api_key = stripe_keys['secret_key']
 
 s3 = boto3.client('s3')
 
@@ -140,12 +148,23 @@ def login(type):
 def employee_dashboard():
     # provision for text extractor and profile maker
     employee = Employee.query.filter(Employee.mongo_id == session['employee_id']).first()
+    resume_data=''
     if employee.resume == '':
         session['profile_submitted'] = 'unset'
         flash('Please submit your resume to apply for jobs')
     else:
+        # copyfile(os.path.join('static/resumes',employee.resume),os.path.join('ResumeParser/data/input/example_resumes',employee.resume))
+        # main.main()
+        # with open(resume_summary.csv,'r') as csvfile:
+        #     csvreader = csv.reader(csvfile)
+        #     for row in csvreader:
+        #         resume_data = resume_data + row
+        #
+        # # post extraction work
+        # os.remove('ResumeParser/data/input/example_resumes'+employee.resume)
+        # open("resume_summary.csv", "w").close()
         session['profile_submitted'] = 'set'
-    return render_template('pages/profile_emp.html',employee=employee,profile_submitted=session['profile_submitted'])
+    return render_template('pages/profile_emp.html',employee=employee,profile_submitted=session['profile_submitted'],resume_data = resume_data)
 
 @app.route('/employer_dashboard')
 def employer_dashboard():
@@ -305,6 +324,32 @@ def test_portal(job_id,employee_id):
     portal_question = Job.query.filter(Job.mongo_id == session['job_id']).first().problem_statement
     return render_template('pages/test_screen.html',question = portal_question)
 
+##############
+# payment routes
+
+@app.route('/payments',methods=['POST','GET'])
+def payments():
+    return render_template('payment_page.html', key=stripe_keys['publishable_key'])
+
+@app.route('/charge', methods=['POST'])
+def charge():
+    # Amount in cents
+    amount = 500
+
+    customer = stripe.Customer.create(
+        email='customer@example.com',
+        source=request.form['stripeToken']
+    )
+
+    charge = stripe.Charge.create(
+        customer=customer.id,
+        amount=amount,
+        currency='usd',
+        description='Flask Charge'
+    )
+
+    return render_template('charge.html', amount=amount)
+    
 @app.route('/logout')
 def logout():
     session.clear()

@@ -1,0 +1,16 @@
+variable,type,data_set
+file_path,object,observations
+extension,object,observations
+text,object,observations
+candidate_name,object,observations
+email,object,observations
+phone,object,observations
+universities,object,observations
+open-source,object,observations
+machinelearning,object,observations
+database,object,observations
+programming,object,observations
+experience,object,observations
+languages,object,observations
+platforms,object,observations
+hobbies,object,observations
