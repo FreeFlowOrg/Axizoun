@@ -22,7 +22,7 @@ import stripe
 
 from textanalyser.textanalyser import find
 from photoanalysistool0.sliding_window_approach import info
-from ResumeParser.bin import main
+
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -39,8 +39,8 @@ app.config['UPLOADED_FILES_ALLOW']=['doc','docx','pdf','jpg','png']
 configure_uploads(app,files)
 
 stripe_keys = {
-  'secret_key': os.environ['SECRET_KEY'],
-  'publishable_key': os.environ['PUBLISHABLE_KEY']
+  'secret_key': os.environ.get('SECRET_KEY'),
+  'publishable_key':os.environ.get('PUBLISHABLE_KEY')
 }
 
 stripe.api_key = stripe_keys['secret_key']
@@ -153,18 +153,8 @@ def employee_dashboard():
         session['profile_submitted'] = 'unset'
         flash('Please submit your resume to apply for jobs')
     else:
-        # copyfile(os.path.join('static/resumes',employee.resume),os.path.join('ResumeParser/data/input/example_resumes',employee.resume))
-        # main.main()
-        # with open(resume_summary.csv,'r') as csvfile:
-        #     csvreader = csv.reader(csvfile)
-        #     for row in csvreader:
-        #         resume_data = resume_data + row
-        #
-        # # post extraction work
-        # os.remove('ResumeParser/data/input/example_resumes'+employee.resume)
-        # open("resume_summary.csv", "w").close()
         session['profile_submitted'] = 'set'
-    return render_template('pages/profile_emp.html',employee=employee,profile_submitted=session['profile_submitted'],resume_data = resume_data)
+    return render_template('pages/profile_emp.html',employee=employee,profile_submitted=session['profile_submitted'],resume=employee.resume)
 
 @app.route('/employer_dashboard')
 def employer_dashboard():
@@ -334,7 +324,7 @@ def payments():
 @app.route('/charge', methods=['POST'])
 def charge():
     # Amount in cents
-    amount = 500
+    amount = 75000
 
     customer = stripe.Customer.create(
         email='customer@example.com',

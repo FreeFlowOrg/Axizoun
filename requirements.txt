@@ -146,3 +146,7 @@ Werkzeug==0.14.1
 WTForms==2.2.1
 zope.deprecation==4.3.0
 zope.interface==4.5.0
+pdfminer
+BeautifulSoup
+urllib2
+spacy
