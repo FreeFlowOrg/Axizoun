@@ -52,21 +52,33 @@
                </ul>
                <span class="navbar-text">
                   <ul class="navbar-nav mr-auto">
+                    {% if not session['employee_id'] %}
                      <li class="nav-item">
-                        <a class="nav-link nav-elements" href="{{ url_for('vacancies') }}" style="font-weight: 300; color: black; margin-right: 2em;">Job Vacancies</a>
+                        <a class="nav-link nav-elements" href="{{ url_for('index') }}" style="font-weight: 300; color: black; margin-right: 2em;">Back to Signup/Login</a>
+                     </li>
+                    {% endif %}
+                    {% if session['employee_id'] %}
+                    <li class="nav-item">
+                       <a class="nav-link nav-elements" href="{{ url_for('employee_dashboard') }}" style="font-weight: 300; color: black; margin-right: 2em;">Your Profile</a>
+                    </li>
+                    {% endif %}
+
+                     <li class="nav-item">
+                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black;">About</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black;">Team</a>
+                        <a class="nav-link nav-elements" href="{{ url_for('logout') }}" style="font-weight: 300; color: black; margin-right: 2em;">Log Out</a>
                      </li>
                   </ul>
                </span>
             </div>
          </nav>
+         {% if session['employee_id'] and session['skill_matcher'] %}
          <!-- Skill Matcher magic button -->
                <form action="{{ url_for('skill_matcher_job_vacancies') }}" method="POST">
                  <button id="magicbutton" type="submit"  class="btn btn-primary mybutt">View Skill Matches</button>
                </form>
-
+        {% endif %}
 
          <!--  //Skill Matcher magic button -->
          <!-- Modals -->
@@ -189,7 +201,7 @@
                                               <ul class="data-list">
                                                 <li class="top">$ ./hours</li>
                                                 <li class="middle">{{ job['stipend'] }}</li>
-                                                <li class="bottom">stipend</li>
+                                                <li class="bottom">Salary</li>
                                               </ul>
                                             </div>
                                             <div class="col-md-6">
@@ -204,6 +216,7 @@
                                       </div>
 
                                     </div>
+                                  {% if session['employee_id'] %}
                                     <div class="col-md-5">
                                       <ul class="data-list">
                                         <li class="top">skills match</li>
@@ -222,11 +235,16 @@
                                         </li>
                                       </ul>
                                     </div>
+                                  {% endif %}
                                   </div>
 
                               </div>
                           </div>
+                          {% if session['skill_matcher'] =='set' %}
                             <button type="submit" class="btn btn-primary" style="background-color: #0cebeb; font-size: 25px; border: none;"><b>View Job Description</b></button>
+                          {% elif not session['skill_matcher'] =='set' and session['employee_id'] %}
+                          <button class="btn btn-alert" style="background-color: #0cebeb; font-size: 15px; border: none;" disabled><b>Click on  View Skill Matches for Job Description</b></button>
+                          {% endif %}
                         </div>
                       </div>
                       <div class="col-md-1">

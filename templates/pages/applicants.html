@@ -68,8 +68,10 @@
                        </div>
                      </div>
                   </div>
+
                 {% for score in scores %}
                   {% if score['job_company'] == session['employer_company'] %}
+                <form action="{{ url_for('payments')}}" method='POST'>
                   <div class="job-content">
                     <div class="row">
                       <div class="col-md-11">
@@ -82,7 +84,9 @@
                                     </div>
 
                                     <div class="col-md-8" style=" padding-top: 50px; padding-left: 50px;">
+                                      <input type="hidden" name="applicant_id" value="{{ score['applicant_id'] }}">
                                       <h2 class="aname"><b>{{ score['applicant_id'] }}</b></h2>
+                                      <input type="hidden" name="job_id" value="{{ score['job_id'] }}">
                                       <h2 class="aname"><b>{{ score['job_id'] }}</b></h2>
 
                                     </div>
@@ -98,6 +102,7 @@
                                     <div class="col-md-5" style="text-align: center;">
                                       <ul class="data-list">
                                         <li class="top">Test Score</li>
+
                                         <li class="skills" style="margin-left: 0px;">
                                           <div class="c100 p85">
                                               <span>{{ score['score'] }}%</span>
@@ -106,7 +111,7 @@
                                                   <div class="fill"></div>
                                               </div>
                                           </div>
-                                        </li>
+
                                       </ul>
                                     </div>
                                     <div class="col-md-1">
@@ -139,6 +144,7 @@
                       </div>
                     </div>
                   </div>
+                </form>
                   {% endif %}
                 {% endfor %}
                 </div>

@@ -225,6 +225,7 @@ def skill_matcher_job_vacancies():
         file = open('perc.txt','w')
         file.write(str(perc[job.description]))
         file.close()
+    session['skill_matcher'] = 'set'
     return render_template('pages/job_vacancies.html',jobs=vacancies,perc=perc)
 
 
@@ -317,8 +318,8 @@ def test_portal(job_id,employee_id):
 ##############
 # payment routes
 
-@app.route('/payments',methods=['POST','GET'])
-def payments():
+@app.route('/payments/<job_id>/<employer_id>',methods=['POST','GET'])
+def payments(job_id,employer_id):
     return render_template('pages/payment_page.html', key=stripe_keys['publishable_key'])
 
 @app.route('/charge', methods=['POST'])
