@@ -318,8 +318,8 @@ def test_portal(job_id,employee_id):
 ##############
 # payment routes
 
-@app.route('/payments/<job_id>/<employer_id>',methods=['POST','GET'])
-def payments(job_id,employer_id):
+@app.route('/payments',methods=['POST','GET'])
+def payments():
     return render_template('pages/payment_page.html', key=stripe_keys['publishable_key'])
 
 @app.route('/charge', methods=['POST'])
