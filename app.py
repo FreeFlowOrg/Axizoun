@@ -21,7 +21,6 @@ import csv
 import stripe
 
 from textanalyser.textanalyser import find
-from photoanalysistool0.sliding_window_approach import info
 
 
 #----------------------------------------------------------------------------#
@@ -39,8 +38,8 @@ app.config['UPLOADED_FILES_ALLOW']=['doc','docx','pdf','jpg','png']
 configure_uploads(app,files)
 
 stripe_keys = {
-  'secret_key': os.environ.get('SECRET_KEY'),
-  'publishable_key':os.environ.get('PUBLISHABLE_KEY')
+  'secret_key': 'sk_test_zgizVSrtc7DyWDMFPCACErVa',
+  'publishable_key':'pk_test_GzzeUfMBivRmjuVICl5rpAJZ'
 }
 
 stripe.api_key = stripe_keys['secret_key']
@@ -279,7 +278,7 @@ def photo_analysis(job_id,employee_id):
 
 
     applicant = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first()
-    score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score,percentage_match=session['percentage_match'],job_company=session['job_company'])
+    score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score,percentage_match=int(session['percentage_match']),job_company=session['job_company'])
     score.save()
 
     flash('Your solution has been successfully submitted. The results will be corressponded to you via mail.')
@@ -322,10 +321,10 @@ def test_portal(job_id,employee_id):
 def payments():
     return render_template('pages/payment_page.html', key=stripe_keys['publishable_key'])
 
-@app.route('/charge', methods=['POST'])
+@app.route('/charge', methods=['GET','POST'])
 def charge():
     # Amount in cents
-    amount = 75000
+    amount = 7500
 
     customer = stripe.Customer.create(
         email='customer@example.com',

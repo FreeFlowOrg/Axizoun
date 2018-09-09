@@ -85,198 +85,325 @@
                </span>
             </div>
          </nav>
-      {% if profile_submitted =='unset' %}
+         {% if profile_submitted =='unset' %}
 
-         <div class="row">
-           <div class="alert">
-              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-              <b><h2> Please Upload your resume to apply for Jobs.</h2></b>
-          </div>
-           <div class="form-content">
-              <div class="container">
-                 <form id="employee-form" action="{{ url_for('resume_uploader') }}" method='POST' enctype="multipart/form-data">
-                    <div class="row">
-                       <div class="col-md-12">
-                          <div class="form-group">
-                              <input type="file" name="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                              <div class="col-md-6">
-                                 <!-- <button type="submit" class="btn btn-primary mybutt">SIGN UP</button> -->
-                                 <button type="submit" class="btn btn-primary mybutt">Upload</a>
+             <div class="row">
+               <div class="alert">
+                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                  <b><h2> Please Upload your resume to apply for Jobs.</h2></b>
+              </div>
+               <div class="form-content">
+                  <div class="container">
+                     <form id="employee-form" action="{{ url_for('resume_uploader') }}" method='POST' enctype="multipart/form-data">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                  <input type="file" name="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                  <div class="col-md-6">
+                                     <!-- <button type="submit" class="btn btn-primary mybutt">SIGN UP</button> -->
+                                     <button type="submit" class="btn btn-primary mybutt">Upload</a>
+                                  </div>
                               </div>
-                          </div>
-                       </div>
-                    </div>
-              </form>
+                           </div>
+                        </div>
+                  </form>
+                </div>
             </div>
-        </div>
-        {% endif%}
 
-        {% if not employee.resume %}
-           <h3>Here's a sample resume!</h3>
-            <div class="col-md-12">
-              <div class="job-box">
-                 <div class="signup-label">
-                    <div class="row">
-                      <div class="col-md-10">
-                        <h1 class="job-header-text">Profile</h1>
-                      </div>
-                      <div class="col-md-2">
-                          <a href="#" id="setta"><i class="fas fa-cog" id="settings"></i></a>
-                      </div>
-                    </div>
-                 </div>
-                 <div class="job-content">
-                   <div class="row" style="height: 270px;">
-                     <div class="col-md-6">
-                       <div class="company-pic">
-                         <img src="/static/img/imgs/profile.jpg" class="company-image">
-                       </div>
+               <h3>Here's a sample resume!</h3>
+                <div class="col-md-12">
+                  <div class="job-box">
+                     <div class="signup-label">
+                        <div class="row">
+                          <div class="col-md-10">
+                            <h1 class="job-header-text">Profile</h1>
+                          </div>
+                          <div class="col-md-2">
+                              <a href="#" id="setta"><i class="fas fa-cog" id="settings"></i></a>
+                          </div>
+                        </div>
                      </div>
-                     <div class="col-md-6">
-                       <div class="employee-data">
-                         <h1 class="emp-name">Steve Jobs</h1>
-                         <h3 class="emp-email">stevejobs@gmail.com</h3>
-                         <h3 class="emp-number">+91-9920024928</h3>
-                         <h3 class="emp-addr">Hyderabad, Telengana</h3>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-
-                 <div class="job-content" style="height: auto;">
-                   <div class="row" style="height: auto;">
-                     <div class="col-md-12">
-                       <div class="education">
-                         <h1><div class="tick"></div><span class="edu">education</span></h1>
-                         <br>
-                         <ul class="edus">
-                           <li class="edu-type-tit">Bachelor of Engineering (B.E)</li>
-                           <li class="edu-type">Computer Science (2016-2020)</li>
-                           <li class="edu-type">IIIT Allahabad</li>
-                           <li class="edu-type">CGPA:&nbsp;8.88/10.0</li>
-                         </ul>
-                         <ul class="edus">
-                           <li class="edu-type-tit">XII (Senior Secondary)</li>
-                           <li class="edu-type">Year of Completion - 2016</li>
-                           <li class="edu-type">Thakur Vidya Mandir</li>
-                           <li class="edu-type">Percentage:&nbsp;90%</li>
-                         </ul>
-                         <ul class="edus">
-                           <li class="edu-type-tit">X (Secondary)</li>
-                           <li class="edu-type">Year of Completion - 2014</li>
-                           <li class="edu-type">Ajmera Global School</li>
-                           <li class="edu-type">Percentage:&nbsp;90.25%</li>
-                         </ul>
-                       </div>
-                       <br>
-                     </div>
-                   </div>
-                 </div>
-
-                 <div class="job-content" style="height: auto;">
-                   <div class="row" style="height: auto;">
-                     <div class="col-md-12">
-                       <div class="education">
-                         <h1><div class="tick"></div><span class="edu">Jobs</span></h1>
-                         <br>
-                         <ul class="edus">
-                           <li class="edu-type-tit">Bachelor of Engineering (B.E)</li>
-                           <li class="edu-type">Computer Science (2016-2020)</li>
-                           <li class="edu-type">IIIT Allahabad</li>
-                           <li class="edu-type">CGPA:&nbsp;8.88/10.0</li>
-                         </ul>
-                         <ul class="edus">
-                           <li class="edu-type-tit">XII (Senior Secondary)</li>
-                           <li class="edu-type">Year of Completion - 2016</li>
-                           <li class="edu-type">Thakur Vidya Mandir</li>
-                           <li class="edu-type">Percentage:&nbsp;90%</li>
-                         </ul>
-                         <ul class="edus">
-                           <li class="edu-type-tit">X (Secondary)</li>
-                           <li class="edu-type">Year of Completion - 2014</li>
-                           <li class="edu-type">Ajmera Global School</li>
-                           <li class="edu-type">Percentage:&nbsp;90.25%</li>
-                         </ul>
-                       </div>
-                       <br>
-                     </div>
-                   </div>
-                 </div>
-
-                 <div class="job-content" style="height: auto;">
-                   <div class="row" style="height: auto;">
-                     <div class="col-md-12">
-                       <div class="education">
-                         <h1><div class="tick"></div><span class="edu">skills</span></h1>
-                         <br>
-                         <div class="container" style="margin-top: 3.5%;">
-                           <div class="row" class="skill-section">
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
+                     <div class="job-content">
+                       <div class="row" style="height: 270px;">
+                         <div class="col-md-6">
+                           <div class="company-pic">
+                             <img src="/static/img/imgs/profile.jpg" class="company-image">
                            </div>
                          </div>
-                         <div class="container" style="margin-top: 3.5%;">
-                           <div class="row" class="skill-section">
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
-                           </div>
-                         </div>
-                         <div class="container" style="margin-top: 3.5%;">
-                           <div class="row" class="skill-section">
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
-                             <div class="col-md-4">
-                               <h1 class="skill-name">Adobe Photoshop</h1>
-                               <h4 class="skill-level">Advanced</h4>
-                             </div>
+                         <div class="col-md-6">
+                           <div class="employee-data">
+                             <h1 class="emp-name">Steve Jobs</h1>
+                             <h3 class="emp-email">stevejobs@gmail.com</h3>
+                             <h3 class="emp-number">+91-9920024928</h3>
+                             <h3 class="emp-addr">Hyderabad, Telengana</h3>
                            </div>
                          </div>
                        </div>
-                       <br>
                      </div>
+
+                     <div class="job-content" style="height: auto;">
+                       <div class="row" style="height: auto;">
+                         <div class="col-md-12">
+                           <div class="education">
+                             <h1><div class="tick"></div><span class="edu">education</span></h1>
+                             <br>
+                             <ul class="edus">
+                               <li class="edu-type-tit">Bachelor of Engineering (B.E)</li>
+                               <li class="edu-type">Computer Science (2016-2020)</li>
+                               <li class="edu-type">IIIT Allahabad</li>
+                               <li class="edu-type">CGPA:&nbsp;8.88/10.0</li>
+                             </ul>
+                           </div>
+                           <br>
+                         </div>
+                       </div>
+                     </div>
+
+                     <div class="job-content" style="height: auto;">
+                       <div class="row" style="height: auto;">
+                         <div class="col-md-12">
+                           <div class="education">
+                             <h1><div class="tick"></div><span class="edu">Jobs</span></h1>
+                             <br>
+                             <ul class="edus">
+                               <li class="edu-type-tit">Bachelor of Engineering (B.E)</li>
+                               <li class="edu-type">Computer Science (2016-2020)</li>
+                               <li class="edu-type">IIIT Allahabad</li>
+                               <li class="edu-type">CGPA:&nbsp;8.88/10.0</li>
+                             </ul>
+                           </div>
+                           <br>
+                         </div>
+
+                       </div>
+
+
+                     </div>
+
+                     <div class="job-content" style="height: auto;">
+                       <div class="row" style="height: auto;">
+                         <div class="col-md-12">
+                           <div class="education">
+                             <h1><div class="tick"></div><span class="edu">skills</span></h1>
+                             <br>
+                             <div class="container" style="margin-top: 3.5%;">
+                               <div class="row" class="skill-section">
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                               </div>
+                             </div>
+                             <div class="container" style="margin-top: 3.5%;">
+                               <div class="row" class="skill-section">
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                               </div>
+                             </div>
+                             <div class="container" style="margin-top: 3.5%;">
+                               <div class="row" class="skill-section">
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                                 <div class="col-md-4">
+                                   <h1 class="skill-name">Adobe Photoshop</h1>
+                                   <h4 class="skill-level">Advanced</h4>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                           <br>
+                         </div>
+                       </div>
+                     </div>
+
+
+
                    </div>
                  </div>
-
-
-
-               </div>
              </div>
-         </div>
 
-      {% else %}
-          <div class="row">
-            <object width="100%" height="100%" data="static/resumes/{{ resume }}">
+          {% else %}
+              <div class="row">
+                 <div class="col-md-12">
+                   <div class="job-box">
+                      <div class="signup-label">
+                         <div class="row">
+                           <div class="col-md-10">
+                             <h1 class="job-header-text">Profile</h1>
+                           </div>
+                           <div class="col-md-2">
+                               <a href="#" id="setta"><i class="fas fa-cog" id="settings"></i></a>
+                           </div>
+                         </div>
+                      </div>
+                      <div class="job-content">
+                        <div class="row" style="height: 270px;">
+                          <div class="col-md-6">
+                            <div class="company-pic">
+                              <img src="/static/img/imgs/profile.jpg" class="company-image">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="employee-data">
+                              <h1 class="emp-name">Steve Jobs</h1>
+                              <h3 class="emp-email">stevejobs@gmail.com</h3>
+                              <h3 class="emp-number">+91-9920024928</h3>
+                              <h3 class="emp-addr">Hyderabad, Telengana</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-            </object>
-          </div>
+                      <div class="job-content" style="height: auto;">
+                        <div class="row" style="height: auto;">
+                          <div class="col-md-12">
+                            <div class="education">
+                              <h1><div class="tick"></div><span class="edu">education</span></h1>
+                              <br>
+                              <ul class="edus">
+                                <li class="edu-type-tit">Bachelor of Engineering (B.E)</li>
+                                <li class="edu-type">Computer Science (2016-2020)</li>
+                                <li class="edu-type">IIIT Allahabad</li>
+                                <li class="edu-type">CGPA:&nbsp;8.88/10.0</li>
+                              </ul>
+                              <ul class="edus">
+                                <li class="edu-type-tit">XII (Senior Secondary)</li>
+                                <li class="edu-type">Year of Completion - 2016</li>
+                                <li class="edu-type">Thakur Vidya Mandir</li>
+                                <li class="edu-type">Percentage:&nbsp;90%</li>
+                              </ul>
+                              <ul class="edus">
+                                <li class="edu-type-tit">X (Secondary)</li>
+                                <li class="edu-type">Year of Completion - 2014</li>
+                                <li class="edu-type">Ajmera Global School</li>
+                                <li class="edu-type">Percentage:&nbsp;90.25%</li>
+                              </ul>
+                            </div>
+                            <br>
+                          </div>
+                        </div>
+                      </div>
 
-      {% endif %}
+                      <div class="job-content" style="height: auto;">
+                        <div class="row" style="height: auto;">
+                          <div class="col-md-12">
+                            <div class="education">
+                              <h1><div class="tick"></div><span class="edu">Jobs</span></h1>
+                              <br>
+                              <ul class="edus">
+                                <li class="edu-type-tit">Bachelor of Engineering (B.E)</li>
+                                <li class="edu-type">Computer Science (2016-2020)</li>
+                                <li class="edu-type">IIIT Allahabad</li>
+                                <li class="edu-type">CGPA:&nbsp;8.88/10.0</li>
+                              </ul>
+                              <ul class="edus">
+                                <li class="edu-type-tit">XII (Senior Secondary)</li>
+                                <li class="edu-type">Year of Completion - 2016</li>
+                                <li class="edu-type">Thakur Vidya Mandir</li>
+                                <li class="edu-type">Percentage:&nbsp;90%</li>
+                              </ul>
+                              <ul class="edus">
+                                <li class="edu-type-tit">X (Secondary)</li>
+                                <li class="edu-type">Year of Completion - 2014</li>
+                                <li class="edu-type">Ajmera Global School</li>
+                                <li class="edu-type">Percentage:&nbsp;90.25%</li>
+                              </ul>
+                            </div>
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="job-content" style="height: auto;">
+                        <div class="row" style="height: auto;">
+                          <div class="col-md-12">
+                            <div class="education">
+                              <h1><div class="tick"></div><span class="edu">skills</span></h1>
+                              <br>
+                              <div class="container" style="margin-top: 3.5%;">
+                                <div class="row" class="skill-section">
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="container" style="margin-top: 3.5%;">
+                                <div class="row" class="skill-section">
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="container" style="margin-top: 3.5%;">
+                                <div class="row" class="skill-section">
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <h1 class="skill-name">Adobe Photoshop</h1>
+                                    <h4 class="skill-level">Advanced</h4>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+              </div>
+          {% endif %}
 
        </div>
    </body>
