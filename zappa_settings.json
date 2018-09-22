@@ -5,7 +5,6 @@
         "profile_name": "default",
         "project_name": "axizoun",
         "runtime": "python3.6",
-        "s3_bucket": "zappa-r75xih5ak",
-	"slim_handler":true
+        "s3_bucket": "zappa-jglczem4c"
     }
 }
