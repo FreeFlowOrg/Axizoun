@@ -1,2 +1,2 @@
-web: gunicorn app:app
-gzip:true
+web: gunicorn gettingstarted.wsgi
+

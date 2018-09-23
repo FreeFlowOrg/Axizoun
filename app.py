@@ -215,6 +215,8 @@ def skill_matcher_job_vacancies():
         file = open('job_desc.txt','w') #open a job_desc.txt
         file.write(job.description) #write job description to it
         file.close()# close the file
+        if os.path.exists('static/CV'):
+            os.rmdir('static/CV')
         os.mkdir('static/CV')# make a directory
         copyfile(os.path.join('static/resumes/',session['employee_resume']),os.path.join('static/CV/',session['employee_resume']))# copied file contents
         perc[job.description] = int((find('job_desc.txt','static/CV','textanalyser/model')[0][0])*100)
