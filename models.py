@@ -15,6 +15,19 @@ class Employee(db.Document):
     last_name = db.StringField()
     resume = db.StringField()
     jobs_applied = db.ListField(db.IntField())
+    degree = db.StringField()
+    study_area = db.StringField()
+    institution = db..StringField()
+    skill1 = db.StringField()
+    skill2 = db.StringField()
+    skill3 = db.StringField()
+    skill4 = db.StringField()
+    skill5 = db.StringField()
+    skill6 = db.StringField()
+    skill7 = db.StringField()
+    skill8 = db.StringField()
+    skill9 = db.StringField()
+    
 
 class Employer(db.Document):
     email = db.StringField()

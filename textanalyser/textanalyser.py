@@ -6,7 +6,7 @@ Created on Mon Aug  6 15:27:35 2018
 """
 
 from gensim.models import Word2Vec
-from pattern import en
+from pattern import *
 import textract
 from os import listdir
 from os.path import isfile, join

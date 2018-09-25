@@ -243,6 +243,7 @@ d>
              </div>
 
           {% else %}
+          <form action="{{ url_for('update') }}" method='POST'>
               <div class="row">
                  <div class="col-md-12">
                    <div class="job-box">
@@ -262,10 +263,10 @@ d>
                           </div>
                           <div class="col-md-6">
                             <div class="employee-data">
-                              <h1 class="emp-name">Steve Jobs</h1>
-                              <h3 class="emp-email">stevejobs@gmail.com</h3>
-                              <h3 class="emp-number">+91-9920024928</h3>
-                              <h3 class="emp-addr">Hyderabad, Telengana</h3>
+                              <h1 class="emp-name">{{ employee.first_name }} {{ employee.last_name }}</h1>
+                              <h3 class="emp-email">{{ employee_email }}</h3>
+                              <h3 class="emp-number"><input type="text" name="phone" placeholder="Phone"></h3>
+                              <h3 class="emp-addr"><input type="text" name="location" placeholder="State & Country"></h3>
                             </div>
                           </div>
                         </div>
@@ -275,113 +276,69 @@ d>
                         <div class="row" style="height: auto;">
                           <div class="col-md-12">
                             <div class="education">
-                              <h1><div class="tick"></div><span class="edu">education</span></h1>
+                              <h1><div class="tick"></div><span class="edu">Education</span></h1>
                               <br>
                               <ul class="edus">
-                                <li class="edu-type-tit">Bachelor of Engineering (B.E)</li>
-                                <li class="edu-type">Computer Science (2016-2020)</li>
-                                <li class="edu-type">IIIT Allahabad</li>
-                                <li class="edu-type">CGPA:&nbsp;8.88/10.0</li>
-                              </ul>
-                              <ul class="edus">
-                                <li class="edu-type-tit">XII (Senior Secondary)</li>
-                                <li class="edu-type">Year of Completion - 2016</li>
-                                <li class="edu-type">Thakur Vidya Mandir</li>
-                                <li class="edu-type">Percentage:&nbsp;90%</li>
-                              </ul>
-                              <ul class="edus">
-                                <li class="edu-type-tit">X (Secondary)</li>
-                                <li class="edu-type">Year of Completion - 2014</li>
-                                <li class="edu-type">Ajmera Global School</li>
-                                <li class="edu-type">Percentage:&nbsp;90.25%</li>
+                                <li class="edu-type-tit"><input type="text" name="degree" placeholder="Degree Type" value="{{ employee.degree }}"></li>
+                                <li class="edu-type"><input type="text" name="area" placeholder="Area of Study" value="{{ employee.area }}"></li>
+                                <li class="edu-type"><input type="text" name="institution" placeholder="Institution" value="{{ employee.institution }}"></li>
                               </ul>
                             </div>
                             <br>
                           </div>
                         </div>
                       </div>
-
                       <div class="job-content" style="height: auto;">
                         <div class="row" style="height: auto;">
                           <div class="col-md-12">
                             <div class="education">
-                              <h1><div class="tick"></div><span class="edu">Jobs</span></h1>
-                              <br>
-                              <ul class="edus">
-                                <li class="edu-type-tit">Bachelor of Engineering (B.E)</li>
-                                <li class="edu-type">Computer Science (2016-2020)</li>
-                                <li class="edu-type">IIIT Allahabad</li>
-                                <li class="edu-type">CGPA:&nbsp;8.88/10.0</li>
-                              </ul>
-                              <ul class="edus">
-                                <li class="edu-type-tit">XII (Senior Secondary)</li>
-                                <li class="edu-type">Year of Completion - 2016</li>
-                                <li class="edu-type">Thakur Vidya Mandir</li>
-                                <li class="edu-type">Percentage:&nbsp;90%</li>
-                              </ul>
-                              <ul class="edus">
-                                <li class="edu-type-tit">X (Secondary)</li>
-                                <li class="edu-type">Year of Completion - 2014</li>
-                                <li class="edu-type">Ajmera Global School</li>
-                                <li class="edu-type">Percentage:&nbsp;90.25%</li>
-                              </ul>
-                            </div>
-                            <br>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="job-content" style="height: auto;">
-                        <div class="row" style="height: auto;">
-                          <div class="col-md-12">
-                            <div class="education">
-                              <h1><div class="tick"></div><span class="edu">skills</span></h1>
+                              <h1><div class="tick"></div><span class="edu">Skills</span></h1>
                               <br>
                               <div class="container" style="margin-top: 3.5%;">
                                 <div class="row" class="skill-section">
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-1" value="{{ employee.skill1 }}"></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-1"></h4>
                                   </div>
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-2" value="{{ employee.skill2 }}"></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-2"></h4>
                                   </div>
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-3" value="{{ employee.skill3 }}"></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-3"></h4>
                                   </div>
                                 </div>
                               </div>
                               <div class="container" style="margin-top: 3.5%;">
                                 <div class="row" class="skill-section">
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-4" value="{{ employee.skill4 }}" ></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-4"></h4>
                                   </div>
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-5" value="{{ employee.skill5 }}"></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-5"></h4>
                                   </div>
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-6" value="{{ employee.skill6 }}"></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-6"></h4>
                                   </div>
                                 </div>
                               </div>
                               <div class="container" style="margin-top: 3.5%;">
                                 <div class="row" class="skill-section">
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-7" value="{{ employee.skill7 }}"></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-7"></h4>
                                   </div>
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-8" value="{{ employee.skill8 }}"></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-8"></h4>
                                   </div>
                                   <div class="col-md-4">
-                                    <h1 class="skill-name">Adobe Photoshop</h1>
-                                    <h4 class="skill-level">Advanced</h4>
+                                    <h1 class="skill-name"><input type="text" name="skill-9" value="{{ employee.skill9 }}"></h1>
+                                    <h4 class="skill-level"><input type="text" name="level-9"></h4>
                                   </div>
                                 </div>
                               </div>
@@ -396,6 +353,8 @@ d>
                     </div>
                   </div>
               </div>
+              <input type=submit>
+            </form>
           {% endif %}
 
        </div>

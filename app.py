@@ -141,6 +141,24 @@ def login(type):
                 flash('Incorrect Credentials Entered')
                 return redirect(url_for('index'))
 
+@app.route('/update',methods=['POST','GET'])
+def update():
+    if request.method=='POST':
+        employee = Employee.query.filter(Employee.email == session['email']).first()
+        employee.degree = request.form['degree']
+        employee.area = request.form['area']
+        employee.institution = request.form['institution']
+        employee.skill1 = request.form['skill1']
+        employee.skill2 = request.form['skill2']
+        employee.skill3 = request.form['skill3']
+        employee.skill4 = request.form['skill4']
+        employee.skill5 = request.form['skill5']
+        employee.skill6 = request.form['skill6']
+        employee.skill7 = request.form['skill7']
+        employee.skill8 = request.form['skill8']
+        employee.skill9 = request.form['skill9']
+        employee.save()
+        return redirect(url_for('employee_dashboard'))
 ### employer routes
 
 @app.route('/employee_dashboard')
@@ -218,7 +236,7 @@ def skill_matcher_job_vacancies():
         if os.path.exists('static/CV'):
             os.rmdir('static/CV')
 	os.mkdir('static/CV')# make a directory
-        copyfile(os.path.join('static/resumes/',session['employee_resume']),os.path.join('static/CV/',session['employee_resume']))# copied file contents
+	copyfile(os.path.join('static/resumes/',session['employee_resume']),os.path.join('static/CV/',session['employee_resume']))# copied file contents
         perc[job.description] = int((find('job_desc.txt','static/CV','textanalyser/model')[0][0])*100)
         os.remove(os.path.join('static/CV/',session['employee_resume']))
         os.rmdir('static/CV')
