@@ -141,6 +141,24 @@ def login(type):
                 flash('Incorrect Credentials Entered')
                 return redirect(url_for('index'))
 
+@app.route('/update',methods=['POST','GET'])
+def update():
+    if request.method=='POST':
+        employee = Employee.query.filter(Employee.email == session['email']).first()
+        employee.degree = request.form['degree']
+        employee.area = request.form['area']
+        employee.institution = request.form['institution']
+        employee.skill1 = request.form['skill1']
+        employee.skill2 = request.form['skill2']
+        employee.skill3 = request.form['skill3']
+        employee.skill4 = request.form['skill4']
+        employee.skill5 = request.form['skill5']
+        employee.skill6 = request.form['skill6']
+        employee.skill7 = request.form['skill7']
+        employee.skill8 = request.form['skill8']
+        employee.skill9 = request.form['skill9']
+        employee.save()
+        return redirect(url_for('employee_dashboard'))
 ### employer routes
 
 @app.route('/employee_dashboard')
