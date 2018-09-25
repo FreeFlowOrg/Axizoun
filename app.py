@@ -215,7 +215,9 @@ def skill_matcher_job_vacancies():
         file = open('job_desc.txt','w') #open a job_desc.txt
         file.write(job.description) #write job description to it
         file.close()# close the file
-        os.mkdir('static/CV')# make a directory
+        if os.path.exists('static/CV'):
+            os.rmdir('static/CV')
+	os.mkdir('static/CV')# make a directory
         copyfile(os.path.join('static/resumes/',session['employee_resume']),os.path.join('static/CV/',session['employee_resume']))# copied file contents
         perc[job.description] = int((find('job_desc.txt','static/CV','textanalyser/model')[0][0])*100)
         os.remove(os.path.join('static/CV/',session['employee_resume']))
@@ -362,8 +364,7 @@ if not app.debug:
 #----------------------------------------------------------------------------#
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True, port=80)
-
+    app.run()
 # Or specify port manually:
 '''
 if __name__ == '__main__':

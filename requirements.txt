@@ -1,3 +1,4 @@
+gunicorn
 aws==0.2.5
 bcrypt==3.1.4
 beautifulsoup4==4.5.3
