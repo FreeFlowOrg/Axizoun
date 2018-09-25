@@ -18,6 +18,8 @@ class Employee(db.Document):
     degree = db.StringField()
     area = db.StringField()
     institution = db.StringField()
+    phone = db.StringField()
+    db.location = db.StringField()
     skill1 = db.StringField()
     skill2 = db.StringField()
     skill3 = db.StringField()

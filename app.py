@@ -148,6 +148,8 @@ def update():
         employee.degree = request.form['degree']
         employee.area = request.form['area']
         employee.institution = request.form['institution']
+        employee.location = request.form['location']
+        employee.phone = request.form['phone']
         employee.skill1 = request.form['skill-1']
         employee.skill2 = request.form['skill-2']
         employee.skill3 = request.form['skill-3']
