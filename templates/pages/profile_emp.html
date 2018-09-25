@@ -265,8 +265,8 @@ d>
                             <div class="employee-data">
                               <h1 class="emp-name">{{ employee.first_name }} {{ employee.last_name }}</h1>
                               <h3 class="emp-email">{{ employee_email }}</h3>
-                              <h3 class="emp-number"><input type="text" name="phone" placeholder="Phone"></h3>
-                              <h3 class="emp-addr"><input type="text" name="location" placeholder="State & Country"></h3>
+                              <h3 class="emp-number"><input type="text" name="phone" placeholder="Phone" value="{{ employee.phone }}"></h3>
+                              <h3 class="emp-addr"><input type="text" name="location" placeholder="State & Country" value="{{ employee.location }}"></h3>
                             </div>
                           </div>
                         </div>
