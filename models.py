@@ -16,8 +16,8 @@ class Employee(db.Document):
     resume = db.StringField()
     jobs_applied = db.ListField(db.IntField())
     degree = db.StringField()
-    study_area = db.StringField()
-    institution = db..StringField()
+    area = db.StringField()
+    institution = db.StringField()
     skill1 = db.StringField()
     skill2 = db.StringField()
     skill3 = db.StringField()
@@ -27,7 +27,7 @@ class Employee(db.Document):
     skill7 = db.StringField()
     skill8 = db.StringField()
     skill9 = db.StringField()
-    
+
 
 class Employer(db.Document):
     email = db.StringField()
