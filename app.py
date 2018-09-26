@@ -269,8 +269,11 @@ def photo_analysis(job_id,employee_id):
     filename = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first().filename
     employer_solution = Job.query.filter(Job.mongo_id == job_id).first().solution
 
-
+    if os.path.exists('static/employee_solutions'):
+        os.rmdir('static/employee_solutions')
     os.mkdir('static/employee_solutions') # create a directory for temporary assessment of applicant solutions
+    if os.path.exists('static/employer_solutions'):
+        os.rmdir('static/employer_solutions')
     os.mkdir('static/employer_solutions') # create a directory for employer solution
 
     s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],filename), shell=True) # Run sliding window algorithm on applicant solution
