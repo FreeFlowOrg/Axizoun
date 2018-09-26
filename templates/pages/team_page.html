@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <title>Axizoun</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/styles.css') }}">
+      <link rel="stylesheet"href="{{ url_for('static', filename='css/css/circle.css') }}">
+
+      <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Source+Sans+Pro:300" rel="stylesheet">
+      <script src="{{ url_for('static', filename='js/js/index.js') }}"></script>
+      <script>
+        $('#employee-modal, #employer-modal').modal('handleUpdate');
+
+      </script>
+   </head>
+
+   <body>
+      <div class="container-fluid" id="main" style="width: 95%;">
+         <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#" id="nameplate">
+               <div id="nameplate_box"> AXIZOUN </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+               <ul class="navbar-nav mr-auto">
+                  <!-- <li class="nav-item active">
+                     <a class="nav-link" href="#">AXIZOUN</a>
+                     </li> -->
+                     <!-- flash -->
+                  <div class="container-fluid" style="min-height:100%">
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                          {{ message }}
+                        </div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+                  </div>
+                  <!--//flash-->
+               </ul>
+               <span class="navbar-text">
+                  <ul class="navbar-nav mr-auto">
+                    {% if not session['employee_id'] %}
+                     <li class="nav-item">
+                        <a class="nav-link nav-elements" href="{{ url_for('index') }}" style="font-weight: 300; color: black; margin-right: 2em;">Back to Signup/Login</a>
+                     </li>
+                    {% endif %}
+                    {% if session['employee_id'] %}
+                    <li class="nav-item">
+                       <a class="nav-link nav-elements" href="{{ url_for('employee_dashboard') }}" style="font-weight: 300; color: black; margin-right: 2em;">Your Profile</a>
+                    </li>
+                    {% endif %}
+
+                     <li class="nav-item">
+                        <a class="nav-link nav-elements" href="#" style="font-weight: 300; color: black;">About</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link nav-elements" href="{{ url_for('logout') }}" style="font-weight: 300; color: black; margin-right: 2em;">Log Out</a>
+                     </li>
+                  </ul>
+               </span>
+            </div>
+         </nav>
+         {% if session['employee_id']  %}
+         <!-- Skill Matcher magic button -->
+               <form action="{{ url_for('skill_matcher_job_vacancies') }}" method="POST">
+                 <button id="magicbutton" type="submit"  class="btn btn-primary mybutt">View Skill Matches</button>
+               </form>
+        {% endif %}
+
+         <!--  //Skill Matcher magic button -->
+         <!-- Modals -->
+             <div class="modal fade"  id="settings_job_vac" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+       <div class="modal-dialog modal-dialog-centered" role="document">
+         <div class="modal-content"  id="modall">
+           <div class="modal-header">
+             <h5 class="modal-title" id="setting-title">Settings</h5>
+             <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button> -->
+           </div>
+           <div class="modal-body">
+             <div class="option-selector-settings">
+                <div class="row">
+                   <div class="col-lg-6 col-md-6 left-option-sort">
+                      <h3 style="font-size: 25px;" id="sort">Sort</h3>
+                   </div>
+                   <div class="col-lg-6 col-md-6 right-option-filter">
+                      <h3 style="font-size: 25px;" id="filter">Filter</h3>
+                   </div>
+                </div>
+             </div>
+             <div class="sort-list" id="sort-list">
+               <form>
+                 <ul class="sort-type">
+                   <li class="sort-type-list">By Name</li>
+                   <li class="sort-type-list">By Stipend</li>
+                   <li class="sort-type-list">By Skill Match</li>
+                   <li class="sort-type-list">By Stipend</li>
+                   <li class="sort-type-list">By Skill Match</li>
+                   <li class="sort-type-list">By Stipend</li>
+                   <li class="sort-type-list">By Skill Match</li>
+                 </ul>
+               </form>
+             </div>
+             <div class="filter-list" id="filter-list">
+               <form>
+                 <ul class="sort-type">
+                   <li class="sort-type-list">By Name</li>
+                   <li class="sort-type-list">By Date</li>
+                   <li class="sort-type-list">By Skill Match</li>
+                   <li class="sort-type-list">By Stipend</li>
+                   <li class="sort-type-list">By Skill Match</li>
+                   <li class="sort-type-list">By Stipend</li>
+                   <li class="sort-type-list">By Skill Match</li>
+                 </ul>
+               </form>
+             </div>
+           </div>
+           <div class="modal-footer">
+             <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+             <button type="submit" class="btn btn-primary" id="ok-btn">OK</button>
+           </div>
+         </div>
+       </div>
+     </div>
+
+         <!-- //Modals -->
+          <div class="row">
+             <div class="col-md-12">
+               <div class="job-box">
+                  <div class="signup-label">
+                     <div class="row">
+                       <div class="col-md-10">
+                         <h1 class="job-header-text">Job Vacancies</h1>
+                       </div>
+                       <div class="col-md-2">
+                       </div>
+                     </div>
+                  </div>
+  <!-- jobs -->
+
+                  <!-- start of job1 -->
+                  <div class="job-content">
+                    <div class="row">
+                      <div class="col-md-11">
+                        <div class="vac-content">
+
+                          Axizoun is an online recruiting platform that offers an innovative approach to recruiting. We minimize the traditional recruiting practices by using innovative testing approaches. Applicants are required to build their profile using a list of skill sets which are then matched with potential jobs that require these skillsets. This helps recruiters get a finer search result for whom they need to interview. The trump card is what follows next. Applicants can only apply for a position after they solve a business question that tests their skillsets that they need for the job. This has a two-fold effect.
+
+                          1   Recruiters are able to have a pre-screening process and thereby only invite a few skillful candidates for further screening.
+
+                          2.  There are no prejudices or biases from this initial screening process. This is because everyone across the board is compared based on the solution they offered and not based on what university they come from or who they know in that company.
+
+
+
+
+                          Employer:
+
+                          we provide a continuous stream of talent to employers in a completely unbiased and effective manner. We will ensure that the by reversing the funnel you will only interview those candidates that perfectly fit the job requirements and will succeed in that job position.
+
+
+
+                          Applicants:
+
+
+
+                          We at Axizoun offer you a platform to give you a chance to work for any company by competing with others on the same problem. While on the other hand the employee looking to hire you would completely base their judgment on your working abilities based on your solutions to the problem.
+
+                          We at Axizoun believe that it’s high time we stop listening to people saying, “it’s not about what you know, it’s about who you know”. Because at Axizoun we will provide you the opportunity to achieve your goals because you deserve it and not because someone is handing it to you.
+
+
+
+                          Join us to be a part of a change. Join us to be a part of the future. Join us to make a small move towards a big difference
+
+
+
+                          SAKETH MYLAVARAPU
+
+                          Founder, CEO - Axizoun
+
+
+                          Marvin P.Kolodzik Business Scholar '19
+
+                          UC Global Scholar| International Outreach Scholar
+
+                          Carl H.Lindner College of Business
+
+                          University of Cincinnati
+
+                          513-954-6899
+
+                          <a href>https://www.linkedin.com/in/sakethmylavarapu</a>
+
+
+                        </div>
+                      </div>
+                      <div class="col-md-1">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <!-- end of job1 -->
+          {% endfor %}
+
+
+
+                </div>
+              </div>
+          </div>
+       </div>
+   </body>
+</html>

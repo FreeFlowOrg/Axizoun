@@ -141,26 +141,7 @@ def login(type):
                 flash('Incorrect Credentials Entered')
                 return redirect(url_for('index'))
 
-@app.route('/update',methods=['POST','GET'])
-def update():
-    if request.method=='POST':
-        employee = Employee.query.filter(Employee.email == session['email']).first()
-        employee.degree = request.form['degree']
-        employee.area = request.form['area']
-        employee.institution = request.form['institution']
-        employee.location = request.form['location']
-        employee.phone = request.form['phone']
-        employee.skill1 = request.form['skill-1']
-        employee.skill2 = request.form['skill-2']
-        employee.skill3 = request.form['skill-3']
-        employee.skill4 = request.form['skill-4']
-        employee.skill5 = request.form['skill-5']
-        employee.skill6 = request.form['skill-6']
-        employee.skill7 = request.form['skill-7']
-        employee.skill8 = request.form['skill-8']
-        employee.skill9 = request.form['skill-9']
-        employee.save()
-        return redirect(url_for('employee_dashboard'))
+
 ### employer routes
 
 @app.route('/employee_dashboard')
@@ -194,6 +175,27 @@ def applicants():
 
 
 ### employee routes
+
+@app.route('/update',methods=['POST','GET'])
+def update():
+    if request.method=='POST':
+        employee = Employee.query.filter(Employee.email == session['email']).first()
+        employee.degree = request.form['degree']
+        employee.area = request.form['area']
+        employee.institution = request.form['institution']
+        employee.location = request.form['location']
+        employee.phone = request.form['phone']
+        employee.skill1 = request.form['skill-1']
+        employee.skill2 = request.form['skill-2']
+        employee.skill3 = request.form['skill-3']
+        employee.skill4 = request.form['skill-4']
+        employee.skill5 = request.form['skill-5']
+        employee.skill6 = request.form['skill-6']
+        employee.skill7 = request.form['skill-7']
+        employee.skill8 = request.form['skill-8']
+        employee.skill9 = request.form['skill-9']
+        employee.save()
+        return redirect(url_for('employee_dashboard'))
 
 @app.route('/post_jobs',methods=['POST','GET'])
 def post_jobs():
@@ -367,6 +369,9 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
+@app.route('/team_page')
+def team_page():
+    return render_template('pages/team_page.html')
 # Error handlers.
 
 if not app.debug:
