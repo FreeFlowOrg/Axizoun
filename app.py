@@ -307,6 +307,8 @@ def photo_analysis(job_id,employee_id):
     applicant = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first()
     score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score,percentage_match=int(session['percentage_match']),job_company=session['job_company'])
     score.save()
+    applicant.save()
+    
 
     flash('Your solution has been successfully submitted. The results will be corressponded to you via mail.')
 
