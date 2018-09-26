@@ -282,7 +282,7 @@ def photo_analysis(job_id,employee_id):
     os.remove('extracted_info.txt')
 
     s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],employer_solution), shell=True) # Run sliding window algorithm on employer solution
-    copyfile('extracted_info.txt','static/employer_solutions/employer_solution.txt') # copy into emploer sol dir
+    copyfile('extracted_info.txt','static/employer_solutions/employer_solution.txt') # copy into employer sol dir
     file2 = 'static/employer_solutions/employer_solution.txt' #plug the path into a python variable
 
     with open(file1, 'r') as myfile:
