@@ -211,7 +211,7 @@ def update():
         employee.skill9 = request.form['skill-9']
         employee.save()
         return redirect(url_for('employee_dashboard'))
-    return render_template('pages/profile_emp_edit.html',employee=employee,profile_submitted=session['profile_submitted'],resume=employee.resume)
+    return render_template('pages/profile_emp_edit.html',employee=employee = Employee.query.filter(Employee.email == session['email']).first(),profile_submitted=session['profile_submitted'],resume=employee.resume)
 
 @app.route('/post_jobs',methods=['POST','GET'])
 def post_jobs():
