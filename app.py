@@ -70,7 +70,22 @@ def register(type):
                     flash('Passwords mismatch. Please try again')
                     return redirect(url_for('register',type='employee'))
             hashed_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt(10)) # hashing the password with a salt
-            user_data = Employee(email = request.form['email'],password = hashed_password.decode('utf-8'),first_name = request.form['first_name'],last_name = request.form['last_name'],resume='',jobs_applied=[])# storing the hashed password in the collection
+            user_data = Employee(email = request.form['email'],password = hashed_password.decode('utf-8'),
+            first_name = request.form['first_name'],last_name = request.form['last_name'],
+            resume='',jobs_applied=[],degree = 'Complete Your Profile',
+            area = 'Complete Your Profile',
+            institution = 'Complete Your Profile',
+            phone = 'Complete Your Profile',
+            location ='Complete Your Profile',
+            skill1 = 'Add Skill',
+            skill2 = 'Add Skill',
+            skill3 = 'Add Skill',
+            skill4 = 'Add Skill',
+            skill5 = 'Add Skill',
+            skill6 = 'Add Skill',
+            skill7 = 'Add Skill',
+            skill8 = 'Add Skill',
+            skill9 = 'Add Skill')# storing the hashed password in the collection
             user_data.save()
             flash('Signup Success!') # flash messages
             return redirect(url_for('index'))
@@ -308,7 +323,11 @@ def photo_analysis(job_id,employee_id):
     score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score,percentage_match=int(session['percentage_match']),job_company=session['job_company'])
     score.save()
     applicant.save()
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> eaf83baf6b71dec03877c7476d6c71d1f8057be7
 
     flash('Your solution has been successfully submitted. The results will be corressponded to you via mail.')
 
