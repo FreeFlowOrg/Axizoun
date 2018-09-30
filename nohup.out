@@ -1,0 +1,125 @@
+[2018-09-26 20:04:03 +0000] [32571] [INFO] Starting gunicorn 19.9.0
+[2018-09-26 20:04:03 +0000] [32571] [INFO] Listening at: http://127.0.0.1:8000 (32571)
+[2018-09-26 20:04:03 +0000] [32571] [INFO] Using worker: sync
+[2018-09-26 20:04:03 +0000] [32575] [INFO] Booting worker with pid: 32575
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.23) or chardet (2.3.0) doesn't match a supported version!
+  RequestsDependencyWarning)
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/lil.py:19: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _csparsetools
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/__init__.py:165: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._shortest_path import shortest_path, floyd_warshall, dijkstra,\
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/_validation.py:5: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._tools import csgraph_to_dense, csgraph_from_dense,\
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/__init__.py:167: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._traversal import breadth_first_order, depth_first_order, \
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/__init__.py:169: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._min_spanning_tree import minimum_spanning_tree
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/__init__.py:170: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._reordering import reverse_cuthill_mckee, maximum_bipartite_matching, \
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/special/__init__.py:640: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._ufuncs import *
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/linalg/basic.py:17: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._solve_toeplitz import levinson
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/linalg/__init__.py:207: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._decomp_update import *
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/special/_ellip_harm.py:7: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._ellip_harm_2 import _ellipsoid, _ellipsoid_norm
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/interpolate/_bsplines.py:10: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _bspl
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/spatial/__init__.py:95: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from .ckdtree import *
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/spatial/__init__.py:96: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from .qhull import *
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/spatial/_spherical_voronoi.py:18: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _voronoi
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/spatial/distance.py:122: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _hausdorff
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/optimize/_trlib/__init__.py:1: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._trlib import TRLIBQuadraticSubproblem
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/optimize/_numdiff.py:10: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._group_columns import group_dense, group_sparse
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/stats/_continuous_distns.py:18: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _stats
+[2018-09-26 20:04:25 +0000] [32571] [INFO] Handling signal: hup
+[2018-09-26 20:04:25 +0000] [32571] [INFO] Hang up: Master
+[2018-09-26 20:04:25 +0000] [32578] [INFO] Booting worker with pid: 32578
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.23) or chardet (2.3.0) doesn't match a supported version!
+  RequestsDependencyWarning)
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/lil.py:19: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _csparsetools
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/__init__.py:165: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._shortest_path import shortest_path, floyd_warshall, dijkstra,\
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/_validation.py:5: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._tools import csgraph_to_dense, csgraph_from_dense,\
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/__init__.py:167: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._traversal import breadth_first_order, depth_first_order, \
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/__init__.py:169: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._min_spanning_tree import minimum_spanning_tree
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/sparse/csgraph/__init__.py:170: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._reordering import reverse_cuthill_mckee, maximum_bipartite_matching, \
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/special/__init__.py:640: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._ufuncs import *
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/linalg/basic.py:17: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._solve_toeplitz import levinson
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/linalg/__init__.py:207: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._decomp_update import *
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/special/_ellip_harm.py:7: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._ellip_harm_2 import _ellipsoid, _ellipsoid_norm
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/interpolate/_bsplines.py:10: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _bspl
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/spatial/__init__.py:95: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from .ckdtree import *
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/spatial/__init__.py:96: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from .qhull import *
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/spatial/_spherical_voronoi.py:18: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _voronoi
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/spatial/distance.py:122: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _hausdorff
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/optimize/_trlib/__init__.py:1: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._trlib import TRLIBQuadraticSubproblem
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/optimize/_numdiff.py:10: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from ._group_columns import group_dense, group_sparse
+/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/scipy/stats/_continuous_distns.py:18: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  from . import _stats
+[2018-09-26 20:20:35 +0000] [32571] [INFO] Handling signal: term
+[2018-09-26 20:20:35 +0000] [32578] [INFO] Worker exiting (pid: 32578)
+[2018-09-26 20:20:35 +0000] [32571] [INFO] Shutting down: Master
+[2018-09-27 04:09:06 +0000] [1199] [INFO] Starting gunicorn 19.9.0
+[2018-09-27 04:09:06 +0000] [1199] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-09-27 04:09:06 +0000] [1199] [ERROR] Retrying in 1 second.
+[2018-09-27 04:09:07 +0000] [1199] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-09-27 04:09:07 +0000] [1199] [ERROR] Retrying in 1 second.
+[2018-09-27 04:09:08 +0000] [1199] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-09-27 04:09:08 +0000] [1199] [ERROR] Retrying in 1 second.
+[2018-09-27 04:09:09 +0000] [1199] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-09-27 04:09:09 +0000] [1199] [ERROR] Retrying in 1 second.
+[2018-09-27 04:09:10 +0000] [1199] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-09-27 04:09:10 +0000] [1199] [ERROR] Retrying in 1 second.
+[2018-09-27 04:09:11 +0000] [1199] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-09-30 12:53:29 +0000] [7684] [INFO] Starting gunicorn 19.9.0
+[2018-09-30 12:53:29 +0000] [7684] [INFO] Listening at: http://127.0.0.1:8000 (7684)
+[2018-09-30 12:53:29 +0000] [7684] [INFO] Using worker: sync
+[2018-09-30 12:53:29 +0000] [7688] [INFO] Booting worker with pid: 7688
+[2018-09-30 12:53:29 +0000] [7688] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/axizoun/venv/local/lib/python2.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/ubuntu/axizoun/app.py", line 326
+    <<<<<<< HEAD
+     ^
+SyntaxError: invalid syntax
+[2018-09-30 12:53:29 +0000] [7688] [INFO] Worker exiting (pid: 7688)
+[2018-09-30 12:53:29 +0000] [7684] [INFO] Shutting down: Master
+[2018-09-30 12:53:29 +0000] [7684] [INFO] Reason: Worker failed to boot.
