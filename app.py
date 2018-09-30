@@ -70,7 +70,22 @@ def register(type):
                     flash('Passwords mismatch. Please try again')
                     return redirect(url_for('register',type='employee'))
             hashed_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt(10)) # hashing the password with a salt
-            user_data = Employee(email = request.form['email'],password = hashed_password.decode('utf-8'),first_name = request.form['first_name'],last_name = request.form['last_name'],resume='',jobs_applied=[])# storing the hashed password in the collection
+            user_data = Employee(email = request.form['email'],password = hashed_password.decode('utf-8'),
+            first_name = request.form['first_name'],last_name = request.form['last_name'],
+            resume='',jobs_applied=[],degree = 'Complete Your Profile',
+            area = 'Complete Your Profile',
+            institution = 'Complete Your Profile',
+            phone = 'Complete Your Profile',
+            location ='Complete Your Profile',
+            skill1 = 'Add Skill',
+            skill2 = 'Add Skill',
+            skill3 = 'Add Skill',
+            skill4 = 'Add Skill',
+            skill5 = 'Add Skill',
+            skill6 = 'Add Skill',
+            skill7 = 'Add Skill',
+            skill8 = 'Add Skill',
+            skill9 = 'Add Skill')# storing the hashed password in the collection
             user_data.save()
             flash('Signup Success!') # flash messages
             return redirect(url_for('index'))
@@ -141,6 +156,7 @@ def login(type):
                 flash('Incorrect Credentials Entered')
                 return redirect(url_for('index'))
 
+
 ### employer routes
 
 @app.route('/employee_dashboard')
@@ -174,6 +190,27 @@ def applicants():
 
 
 ### employee routes
+
+@app.route('/update',methods=['POST','GET'])
+def update():
+    if request.method=='POST':
+        employee = Employee.query.filter(Employee.email == session['email']).first()
+        employee.degree = request.form['degree']
+        employee.area = request.form['area']
+        employee.institution = request.form['institution']
+        employee.location = request.form['location']
+        employee.phone = request.form['phone']
+        employee.skill1 = request.form['skill-1']
+        employee.skill2 = request.form['skill-2']
+        employee.skill3 = request.form['skill-3']
+        employee.skill4 = request.form['skill-4']
+        employee.skill5 = request.form['skill-5']
+        employee.skill6 = request.form['skill-6']
+        employee.skill7 = request.form['skill-7']
+        employee.skill8 = request.form['skill-8']
+        employee.skill9 = request.form['skill-9']
+        employee.save()
+        return redirect(url_for('employee_dashboard'))
 
 @app.route('/post_jobs',methods=['POST','GET'])
 def post_jobs():
@@ -217,8 +254,8 @@ def skill_matcher_job_vacancies():
         file.close()# close the file
         if os.path.exists('static/CV'):
             os.rmdir('static/CV')
-        os.mkdir('static/CV')# make a directory
-        copyfile(os.path.join('static/resumes/',session['employee_resume']),os.path.join('static/CV/',session['employee_resume']))# copied file contents
+	os.mkdir('static/CV')# make a directory
+	copyfile(os.path.join('static/resumes/',session['employee_resume']),os.path.join('static/CV/',session['employee_resume']))# copied file contents
         perc[job.description] = int((find('job_desc.txt','static/CV','textanalyser/model')[0][0])*100)
         os.remove(os.path.join('static/CV/',session['employee_resume']))
         os.rmdir('static/CV')
@@ -247,8 +284,11 @@ def photo_analysis(job_id,employee_id):
     filename = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first().filename
     employer_solution = Job.query.filter(Job.mongo_id == job_id).first().solution
 
-
+    if os.path.exists('static/employee_solutions'):
+        os.rmdir('static/employee_solutions')
     os.mkdir('static/employee_solutions') # create a directory for temporary assessment of applicant solutions
+    if os.path.exists('static/employer_solutions'):
+        os.rmdir('static/employer_solutions')
     os.mkdir('static/employer_solutions') # create a directory for employer solution
 
     s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],filename), shell=True) # Run sliding window algorithm on applicant solution
@@ -257,7 +297,7 @@ def photo_analysis(job_id,employee_id):
     os.remove('extracted_info.txt')
 
     s.call("python3 photoanalysistool0/sliding_window_approach/sliding_window.py -i "+os.path.join(app.config['UPLOADED_FILES_DEST'],employer_solution), shell=True) # Run sliding window algorithm on employer solution
-    copyfile('extracted_info.txt','static/employer_solutions/employer_solution.txt') # copy into emploer sol dir
+    copyfile('extracted_info.txt','static/employer_solutions/employer_solution.txt') # copy into employer sol dir
     file2 = 'static/employer_solutions/employer_solution.txt' #plug the path into a python variable
 
     with open(file1, 'r') as myfile:
@@ -282,6 +322,8 @@ def photo_analysis(job_id,employee_id):
     applicant = Applicants.query.filter(Applicants.job_id==job_id,Applicants.applicant_id==employee_id).first()
     score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score,percentage_match=int(session['percentage_match']),job_company=session['job_company'])
     score.save()
+    applicant.save()
+
 
     flash('Your solution has been successfully submitted. The results will be corressponded to you via mail.')
 
@@ -347,6 +389,9 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
+@app.route('/team_page')
+def team_page():
+    return render_template('pages/team_page.html')
 # Error handlers.
 
 if not app.debug:
@@ -365,7 +410,6 @@ if not app.debug:
 
 if __name__ == "__main__":
     app.run()
-
 # Or specify port manually:
 '''
 if __name__ == '__main__':
