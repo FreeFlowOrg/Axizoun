@@ -211,6 +211,7 @@ def update():
         employee.skill9 = request.form['skill-9']
         employee.save()
         return redirect(url_for('employee_dashboard'))
+    return render_template('pages/profile_emp_edit.html')
 
 @app.route('/post_jobs',methods=['POST','GET'])
 def post_jobs():
@@ -326,7 +327,7 @@ def photo_analysis(job_id,employee_id):
 <<<<<<< HEAD
 
 =======
-    
+
 >>>>>>> eaf83baf6b71dec03877c7476d6c71d1f8057be7
 
     flash('Your solution has been successfully submitted. The results will be corressponded to you via mail.')
