@@ -107,7 +107,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
            <h3>Here's a sample resume!</h3>
             <div class="col-md-12">
               <div class="job-box">
@@ -127,17 +126,6 @@
                        <div class="company-pic">
                          <img src="/static/img/imgs/profile.jpg" class="company-image">
                        </div>
-=======
-               <h3>Here's a sample resume!</h3>
-                <div class="col-md-12">
-                  <div class="job-box">
-                     <div class="signup-label">
-                        <div class="row">
-                          <div class="col-md-10">
-                            <h1 class="job-header-text">Profile</h1>
-                          </div>
-                         </div>
->>>>>>> eaf83baf6b71dec03877c7476d6c71d1f8057be7
                      </div>
                      <div class="col-md-6">
                        <div class="employee-data">
@@ -276,7 +264,6 @@
              </div>
          </div>
 
-<<<<<<< HEAD
       {% else %}
           <div class="row">
              <div class="col-md-12">
@@ -304,53 +291,11 @@
                           <h3 class="emp-email">{{ employee_email }}</h3>
                           <h3 class="emp-number">{{ employee.phone }}</h3>
                           <h3 class="emp-addr">{{ employee.location }}</h3>
-=======
-          {% else %}
-          <form action="{{ url_for('update') }}" method='POST'>
-              <div class="row">
-                 <div class="col-md-12">
-                   <div class="job-box">
-                      <div class="signup-label">
-                         <div class="row">
-                           <div class="col-md-10">
-                             <h1 class="job-header-text">Profile</h1>
-                           </div>
-                         </div>
-                      </div>
-                      <div class="job-content">
-                        <div class="row" style="height: 270px;">
-                          <div class="col-md-6">
-                            <div class="company-pic">
-                              <img src="/static/img/imgs/profile.jpg" class="company-image">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="employee-data">
-                              <h1 class="emp-name">{{ employee.first_name }} {{ employee.last_name }}</h1>
-                              <h3 class="emp-email">{{ employee_email }}</h3>
-                              <h3 class="emp-number"><input type="text" name="phone" placeholder="Phone" value="{{ employee.phone }}"></h3>
-                              <h3 class="emp-addr"><input type="text" name="location" placeholder="State & Country" value="{{ employee.location }}"></h3>
-                            </div>
-                          </div>
->>>>>>> eaf83baf6b71dec03877c7476d6c71d1f8057be7
                         </div>
                       </div>
                     </div>
                   </div>
 
-<<<<<<< HEAD
-                  <div class="job-content" style="height: auto;">
-                    <div class="row" style="height: auto;">
-                      <div class="col-md-12">
-                        <div class="education">
-                          <h1><div class="tick"></div><span class="edu">education</span></h1>
-                          <br>
-                          <ul class="edus">
-                            <li class="edu-type-tit">{{ employee.degree }}</li>
-                            <li class="edu-type">{{ employee.area }}</li>
-                            <li class="edu-type">{{ employee.institution }}</li>
-                          </ul>
-=======
                       <div class="job-content" style="height: auto;">
                         <div class="row" style="height: auto;">
                           <div class="col-md-12">
@@ -365,11 +310,9 @@
                             </div>
                             <br>
                           </div>
->>>>>>> eaf83baf6b71dec03877c7476d6c71d1f8057be7
                         </div>
                         <br>
                       </div>
-<<<<<<< HEAD
                     </div>
                   </div>
 
@@ -408,66 +351,6 @@
 
                               </div>
                             </div>
-=======
-                      <div class="job-content" style="height: auto;">
-                        <div class="row" style="height: auto;">
-                          <div class="col-md-12">
-                            <div class="education">
-                              <h1><div class="tick"></div><span class="edu">Skills</span></h1>
-                              <br>
-                              <div class="container" style="margin-top: 3.5%;">
-                                <div class="row" class="skill-section">
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-1" value="{{ employee.skill1 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-1"></h4>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-2" value="{{ employee.skill2 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-2"></h4>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-3" value="{{ employee.skill3 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-3"></h4>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="container" style="margin-top: 3.5%;">
-                                <div class="row" class="skill-section">
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-4" value="{{ employee.skill4 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-4"></h4>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-5" value="{{ employee.skill5 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-5"></h4>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-6" value="{{ employee.skill6 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-6"></h4>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="container" style="margin-top: 3.5%;">
-                                <div class="row" class="skill-section">
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-7" value="{{ employee.skill7 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-7"></h4>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-8" value="{{ employee.skill8 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-8"></h4>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <h1 class="skill-name"><input type="text" name="skill-9" value="{{ employee.skill9 }}" placeholder="skill"></h1>
-                                    <h4 class="skill-level"><input type="text" name="level-9"></h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <br>
-                            <input type=submit value="Upadate Fields" >
-
->>>>>>> eaf83baf6b71dec03877c7476d6c71d1f8057be7
                           </div>
                           <div class="container" style="margin-top: 3.5%;">
                             <div class="row" class="skill-section">
@@ -495,9 +378,8 @@
 
                 </div>
               </div>
-            </form>
-          {% endif %}
-
+          </div>
+      {% endif %}
 
        </div>
    </body>
