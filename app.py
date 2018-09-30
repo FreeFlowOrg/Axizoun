@@ -323,7 +323,11 @@ def photo_analysis(job_id,employee_id):
     score = Scores(applicant_id=employee_id,job_id=job_id,applicant_solution=applicant.filename,score=score,percentage_match=int(session['percentage_match']),job_company=session['job_company'])
     score.save()
     applicant.save()
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> eaf83baf6b71dec03877c7476d6c71d1f8057be7
 
     flash('Your solution has been successfully submitted. The results will be corressponded to you via mail.')
 
