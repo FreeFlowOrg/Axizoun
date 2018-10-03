@@ -339,7 +339,7 @@ def applied_jobs():
     job_ids = Applicants.query.filter(Applicants.applicant_id == str(applicant_id)).all()
     jobs = []
     for job_id in job_ids:
-        job = Job.query.filter(Job.mongo_id == str(job_id)).first()
+        job = Job.query.filter(Job.mongo_id == job_id).first()
         jobs.append(job)
     return render_template('pages/appliedJobs.html',jobs = jobs)
 
