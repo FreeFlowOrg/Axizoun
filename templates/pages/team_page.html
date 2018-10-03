@@ -67,13 +67,6 @@
                </span>
             </div>
          </nav>
-         {% if session['employee_id']  %}
-         <!-- Skill Matcher magic button -->
-               <form action="{{ url_for('skill_matcher_job_vacancies') }}" method="POST">
-                 <button id="magicbutton" type="submit"  class="btn btn-primary mybutt">View Skill Matches</button>
-               </form>
-        {% endif %}
-
          <!--  //Skill Matcher magic button -->
          <!-- Modals -->
              <div class="modal fade"  id="settings_job_vac" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
