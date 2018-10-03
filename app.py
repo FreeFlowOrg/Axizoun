@@ -335,7 +335,7 @@ def vacancies():
 
 @app.route('/applied_jobs')
 def applied_jobs():
-    applicant_id = Applicants.query.filter(Employee.mongo_id == session['employee_id']).first().applicant_id
+    applicant_id = Employee.query.filter(Employee.mongo_id == session['employee_id']).first().mongo_id
     jobs = Job.query.filter(Job.applicant_id == applicant_id ).all()
     return render_template('pages/appliedJobs.html',jobs = jobs)
 
