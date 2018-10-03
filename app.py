@@ -336,10 +336,10 @@ def vacancies():
 @app.route('/applied_jobs')
 def applied_jobs():
     applicant_id = Employee.query.filter(Employee.mongo_id == session['employee_id']).first().mongo_id
-    job_ids = Applicants.query.filter(Applicants.applicant_id == str(applicant_id)).all()
+    applicants = Applicants.query.filter(Applicants.applicant_id == str(applicant_id)).all()
     jobs = []
-    for job_id in job_ids:
-        job = Job.query.filter(Job.mongo_id == job_id).first()
+    for applicant in applicants:
+        job = Job.query.filter(Job.mongo_id == applicant.job_id).first()
         jobs.append(job)
     return render_template('pages/appliedJobs.html',jobs = jobs)
 
