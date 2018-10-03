@@ -76,7 +76,7 @@ def register(type):
             area = 'Update Area Details',
             institution = 'Update Institution Details',
             phone = 'Update Contact',
-            location ='Update Location',
+            location ='Update Location`',
             skill1 = 'Add Skill',
             skill2 = 'Add Skill',
             skill3 = 'Add Skill',
@@ -335,9 +335,9 @@ def vacancies():
 
 @app.route('/applied_jobs')
 def applied_jobs():
-    employee = Employee.query.filter(Employee.mongo_id == session['employee_id']).first()
-    applied_jobs = employee.jobs_applied
-    return render_template('pages/appliedJobs.html',applied_jobs=applied_jobs)
+    applicant_id = Applicants.query.filter(Employee.mongo_id == session['employee_id']).first().applicant_id
+    jobs = Job.query.filter(Job.applicant_id == applicant_id ).all()
+    return render_template('pages/appliedJobs.html',jobs = jobs)
 
 
 @app.route('/project_details/<job_id>',methods=['POST','GET'])
