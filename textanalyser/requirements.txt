@@ -173,7 +173,7 @@ virtualenv==15.1.0
 visitor==0.1.3
 wadllib==1.3.2
 WebOb==1.8.2
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 wsgi-request-logger==0.4.6
 WTForms==2.2.1
 xkit==0.0.0
