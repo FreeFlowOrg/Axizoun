@@ -73,7 +73,7 @@ PasteDeploy==1.5.2
 pathlib2==2.3.2
 pbr==4.0.4
 pexpect==4.2.1
-Pillow==5.1.0
+Pillow==6.2.0
 placebo==0.8.1
 plaster==1.0
 plaster-pastedeploy==0.6
