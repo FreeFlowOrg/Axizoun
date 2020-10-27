@@ -9,7 +9,7 @@ botocore==1.10.40
 chardet==2.3.0
 click==6.7
 coverage==4.5.1
-cryptography==2.2.2
+cryptography==3.2
 docutils==0.14
 docx==0.2.4
 docx2txt==0.6
