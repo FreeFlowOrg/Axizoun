@@ -42,7 +42,7 @@ invoke==1.0.0
 ipaddress==1.0.22
 itsdangerous==0.24
 jaraco.functools==1.20
-Jinja2==2.10
+Jinja2==2.11.3
 jmespath==0.9.3
 kappa==0.6.0
 keyring==10.6.0
