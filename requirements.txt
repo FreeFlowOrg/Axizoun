@@ -102,7 +102,7 @@ python-engineio==2.2.0
 python-socketio==2.0.0
 PyTweening==1.0.3
 pytz==2018.3
-PyYAML==3.12
+PyYAML==5.4
 repoze.lru==0.7
 requests==2.19.1
 requests-oauthlib==1.0.0
