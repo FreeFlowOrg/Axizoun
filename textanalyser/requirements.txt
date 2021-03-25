@@ -137,7 +137,7 @@ python-socketio==2.0.0
 PyTweening==1.0.3
 pytz==2018.3
 pyxdg==0.25
-PyYAML==3.12
+PyYAML==5.4
 reportlab==3.4.0
 repoze.lru==0.7
 requests==2.19.1
