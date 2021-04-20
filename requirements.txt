@@ -83,7 +83,7 @@ portend==2.3
 prettytable==0.7.2
 protobuf==3.0.0
 ptyprocess==0.6.0
-py==1.5.4
+py==1.10.0
 pyasn1==0.4.3
 PyAutoGUI==0.9.38
 pycparser==2.18
