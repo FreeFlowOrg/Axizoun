@@ -68,7 +68,7 @@ oauthlib==2.1.0
 olefile==0.45.1
 opencv-contrib-python==3.4.2.17
 opencv-python==3.4.2.17
-paramiko==2.4.1
+paramiko==2.10.1
 PasteDeploy==1.5.2
 pathlib2==2.3.2
 pbr==4.0.4
