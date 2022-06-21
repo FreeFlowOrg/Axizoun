@@ -62,7 +62,7 @@ mongo==0.2.0
 MongoAlchemy==0.19
 more-itertools==4.3.0
 nose2==0.7.4
-numpy==1.15.0
+numpy==1.22.0
 oauth==1.0.1
 oauthlib==2.1.0
 olefile==0.45.1
