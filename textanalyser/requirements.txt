@@ -138,7 +138,7 @@ PyTweening==1.0.3
 pytz==2018.3
 pyxdg==0.25
 PyYAML==3.12
-reportlab==3.4.0
+reportlab==3.5.55
 repoze.lru==0.7
 requests==2.19.1
 requests-oauthlib==1.0.0
